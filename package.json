@@ -1,0 +1,11 @@
+{
+  "name": "amped-academy-wrapper",
+  "version": "1.0.0",
+  "description": "Wrapper for Amped Academy website",
+  "scripts": {
+    "dev": "cd amped-academy && npm run dev",
+    "build": "cd amped-academy && npm run build",
+    "start": "cd amped-academy && npm run start"
+  },
+  "private": true
+} 
