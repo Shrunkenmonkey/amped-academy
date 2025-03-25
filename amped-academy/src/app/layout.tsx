@@ -16,9 +16,22 @@ export const metadata: Metadata = {
   keywords: ["guitar learning", "fretmap", "music education", "scales", "chords", "modes"],
   authors: [{ name: "Amped Academy" }],
   icons: {
-    icon: '/images/favicon package/favicon package/lightning-favicon pwa 512px.png',
-    shortcut: '/images/favicon package/favicon package/lightning-favicon pwa 512px.png',
-    apple: '/images/favicon package/favicon package/lightning-favicon pwa 512px.png',
+    icon: [
+      { url: '/images/favicon package/favicon package/lightning-favicon pwa 512px.png', sizes: '512x512', type: 'image/png' },
+      { url: '/images/favicon package/favicon package/lightning-favicon windows 48px.png', sizes: '48x48', type: 'image/png' },
+    ],
+    apple: [
+      { url: '/images/favicon package/favicon package/lightning-favicon apple 180px.png', sizes: '180x180', type: 'image/png' },
+    ],
+    other: [
+      { rel: 'mask-icon', url: '/images/favicon package/favicon package/lightning-favicon pwa 512px.png' },
+    ],
+  },
+  manifest: '/manifest.json',
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: 'default',
+    title: 'Amped Academy',
   },
 };
 
