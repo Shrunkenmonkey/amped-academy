@@ -12,9 +12,14 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: "Lee Fretmap - Visual Guitar Learning System | Amped Academy",
-  description: "Transform your guitar playing with the Lee Fretmap visual learning system. Color-coded fretboard stickers to master scales, chords, and modes.",
+  description: "Amped Academy presents the Lee Fretmap visual learning system. Transform your guitar playing with color-coded fretboard stickers to master scales, chords, and modes.",
   keywords: ["guitar learning", "fretmap", "music education", "scales", "chords", "modes"],
   authors: [{ name: "Amped Academy" }],
+  icons: {
+    icon: '/images/LIGHTNING FAVICON.webp',
+    shortcut: '/images/LIGHTNING FAVICON.webp',
+    apple: '/images/LIGHTNING FAVICON.webp',
+  },
 };
 
 export const viewport: Viewport = {
