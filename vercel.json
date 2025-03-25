@@ -1,0 +1,16 @@
+{
+  "version": 2,
+  "buildCommand": "npm run build",
+  "outputDirectory": "amped-academy/.next",
+  "framework": "nextjs",
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/amped-academy/$1"
+    }
+  ],
+  "github": {
+    "enabled": true,
+    "silent": false
+  }
+} 
