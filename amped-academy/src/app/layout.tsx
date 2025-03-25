@@ -11,7 +11,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Amped Academy Visual Guitar Learning System lee fretmap",
+  title: "Lee Fretmap | Visual Guitar Learning System",
   description: "Transform your guitar playing with the Lee Fretmap visual learning system. Color-coded fretboard stickers to master scales, chords, and modes.",
   keywords: ["guitar learning", "fretmap", "music education", "scales", "chords", "modes"],
   authors: [{ name: "Amped Academy" }],
@@ -23,16 +23,21 @@ export const metadata: Metadata = {
   appleWebApp: {
     capable: true,
     statusBarStyle: 'default',
-    title: "Amped Academy Visual Guitar Learning System lee fretmap",
+    title: "Lee Fretmap | Visual Guitar Learning System",
   },
   manifest: '/manifest.json',
   icons: {
     icon: [
       { url: '/favicon.ico' },
-      { url: '/images/favicon package/amped-favicon-png.png', type: 'image/png' }
+      { url: '/images/favicon package/amped-favicon-png.png', type: 'image/png', sizes: '32x32' },
+      { url: '/images/favicon package/lightning-favicon-webp.webp', type: 'image/webp', sizes: '32x32' }
     ],
     apple: [
-      { url: '/images/favicon package/lightning-favicon-apple-180px.png', sizes: '180x180', type: 'image/png' }
+      { 
+        url: '/images/favicon package/lightning-favicon-apple-180px.png',
+        sizes: '180x180',
+        type: 'image/png'
+      }
     ],
     other: [
       {
