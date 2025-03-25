@@ -11,7 +11,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Amped Academy Visual Guitar Learning System lee fretmap",
+  title: "Lee Fretmap - Visual Guitar Learning System | Amped Academy",
   description: "Transform your guitar playing with the Lee Fretmap visual learning system. Color-coded fretboard stickers to master scales, chords, and modes.",
   keywords: ["guitar learning", "fretmap", "music education", "scales", "chords", "modes"],
   authors: [{ name: "Amped Academy" }],
