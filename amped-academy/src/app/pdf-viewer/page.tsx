@@ -18,14 +18,25 @@ const TEXT_STYLES = {
 export default function PDFViewerPage() {
   const [pdfPath, setPdfPath] = useState<string>('');
   const [mounted, setMounted] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   
   useEffect(() => {
     setMounted(true);
+    
+    // Check if device is mobile
+    const checkMobile = () => {
+      setIsMobile(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent));
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
     
     // Get PDF path from URL query param if it exists
     const params = new URLSearchParams(window.location.search);
     const path = params.get('path') || '/images/Text/Lee Fretmap Fretboard Mastery.pdf';
     setPdfPath(path);
+    
+    return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
   if (!mounted) {
@@ -78,30 +89,34 @@ export default function PDFViewerPage() {
         <div className="bg-gray-800 rounded-lg shadow-lg overflow-hidden">
           {pdfPath ? (
             <>
-              {/* For desktop and most mobile devices */}
-              <iframe
-                src={`${pdfPath}#toolbar=0&navpanes=0`}
-                width="100%"
-                height="850"
-                className="w-full hidden md:block"
-                title="PDF Viewer"
-              />
+              {/* For desktop */}
+              {!isMobile && (
+                <iframe
+                  src={`${pdfPath}#toolbar=0&navpanes=0`}
+                  width="100%"
+                  height="850"
+                  className="w-full"
+                  title="PDF Viewer"
+                />
+              )}
               
-              {/* Fallback for iPad and devices with PDF issues */}
-              <div className="md:hidden p-8 text-center">
-                <FileText className="h-16 w-16 text-gray-400 mx-auto mb-4" />
-                <p className="text-white mb-6">
-                  For the best experience on mobile devices, please download the PDF.
-                </p>
-                <a 
-                  href={pdfPath} 
-                  download 
-                  className="inline-flex items-center bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-md"
-                >
-                  <Download className="h-5 w-5 mr-2" />
-                  Download PDF
-                </a>
-              </div>
+              {/* For mobile devices */}
+              {isMobile && (
+                <div className="p-8 text-center">
+                  <FileText className="h-16 w-16 text-gray-400 mx-auto mb-4" />
+                  <p className="text-white mb-6">
+                    For the best experience on mobile devices, please download the PDF to view it in your device's native PDF viewer.
+                  </p>
+                  <a 
+                    href={pdfPath} 
+                    download 
+                    className="inline-flex items-center bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-md"
+                  >
+                    <Download className="h-5 w-5 mr-2" />
+                    Download PDF
+                  </a>
+                </div>
+              )}
             </>
           ) : (
             <div className="p-8 text-center">
