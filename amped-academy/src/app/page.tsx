@@ -1,7 +1,6 @@
 import { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Play, Star, CheckCircle } from 'lucide-react';
+import { Star, CheckCircle } from 'lucide-react';
 import BackgroundImage from "@/components/BackgroundImage";
 
 export const metadata: Metadata = {
@@ -187,7 +186,7 @@ const TestimonialsSection = () => (
                 <Star key={i} className="h-5 w-5 fill-current" />
               ))}
             </div>
-            <p className="text-gray-300 mb-6">"{testimonial.content}"</p>
+            <p className="text-gray-300 mb-6">&quot;{testimonial.content}&quot;</p>
             <div className="flex items-center">
               <div className="w-10 h-10 bg-indigo-900 rounded-full mr-4"></div>
               <div>
@@ -208,7 +207,7 @@ const CTASection = () => (
       <div className="p-8 rounded-2xl shadow-lg bg-gray-800 text-white">
         <h2 className="text-3xl font-bold mb-6 text-center">Get Started on Your Guitar Journey Today!</h2>
         <p className="text-xl max-w-3xl mx-auto mb-8 text-gray-300 text-center">
-          Transform your guitar learning with our premium color-coded fretboard stickers. Don't settle for ordinary stickers that fade or peel. Our stickers maintain their vibrant colors and precision placement for months of learning. Don't miss this opportunity to revolutionize your learning experience.
+          Transform your guitar learning with our premium color-coded fretboard stickers. Don&apos;t settle for ordinary stickers that fade or peel. Our stickers maintain their vibrant colors and precision placement for months of learning. Don&apos;t miss this opportunity to revolutionize your learning experience.
         </p>
         <p className="text-xl font-bold mb-8 text-gray-300 text-center">
           Ready to visualize your way to guitar mastery? Order your color-coded fretboard roadmap now and experience the difference that visual learning makes!

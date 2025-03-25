@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import Image from "next/image";
 import { Zap, Brain, Sparkles, Lightbulb, Music, Wand2 } from "lucide-react";
 import PageHero from "@/components/PageHero";
 import BackgroundImage from "@/components/BackgroundImage";
@@ -338,7 +337,7 @@ export default function AIToolsPage() {
                   <p className="text-sm text-gray-500">Composition Professor, Berklee College of Music</p>
                 </div>
               </div>
-              <p className="text-gray-600 italic">"The AI composition tools have revolutionized how I teach music writing. Students can explore creative possibilities they wouldn't have considered, while still maintaining their artistic voice."</p>
+              <p className="text-gray-600 italic">&quot;The AI composition tools have revolutionized how I teach music writing. Students can explore creative possibilities they wouldn&apos;t have considered, while still maintaining their artistic voice.&quot;</p>
             </div>
 
             <div className="bg-gray-50 p-6 rounded-lg shadow-sm">
@@ -351,7 +350,7 @@ export default function AIToolsPage() {
                   <p className="text-sm text-gray-500">Professional Pianist & Recording Artist</p>
                 </div>
               </div>
-              <p className="text-gray-600 italic">"The Practice Analyzer has transformed my rehearsal routine. The detailed feedback on my dynamics and articulation helped me prepare for my recent album recording with incredible precision."</p>
+              <p className="text-gray-600 italic">&quot;The Practice Analyzer has transformed my rehearsal routine. The detailed feedback on my dynamics and articulation helped me prepare for my recent album recording with incredible precision.&quot;</p>
             </div>
 
             <div className="bg-gray-50 p-6 rounded-lg shadow-sm">
@@ -364,7 +363,7 @@ export default function AIToolsPage() {
                   <p className="text-sm text-gray-500">Music Producer & Sound Engineer</p>
                 </div>
               </div>
-              <p className="text-gray-600 italic">"As a producer working with multiple artists, the Arrangement Studio has been a game-changer. It helps me quickly develop production ideas that complement each artist's unique style."</p>
+              <p className="text-gray-600 italic">&quot;As a producer working with multiple artists, the Arrangement Studio has been a game-changer. It helps me quickly develop production ideas that complement each artist&apos;s unique style.&quot;</p>
             </div>
           </div>
         </div>
