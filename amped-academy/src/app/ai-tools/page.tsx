@@ -11,11 +11,13 @@ export const metadata: Metadata = {
 };
 
 // Text shadow styles for glow effect
-const textShadowHeavy = { 
-  textShadow: "0 0 20px rgba(0, 0, 0, 0.9), 0 0 30px rgba(0, 0, 0, 0.8), 0 0 40px rgba(0, 0, 0, 0.7), 0 0 50px rgba(0, 0, 0, 0.6), 0 0 60px rgba(0, 0, 0, 0.5)"
-};
-const textShadowMedium = { 
-  textShadow: "0 0 15px rgba(0, 0, 0, 0.9), 0 0 25px rgba(0, 0, 0, 0.8), 0 0 35px rgba(0, 0, 0, 0.7), 0 0 45px rgba(0, 0, 0, 0.6)"
+const TEXT_STYLES = {
+  shadowHeavy: { 
+    textShadow: "0 0 20px rgba(0, 0, 0, 0.9), 0 0 30px rgba(0, 0, 0, 0.8), 0 0 40px rgba(0, 0, 0, 0.7), 0 0 50px rgba(0, 0, 0, 0.6), 0 0 60px rgba(0, 0, 0, 0.5)"
+  },
+  shadowMedium: { 
+    textShadow: "0 0 15px rgba(0, 0, 0, 0.9), 0 0 25px rgba(0, 0, 0, 0.8), 0 0 35px rgba(0, 0, 0, 0.7), 0 0 45px rgba(0, 0, 0, 0.6)"
+  }
 };
 
 // Mock AI tools data - in a real application, this would come from a database or API
@@ -145,10 +147,10 @@ const HeroSection = () => (
     
     <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div className="text-center py-12">
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-white" style={textShadowHeavy}>
+        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-white" style={TEXT_STYLES.shadowHeavy}>
           AI Music Tools
         </h1>
-        <p className="text-3xl md:text-4xl text-white" style={textShadowMedium}>
+        <p className="text-3xl md:text-4xl text-white" style={TEXT_STYLES.shadowMedium}>
           Enhance Your Musical Journey with AI
         </p>
       </div>
