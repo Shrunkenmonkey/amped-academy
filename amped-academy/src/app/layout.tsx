@@ -28,11 +28,11 @@ export const metadata: Metadata = {
   manifest: '/manifest.json',
   icons: {
     icon: [
-      { url: '/favicon.ico', sizes: 'any' },
-      { url: '/images/favicon package/amped-favicon-png.png', type: 'image/png', sizes: '32x32' }
+      { url: '/favicon.ico' },
+      { url: '/images/favicon package/amped-favicon-png.png', type: 'image/png' }
     ],
     shortcut: [
-      { url: '/favicon.ico', sizes: 'any' }
+      { url: '/favicon.ico' }
     ],
     apple: [
       { url: '/images/favicon package/lightning-favicon-apple-180px.png', sizes: '180x180', type: 'image/png' }
