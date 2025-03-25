@@ -8,7 +8,7 @@
     "start": "cd amped-academy && npm run start",
     "lint": "cd amped-academy && npm run lint",
     "postinstall": "cd amped-academy && npm install",
-    "vercel-build": "npm run build"
+    "vercel-build": "cd amped-academy && npm install && npm run build"
   },
   "engines": {
     "node": ">=18.x",
