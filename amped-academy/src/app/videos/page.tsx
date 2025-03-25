@@ -68,37 +68,6 @@ const VIDEO_CATEGORIES: VideoCategory[] = [
     ]
   },
   {
-    id: "intermediate",
-    title: "Intermediate Techniques",
-    description: "Take your skills to the next level",
-    videos: [
-      {
-        id: "inter-1",
-        title: "Advanced Chord Progressions",
-        instructor: "Jennifer Lee",
-        duration: "22:15",
-        thumbnail: "/images/video-thumb-4.jpg",
-        description: "Explore complex chord progressions and learn how to apply them in your compositions and performances."
-      },
-      {
-        id: "inter-2",
-        title: "Drumming: Syncopation Techniques",
-        instructor: "Marcus Johnson",
-        duration: "19:45",
-        thumbnail: "/images/video-thumb-5.jpg",
-        description: "Master syncopation and complex rhythmic patterns to add sophistication to your drumming."
-      },
-      {
-        id: "inter-3",
-        title: "Vocal Training: Expanding Range",
-        instructor: "Maria Garcia",
-        duration: "24:10",
-        thumbnail: "/images/video-thumb-6.jpg",
-        description: "Discover effective exercises and techniques to safely expand your vocal range and improve tone quality."
-      },
-    ]
-  },
-  {
     id: "advanced",
     title: "Backing Tracks",
     description: "Practice with professional-quality backing tracks",
@@ -129,11 +98,11 @@ const VIDEO_CATEGORIES: VideoCategory[] = [
       },
       {
         id: "adv-4",
-        title: "Metal Backing Track in Em",
+        title: "A Minor 12 Bar Blues Backing Track",
         instructor: "Amped Academy",
         duration: "5:03",
         thumbnail: "/images/video-thumb-10.jpg",
-        description: "Heavy metal backing track in E minor for guitar practice and improvisation",
+        description: "Jimmy Page style 12 bar blues backing track in A minor for guitar practice and improvisation",
         youtubeLink: "https://youtu.be/BQq2YNgcgo8"
       },
       {
