@@ -146,10 +146,10 @@ const HeroSection = () => (
     <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div className="text-center py-12">
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-white" style={textShadowHeavy}>
-          AI Tools
+          AI Music Tools
         </h1>
         <p className="text-3xl md:text-4xl text-white" style={textShadowMedium}>
-          Enhance your musical journey
+          Enhance Your Musical Journey with AI
         </p>
       </div>
     </div>
@@ -158,7 +158,7 @@ const HeroSection = () => (
 
 export default function AIToolsPage() {
   return (
-    <div className="bg-gray-900 min-h-screen pb-16">
+    <div className="min-h-screen bg-gray-900 text-white">
       {/* Hero Section */}
       <HeroSection />
 
@@ -218,42 +218,41 @@ export default function AIToolsPage() {
       </section>
 
       {/* Tools section */}
-      <section id="tools" className="py-16">
+      <section className="py-16 bg-gray-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Our AI-Powered Music Tools</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">Discover how our artificial intelligence tools can transform your musical practice, composition, and learning.</p>
+            <h2 className="text-3xl font-bold text-white mb-4">Our AI-Powered Music Tools</h2>
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto">Discover how our artificial intelligence tools can transform your musical practice, composition, and learning.</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {aiTools.map((tool) => (
-              <div key={tool.id} className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
-                <div className="relative h-48 bg-indigo-100">
-                  {/* In a real app, this would be an actual image */}
+              <div key={tool.id} className="bg-gray-800 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+                <div className="relative h-48 bg-gray-700">
                   <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="p-4 bg-white/80 backdrop-blur-sm rounded-full">
-                      <div className="text-indigo-600">
+                    <div className="p-4 bg-gray-800/80 backdrop-blur-sm rounded-full">
+                      <div className="text-blue-400">
                         {tool.icon}
                       </div>
                     </div>
                   </div>
                   {tool.comingSoon && (
-                    <div className="absolute top-2 right-2 bg-indigo-600 text-white text-xs font-bold px-2 py-1 rounded">
+                    <div className="absolute top-2 right-2 bg-blue-600 text-white text-xs font-bold px-2 py-1 rounded">
                       COMING SOON
                     </div>
                   )}
                 </div>
                 
                 <div className="p-6">
-                  <h3 className="text-xl font-semibold mb-2 text-gray-900">{tool.name}</h3>
-                  <p className="text-gray-600 mb-4">{tool.description}</p>
+                  <h3 className="text-xl font-semibold mb-2 text-white">{tool.name}</h3>
+                  <p className="text-gray-300 mb-4">{tool.description}</p>
                   
                   <div className="mb-4">
-                    <h4 className="text-sm font-semibold text-gray-700 mb-2">Key Features:</h4>
-                    <ul className="text-sm text-gray-600 space-y-1">
+                    <h4 className="text-sm font-semibold text-gray-300 mb-2">Key Features:</h4>
+                    <ul className="text-sm text-gray-400 space-y-1">
                       {tool.features.map((feature, index) => (
                         <li key={index} className="flex items-start">
-                          <span className="text-indigo-500 mr-2">•</span>
+                          <span className="text-blue-400 mr-2">•</span>
                           <span>{feature}</span>
                         </li>
                       ))}
@@ -261,11 +260,11 @@ export default function AIToolsPage() {
                   </div>
                   
                   {!tool.comingSoon ? (
-                    <Link href={`/ai-tools/${tool.id}`} className="inline-flex items-center px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white font-medium rounded-md">
+                    <Link href={`/ai-tools/${tool.id}`} className="inline-flex items-center px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-md">
                       Try Now
                     </Link>
                   ) : (
-                    <button className="inline-flex items-center px-4 py-2 bg-gray-200 text-gray-700 font-medium rounded-md cursor-not-allowed">
+                    <button className="inline-flex items-center px-4 py-2 bg-gray-700 text-gray-400 font-medium rounded-md cursor-not-allowed">
                       Coming Soon
                     </button>
                   )}
@@ -277,125 +276,107 @@ export default function AIToolsPage() {
       </section>
 
       {/* How it works section - additional semantic content for SEO */}
-      <section id="how-it-works" className="py-16 bg-indigo-50">
+      <section className="py-16 bg-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">How Our AI Technology Works</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">Our machine learning models are trained on vast datasets of music to provide intelligent assistance.</p>
+            <h2 className="text-3xl font-bold text-white mb-4">How Our AI Technology Works</h2>
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto">Our machine learning models are trained on vast datasets of music to provide intelligent assistance.</p>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            <div className="bg-white p-6 rounded-lg shadow-sm">
+            <div className="bg-gray-700 p-6 rounded-lg shadow-sm">
               <div className="text-center mb-4">
-                <div className="w-12 h-12 mx-auto bg-indigo-100 rounded-full flex items-center justify-center">
-                  <span className="text-indigo-600 font-bold text-xl">1</span>
+                <div className="w-12 h-12 mx-auto bg-gray-600 rounded-full flex items-center justify-center">
+                  <span className="text-blue-400 font-bold text-xl">1</span>
                 </div>
               </div>
-              <h3 className="text-xl font-semibold mb-2 text-center text-gray-900">Data Analysis</h3>
-              <p className="text-gray-600">Our AI analyzes thousands of musical compositions across genres and time periods to learn patterns in melody, harmony, rhythm, and structure.</p>
+              <h3 className="text-xl font-semibold mb-2 text-center text-white">Data Analysis</h3>
+              <p className="text-gray-300">Our AI analyzes thousands of musical compositions across genres and time periods to learn patterns in melody, harmony, rhythm, and structure.</p>
             </div>
             
-            <div className="bg-white p-6 rounded-lg shadow-sm">
+            <div className="bg-gray-700 p-6 rounded-lg shadow-sm">
               <div className="text-center mb-4">
-                <div className="w-12 h-12 mx-auto bg-indigo-100 rounded-full flex items-center justify-center">
-                  <span className="text-indigo-600 font-bold text-xl">2</span>
+                <div className="w-12 h-12 mx-auto bg-gray-600 rounded-full flex items-center justify-center">
+                  <span className="text-blue-400 font-bold text-xl">2</span>
                 </div>
               </div>
-              <h3 className="text-xl font-semibold mb-2 text-center text-gray-900">Adaptive Learning</h3>
-              <p className="text-gray-600">As you use our tools, the AI learns your preferences, style, and skill level to provide increasingly personalized recommendations and feedback.</p>
+              <h3 className="text-xl font-semibold mb-2 text-center text-white">Adaptive Learning</h3>
+              <p className="text-gray-300">As you use our tools, the AI learns your preferences, style, and skill level to provide increasingly personalized recommendations and feedback.</p>
             </div>
             
-            <div className="bg-white p-6 rounded-lg shadow-sm">
+            <div className="bg-gray-700 p-6 rounded-lg shadow-sm">
               <div className="text-center mb-4">
-                <div className="w-12 h-12 mx-auto bg-indigo-100 rounded-full flex items-center justify-center">
-                  <span className="text-indigo-600 font-bold text-xl">3</span>
+                <div className="w-12 h-12 mx-auto bg-gray-600 rounded-full flex items-center justify-center">
+                  <span className="text-blue-400 font-bold text-xl">3</span>
                 </div>
               </div>
-              <h3 className="text-xl font-semibold mb-2 text-center text-gray-900">Real-time Processing</h3>
-              <p className="text-gray-600">Our tools process audio and MIDI data in real-time, providing immediate feedback and suggestions as you practice, compose, or produce.</p>
+              <h3 className="text-xl font-semibold mb-2 text-center text-white">Real-time Processing</h3>
+              <p className="text-gray-300">Our tools process audio and MIDI data in real-time, providing immediate feedback and suggestions as you practice, compose, or produce.</p>
             </div>
           </div>
         </div>
       </section>
 
       {/* Testimonials for E-E-A-T signals */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-gray-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">What Musicians Say</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">Professional musicians and educators share their experiences with our AI tools.</p>
+            <h2 className="text-3xl font-bold text-white mb-4">What Our Users Say</h2>
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto">Join thousands of musicians who are transforming their practice with our AI tools.</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="bg-gray-50 p-6 rounded-lg shadow-sm">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="bg-gray-800 p-6 rounded-lg shadow-sm">
               <div className="flex items-center mb-4">
-                <div className="h-12 w-12 rounded-full bg-indigo-100 flex items-center justify-center text-xl font-bold text-indigo-600">
-                  JD
-                </div>
-                <div className="ml-4">
-                  <p className="font-semibold">Dr. James Donovan</p>
-                  <p className="text-sm text-gray-500">Composition Professor, Berklee College of Music</p>
-                </div>
-              </div>
-              <p className="text-gray-600 italic">&quot;The AI composition tools have revolutionized how I teach music writing. Students can explore creative possibilities they wouldn&apos;t have considered, while still maintaining their artistic voice.&quot;</p>
-            </div>
-
-            <div className="bg-gray-50 p-6 rounded-lg shadow-sm">
-              <div className="flex items-center mb-4">
-                <div className="h-12 w-12 rounded-full bg-indigo-100 flex items-center justify-center text-xl font-bold text-indigo-600">
+                <div className="h-12 w-12 rounded-full bg-gray-700 flex items-center justify-center text-xl font-bold text-blue-400">
                   ML
                 </div>
                 <div className="ml-4">
-                  <p className="font-semibold">Michelle Lin</p>
-                  <p className="text-sm text-gray-500">Professional Pianist & Recording Artist</p>
+                  <p className="font-semibold text-white">Michelle Lin</p>
+                  <p className="text-sm text-gray-400">Professional Pianist & Recording Artist</p>
                 </div>
               </div>
-              <p className="text-gray-600 italic">&quot;The Practice Analyzer has transformed my rehearsal routine. The detailed feedback on my dynamics and articulation helped me prepare for my recent album recording with incredible precision.&quot;</p>
+              <p className="text-gray-300 italic">&quot;The Practice Analyzer has transformed my rehearsal routine. The detailed feedback on my dynamics and articulation helped me prepare for my recent album recording with incredible precision.&quot;</p>
             </div>
 
-            <div className="bg-gray-50 p-6 rounded-lg shadow-sm">
+            <div className="bg-gray-800 p-6 rounded-lg shadow-sm">
               <div className="flex items-center mb-4">
-                <div className="h-12 w-12 rounded-full bg-indigo-100 flex items-center justify-center text-xl font-bold text-indigo-600">
+                <div className="h-12 w-12 rounded-full bg-gray-700 flex items-center justify-center text-xl font-bold text-blue-400">
                   TR
                 </div>
                 <div className="ml-4">
-                  <p className="font-semibold">Thomas Rodriguez</p>
-                  <p className="text-sm text-gray-500">Music Producer & Sound Engineer</p>
+                  <p className="font-semibold text-white">Thomas Rodriguez</p>
+                  <p className="text-sm text-gray-400">Music Producer & Sound Engineer</p>
                 </div>
               </div>
-              <p className="text-gray-600 italic">&quot;As a producer working with multiple artists, the Arrangement Studio has been a game-changer. It helps me quickly develop production ideas that complement each artist&apos;s unique style.&quot;</p>
+              <p className="text-gray-300 italic">&quot;As a producer working with multiple artists, the Arrangement Studio has been a game-changer. It helps me quickly develop production ideas that complement each artist&apos;s unique style.&quot;</p>
             </div>
           </div>
         </div>
       </section>
 
       {/* FAQ Section with structured data for featured snippets */}
-      <section className="py-16">
+      <section className="py-16 bg-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Frequently Asked Questions</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">Learn more about our AI-powered music tools.</p>
+            <h2 className="text-3xl font-bold text-white mb-4">Frequently Asked Questions</h2>
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto">Learn more about our AI-powered music tools.</p>
           </div>
 
-          <div className="max-w-3xl mx-auto divide-y divide-gray-200">
+          <div className="max-w-3xl mx-auto divide-y divide-gray-700">
             <div className="py-6">
-              <h3 className="text-xl font-semibold text-gray-900">What is AI-assisted music composition?</h3>
-              <p className="mt-2 text-gray-600">AI-assisted music composition uses machine learning algorithms to help musicians create original music by suggesting melodies, harmonies, chord progressions, and arrangements based on patterns learned from existing music and the user's own style preferences.</p>
+              <h3 className="text-xl font-semibold text-white">What is AI-assisted music composition?</h3>
+              <p className="mt-2 text-gray-300">AI-assisted music composition uses machine learning algorithms to help musicians create original music by suggesting melodies, harmonies, chord progressions, and arrangements based on patterns learned from existing music and the user's own style preferences.</p>
             </div>
             
             <div className="py-6">
-              <h3 className="text-xl font-semibold text-gray-900">Do I need advanced music theory knowledge to use these tools?</h3>
-              <p className="mt-2 text-gray-600">No, our AI tools are designed for musicians at all levels. Beginners can use them to learn music theory concepts through practical application, while advanced musicians can leverage the tools to enhance their existing knowledge and creative process.</p>
+              <h3 className="text-xl font-semibold text-white">Do I need advanced music theory knowledge to use these tools?</h3>
+              <p className="mt-2 text-gray-300">No, our AI tools are designed for musicians at all levels. Beginners can use them to learn music theory concepts through practical application, while advanced musicians can leverage the tools to enhance their existing knowledge and creative process.</p>
             </div>
             
             <div className="py-6">
-              <h3 className="text-xl font-semibold text-gray-900">Will AI make my music sound generic or unoriginal?</h3>
-              <p className="mt-2 text-gray-600">Our AI tools are designed to enhance your creative process, not replace it. They provide suggestions and options based on your input and preferences, allowing you to maintain your unique voice while exploring new possibilities.</p>
-            </div>
-            
-            <div className="py-6">
-              <h3 className="text-xl font-semibold text-gray-900">How accurate is the Practice Analyzer tool?</h3>
-              <p className="mt-2 text-gray-600">The Practice Analyzer uses advanced audio processing algorithms with over 95% accuracy in detecting pitch, rhythm, and dynamic variations. It's been calibrated using recordings from professional musicians across multiple instruments to ensure reliable feedback.</p>
+              <h3 className="text-xl font-semibold text-white">Will AI make my music sound generic or unoriginal?</h3>
+              <p className="mt-2 text-gray-300">Our AI tools are designed to enhance your creative process, not replace it. They provide suggestions and options based on your input and preferences, allowing you to maintain your unique voice while exploring new possibilities.</p>
             </div>
           </div>
         </div>
