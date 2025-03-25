@@ -28,9 +28,10 @@ export const metadata: Metadata = {
   manifest: '/manifest.json',
   icons: {
     icon: [
-      { url: '/favicon.ico', sizes: 'any' },
+      { url: '/images/favicon package/lightning-favicon-windows-48px.png', type: 'image/png', sizes: '48x48' },
+      { url: '/images/favicon package/lightning-favicon-webp.webp', type: 'image/webp' },
       { url: '/images/favicon package/amped-favicon-png.png', type: 'image/png' },
-      { url: '/images/favicon package/lightning-favicon-webp.webp', type: 'image/webp' }
+      { url: '/favicon.ico', sizes: 'any' }
     ],
     shortcut: [
       { url: '/favicon.ico', sizes: 'any' }
@@ -42,6 +43,12 @@ export const metadata: Metadata = {
       {
         rel: 'icon',
         type: 'image/png',
+        sizes: '48x48',
+        url: '/images/favicon package/lightning-favicon-windows-48px.png'
+      },
+      {
+        rel: 'icon',
+        type: 'image/png',
         sizes: '192x192',
         url: '/images/favicon package/lightning-favicon-android-192px.png'
       },
@@ -50,12 +57,6 @@ export const metadata: Metadata = {
         type: 'image/png',
         sizes: '512x512',
         url: '/images/favicon package/lightning-favicon-pwa-512px.png'
-      },
-      {
-        rel: 'icon',
-        type: 'image/png',
-        sizes: '48x48',
-        url: '/images/favicon package/lightning-favicon-windows-48px.png'
       }
     ]
   }
@@ -74,11 +75,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <head>
-        <link rel="icon" href="/favicon.ico" sizes="any" />
-        <link rel="shortcut icon" href="/favicon.ico" sizes="any" />
-        <link rel="icon" href="/images/favicon package/lightning-favicon-webp.webp" type="image/webp" />
-      </head>
+      <head />
       <body className={inter.className}>
         <Providers>
           {children}
