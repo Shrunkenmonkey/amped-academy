@@ -17,12 +17,21 @@ export const metadata: Metadata = {
   authors: [{ name: "Amped Academy" }],
   icons: {
     icon: [
-      { url: '/images/LIGHTNING FAVICON.webp', type: 'image/webp' },
-      { url: '/images/LIGHTNING FAVICON.webp', type: 'image/png' }
+      { url: '/images/favicon package/lightning-favicon windows 48px.png', type: 'image/png' },
+      { url: '/images/favicon package/lightning-favicon pwa 512px.png', type: 'image/png', sizes: '512x512' }
     ],
-    shortcut: '/images/LIGHTNING FAVICON.webp',
-    apple: '/images/LIGHTNING FAVICON.webp',
+    shortcut: '/images/favicon package/lightning-favicon windows 48px.png',
+    apple: '/images/favicon package/lightning-favicon apple 180px.png',
+    other: [
+      {
+        rel: 'icon',
+        type: 'image/png',
+        sizes: '192x192',
+        url: '/images/favicon package/lightning-favicon android 192px.png',
+      }
+    ]
   },
+  manifest: '/manifest.json',
 };
 
 export const viewport: Viewport = {
