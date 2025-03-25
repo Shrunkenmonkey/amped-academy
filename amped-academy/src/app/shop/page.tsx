@@ -298,7 +298,7 @@ export default function ShopPage() {
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-white mb-4">Choose Your Fretmap Stickers</h2>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              Select the perfect set for your instrument and learning style. All stickers include free access to our online tutorials.
+              Select the perfect set for your instrument and learning style. All stickers include free access to our online beginner tutorials, ebook and backing tracks.
             </p>
           </div>
           
