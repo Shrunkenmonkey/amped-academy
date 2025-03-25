@@ -17,21 +17,28 @@ export const metadata: Metadata = {
   authors: [{ name: "Amped Academy" }],
   icons: {
     icon: [
-      { url: '/images/favicon package/favicon package/lightning-favicon pwa 512px.png', sizes: '512x512', type: 'image/png' },
       { url: '/images/favicon package/favicon package/lightning-favicon windows 48px.png', sizes: '48x48', type: 'image/png' },
+      { url: '/images/favicon package/favicon package/lightning-favicon pwa 512px.png', sizes: '512x512', type: 'image/png' }
     ],
     apple: [
-      { url: '/images/favicon package/favicon package/lightning-favicon apple 180px.png', sizes: '180x180', type: 'image/png' },
+      { url: '/images/favicon package/favicon package/lightning-favicon apple 180px.png', sizes: '180x180', type: 'image/png' }
     ],
     other: [
-      { rel: 'mask-icon', url: '/images/favicon package/favicon package/lightning-favicon pwa 512px.png' },
-    ],
+      { rel: 'mask-icon', url: '/images/favicon package/favicon package/lightning-favicon pwa 512px.png' }
+    ]
   },
   manifest: '/manifest.json',
   appleWebApp: {
     capable: true,
     statusBarStyle: 'default',
-    title: 'Amped Academy',
+    title: 'Amped Academy'
+  },
+  applicationName: 'Amped Academy',
+  referrer: 'origin-when-cross-origin',
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
   },
 };
 
