@@ -16,8 +16,9 @@ export const metadata: Metadata = {
   keywords: ["guitar learning", "fretmap", "music education", "scales", "chords", "modes"],
   authors: [{ name: "Amped Academy" }],
   icons: {
-    icon: '/images/favicon package/LIGHTNING FAVICON.webp',
-    apple: '/images/favicon package/LIGHTNING FAVICON.webp',
+    icon: '/images/favicon package/lightning-favicon pwa 512px.png',
+    shortcut: '/images/favicon package/lightning-favicon pwa 512px.png',
+    apple: '/images/favicon package/lightning-favicon pwa 512px.png',
   },
 };
 
