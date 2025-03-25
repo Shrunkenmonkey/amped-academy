@@ -59,23 +59,50 @@ export default function PDFViewerPage() {
       </section>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2">
+        <div className="flex justify-between items-center mb-4">
+          <Link href="/lessons" className="flex items-center text-blue-400 hover:text-blue-300">
+            <ArrowLeft className="h-5 w-5 mr-1" />
+            Back to Lessons
+          </Link>
+          <a 
+            href={pdfPath} 
+            download 
+            className="flex items-center bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md"
+          >
+            <Download className="h-5 w-5 mr-2" />
+            Download PDF
+          </a>
+        </div>
+        
         {/* PDF Viewer */}
         <div className="bg-gray-800 rounded-lg shadow-lg overflow-hidden">
           {pdfPath ? (
-            <object
-              data={pdfPath}
-              type="application/pdf"
-              width="100%"
-              height="850"
-              className="w-full"
-            >
-              <div className="p-8 text-center">
+            <>
+              {/* For desktop and most mobile devices */}
+              <iframe
+                src={`${pdfPath}#toolbar=0&navpanes=0`}
+                width="100%"
+                height="850"
+                className="w-full hidden md:block"
+                title="PDF Viewer"
+              />
+              
+              {/* Fallback for iPad and devices with PDF issues */}
+              <div className="md:hidden p-8 text-center">
                 <FileText className="h-16 w-16 text-gray-400 mx-auto mb-4" />
-                <p className="text-gray-300 mb-4">
-                  Your browser doesn't support embedded PDFs or the file could not be found.
+                <p className="text-white mb-6">
+                  For the best experience on mobile devices, please download the PDF.
                 </p>
+                <a 
+                  href={pdfPath} 
+                  download 
+                  className="inline-flex items-center bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-md"
+                >
+                  <Download className="h-5 w-5 mr-2" />
+                  Download PDF
+                </a>
               </div>
-            </object>
+            </>
           ) : (
             <div className="p-8 text-center">
               <p className="text-gray-300">Loading PDF...</p>
