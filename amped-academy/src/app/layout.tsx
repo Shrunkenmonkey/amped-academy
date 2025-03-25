@@ -32,8 +32,8 @@ export default function RootLayout({
       <body className={inter.className}>
         <Providers>
           {children}
-          <SpeedInsights />
         </Providers>
+        <SpeedInsights />
       </body>
     </html>
   );
