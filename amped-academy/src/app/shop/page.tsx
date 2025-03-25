@@ -153,7 +153,7 @@ const PRODUCTS = [
   {
     id: "lee-fretmap-bass",
     name: "Lee Fretmap for Bass Guitar",
-    price: 29.99,
+    price: 24.99,
     image: "/images/Product images/products jpg 400px/bass jpg 400.jpg",
     webpImage: "/images/Product images/products webp 400px/bass webp 400.webp",
     popular: false,
@@ -169,7 +169,7 @@ const PRODUCTS = [
   {
     id: "lee-fretmap-bass-pentatonic",
     name: "Lee Fretmap for Bass - Pentatonic Blues",
-    price: 29.99,
+    price: 24.99,
     image: "/images/Product images/products jpg 400px/bass pentatonic blues jpg 400.jpg",
     webpImage: "/images/Product images/products webp 400px/bass pentatonic blues webp 400.webp",
     popular: false,
@@ -177,7 +177,7 @@ const PRODUCTS = [
   {
     id: "lee-fretmap-piano",
     name: "Lee Fretmap for Piano/Keyboard",
-    price: 34.99,
+    price: 24.99,
     image: "/images/Product images/products jpg 400px/piano keyboard jpg 400.jpg",
     webpImage: "/images/Product images/products webp 400px/piano keyboard webp 400.webp",
     popular: false,
@@ -185,7 +185,7 @@ const PRODUCTS = [
   {
     id: "lee-fretmap-ukulele",
     name: "Lee Fretmap for Ukulele",
-    price: 19.99,
+    price: 24.99,
     image: "/images/Product images/products jpg 400px/ukulele jpg 400.jpg",
     webpImage: "/images/Product images/products webp 400px/ukulele webp 400.webp",
     popular: false,

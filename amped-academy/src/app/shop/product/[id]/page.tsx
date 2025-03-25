@@ -20,10 +20,10 @@ const PRODUCTS = [
     popular: true,
     features: [
       "Perfect for acoustic steel-string guitars",
-      "Complete fretboard coverage",
-      "Color-coded note system",
-      "Includes installation guide",
-      "Access to online tutorials"
+      "Color-coded for easy note recognition",
+      "Includes free online tutorials",
+      "Durable, long-lasting material",
+      "Easy to apply and remove"
     ]
   },
   {
@@ -36,10 +36,10 @@ const PRODUCTS = [
     popular: false,
     features: [
       "Designed for electric guitars",
-      "Highlights pentatonic patterns",
-      "Blues-focused color system",
-      "Removable without residue",
-      "Includes digital scale reference"
+      "Focuses on pentatonic scales",
+      "Perfect for blues and rock",
+      "Includes scale patterns",
+      "Easy to follow visual guide"
     ]
   },
   {
@@ -51,91 +51,91 @@ const PRODUCTS = [
     webpImage: "/images/Product images/products webp 400px/guitar classical nylon webp 400.webp",
     popular: false,
     features: [
-      "Sized for classical guitar necks",
-      "Safe for nylon-string guitars",
-      "Classical mode patterns highlighted",
-      "Includes installation guide",
-      "Access to classical technique videos"
+      "Perfect for classical guitars",
+      "Nylon string compatible",
+      "Classical music focused",
+      "Includes finger positions",
+      "Durable material"
     ]
   },
   {
     id: "lee-fretmap-bass",
     name: "Lee Fretmap for Bass Guitar",
-    description: "Master your bass guitar with our specialized fretmap. Perfect for understanding scale patterns and creating grooves with confidence.",
-    price: 29.99,
-    image: "/images/Product images/products jpg 800px/bass jpg 800.jpg",
-    webpImage: "/images/Product images/products webp 800px/bass webp 800.webp",
+    description: "Master the bass fretboard with our specialized stickers. Perfect for both beginners and intermediate players looking to improve their bass playing skills.",
+    price: 24.99,
+    image: "/images/Product images/products jpg 400px/bass jpg 400.jpg",
+    webpImage: "/images/Product images/products webp 400px/bass webp 400.webp",
     popular: false,
     features: [
-      "Designed for 4-string bass guitars",
-      "Extended scale patterns",
-      "Root note highlighting",
-      "Includes groove pattern guide",
-      "Compatible with most bass necks"
+      "Bass-specific design",
+      "4 and 5 string compatible",
+      "Focuses on bass patterns",
+      "Includes rhythm guides",
+      "Perfect for all bass styles"
     ]
   },
   {
     id: "lee-fretmap-harmonic-minor",
     name: "Lee Fretmap for Guitar - Harmonic Minor",
-    description: "Explore the exotic sounds of harmonic minor scales with our specialized fretmap. Perfect for neoclassical, metal, and fusion players.",
+    description: "Explore the exotic sounds of harmonic minor scales with our specialized fretmap. Perfect for metal, jazz, and classical guitarists.",
     price: 24.99,
-    image: "/images/Product images/products jpg 800px/guitar harmonic minor jpg 800.jpg",
-    webpImage: "/images/Product images/products webp 800px/guitar harmonic minor webp 800.webp",
+    image: "/images/Product images/products jpg 400px/guitar harmonic minor jpg 400.jpg",
+    webpImage: "/images/Product images/products webp 400px/guitar harmonic minor webp 400.webp",
     popular: false,
     features: [
-      "Harmonic minor scale patterns",
-      "Eastern mode visualization",
-      "Compatible with electric guitars",
-      "Includes exotic scale reference",
-      "Advanced music theory guide included"
+      "Harmonic minor scale focus",
+      "Perfect for metal music",
+      "Includes exotic patterns",
+      "Jazz and classical compatible",
+      "Advanced scale visualization"
     ]
   },
   {
     id: "lee-fretmap-bass-pentatonic",
     name: "Lee Fretmap for Bass - Pentatonic Blues",
-    description: "Designed for bass players who want to master blues and rock grooves. These stickers highlight pentatonic patterns for creative basslines.",
-    price: 29.99,
-    image: "/images/Product images/products jpg 800px/bass pentatonic blues jpg 800.jpg",
-    webpImage: "/images/Product images/products webp 800px/bass pentatonic blues webp 800.webp", 
+    description: "Master blues bass lines with our pentatonic-focused fretmap. Perfect for blues, rock, and funk bass players.",
+    price: 24.99,
+    image: "/images/Product images/products jpg 400px/bass pentatonic blues jpg 400.jpg",
+    webpImage: "/images/Product images/products webp 400px/bass pentatonic blues webp 400.webp",
     popular: false,
     features: [
-      "Blues-focused bass patterns",
-      "Walking bass line visualization",
-      "Highlighted root notes",
-      "Compatible with most bass necks",
-      "Includes groove pattern examples"
+      "Bass pentatonic focus",
+      "Blues and rock patterns",
+      "Funk bass compatible",
+      "Includes groove guides",
+      "Perfect for improvisation"
     ]
   },
   {
     id: "lee-fretmap-piano",
     name: "Lee Fretmap for Piano/Keyboard",
-    description: "Bring the color-coding system to your keyboard! These stickers help pianists visualize scales, chords and patterns across the entire keyboard.",
-    price: 34.99,
-    image: "/images/Product images/products jpg 800px/piano keyboard jpg 800.jpg",
-    webpImage: "/images/Product images/products webp 800px/piano keyboard webp 800.webp",
+    description: "Visualize piano scales and chords with our innovative keyboard stickers. Perfect for piano and keyboard players of all levels.",
+    price: 24.99,
+    image: "/images/Product images/products jpg 400px/piano keyboard jpg 400.jpg",
+    webpImage: "/images/Product images/products webp 400px/piano keyboard webp 400.webp",
     popular: false,
     features: [
-      "Compatible with standard 88-key keyboards",
-      "Color-coded octave system",
-      "Chord visualization helpers",
-      "Safe for piano keys",
-      "Includes theory companion guide"
+      "Piano and keyboard compatible",
+      "All major scales included",
+      "Chord pattern visualization",
+      "Perfect for beginners",
+      "Includes practice guides"
     ]
   },
   {
     id: "lee-fretmap-ukulele",
     name: "Lee Fretmap for Ukulele",
-    description: "Make learning ukulele fun and intuitive with our specialized fretmap stickers. Perfect for beginners and advancing players alike.",
-    price: 19.99,
-    image: "/images/Product images/products jpg 800px/ukulele jpg 800.jpg", 
-    webpImage: "/images/Product images/products webp 800px/ukulele webp 800.webp",
+    description: "Learn ukulele chords and scales with our specialized stickers. Perfect for ukulele players of all skill levels.",
+    price: 24.99,
+    image: "/images/Product images/products jpg 400px/ukulele jpg 400.jpg",
+    webpImage: "/images/Product images/products webp 400px/ukulele webp 400.webp",
     popular: false,
     features: [
-      "Designed for soprano, concert and tenor ukuleles",
-      "Island scale pattern visualization",
-      "Color-coded chord relationships",
-      "Includes chord dictionary",
-      "Safe for all ukulele necks"
+      "Ukulele-specific design",
+      "All common chords included",
+      "Perfect for beginners",
+      "Includes strum patterns",
+      "Easy to follow guide"
     ]
   }
 ];
