@@ -27,16 +27,16 @@ export const metadata: Metadata = {
   },
   manifest: '/manifest.json',
   icons: {
+    shortcut: '/images/favicon package/amped-favicon-png.png',
     icon: [
-      { url: '/images/favicon package/amped-favicon-png.png' },
-      { url: '/images/favicon package/lightning-favicon-webp.webp', type: 'image/webp' }
+      { url: '/images/favicon package/amped-favicon-png.png', sizes: '32x32' },
+      { url: '/images/favicon package/lightning-favicon-webp.webp', type: 'image/webp', sizes: '32x32' }
     ],
     apple: [
       { 
         url: '/images/favicon package/lightning-favicon-apple-180px.png',
         sizes: '180x180',
-        type: 'image/png',
-        media: '(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)'
+        type: 'image/png'
       }
     ],
     other: [
