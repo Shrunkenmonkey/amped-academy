@@ -2,5 +2,5 @@
 User-agent: *
 Allow: /
 
-# Sitemap
-Sitemap: https://ampedacademy.xyz/sitemap.xml 
+# Sitemap location
+Sitemap: https://amped-academy.vercel.app/sitemap.xml 

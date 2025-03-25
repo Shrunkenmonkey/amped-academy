@@ -1,18 +1,6 @@
 {
   "version": 2,
-  "buildCommand": "npm run build",
-  "outputDirectory": "amped-academy/.next",
   "framework": "nextjs",
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "/amped-academy/$1"
-    }
-  ],
-  "github": {
-    "enabled": true,
-    "silent": false
-  },
   "headers": [
     {
       "source": "/(.*)\\.webp",
@@ -56,6 +44,15 @@
         {
           "key": "Cache-Control",
           "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/api/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-cache, no-store, must-revalidate"
         }
       ]
     }

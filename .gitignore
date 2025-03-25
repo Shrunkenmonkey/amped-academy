@@ -37,4 +37,19 @@ next-env.d.ts
 
 # Logs
 logs
-*.log 
+*.log
+
+# Editor directories
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Cache
+.npm
+.eslintcache
+.stylelintcache
+.rollup.cache/
+
+# Build artifacts
+.turbo 

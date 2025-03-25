@@ -5,7 +5,14 @@
   "scripts": {
     "dev": "cd amped-academy && npm run dev",
     "build": "cd amped-academy && npm run build",
-    "start": "cd amped-academy && npm run start"
+    "start": "cd amped-academy && npm run start",
+    "lint": "cd amped-academy && npm run lint",
+    "postinstall": "cd amped-academy && npm install",
+    "vercel-build": "npm run build"
+  },
+  "engines": {
+    "node": ">=18.x",
+    "npm": ">=9.x"
   },
   "private": true
 } 
