@@ -18,6 +18,7 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       { url: '/images/favicon package/lightning-favicon windows 48px.png', type: 'image/png' },
+      { url: '/images/favicon package/lightning-favicon android 192px.png', type: 'image/png', sizes: '192x192' },
       { url: '/images/favicon package/lightning-favicon pwa 512px.png', type: 'image/png', sizes: '512x512' }
     ],
     shortcut: '/images/favicon package/lightning-favicon windows 48px.png',
@@ -32,12 +33,17 @@ export const metadata: Metadata = {
     ]
   },
   manifest: '/manifest.json',
-};
-
-export const viewport: Viewport = {
-  width: 'device-width',
-  initialScale: 1,
-  maximumScale: 5,
+  themeColor: '#1e1b4b',
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: 'default',
+    title: 'Amped Academy'
+  },
+  viewport: {
+    width: 'device-width',
+    initialScale: 1,
+    maximumScale: 5,
+  }
 };
 
 export default function RootLayout({
@@ -47,6 +53,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <link rel="icon" type="image/png" sizes="192x192" href="/images/favicon package/lightning-favicon android 192px.png" />
+        <link rel="icon" type="image/png" sizes="512x512" href="/images/favicon package/lightning-favicon pwa 512px.png" />
+        <link rel="apple-touch-icon" href="/images/favicon package/lightning-favicon apple 180px.png" />
+        <link rel="manifest" href="/manifest.json" />
+      </head>
       <body className={inter.className}>
         <Providers>
           {children}

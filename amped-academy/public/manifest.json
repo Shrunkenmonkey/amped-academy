@@ -1,0 +1,23 @@
+{
+  "name": "Amped Academy",
+  "short_name": "Amped Academy",
+  "description": "Visual Guitar Learning System with AI tools",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#1e1b4b",
+  "theme_color": "#1e1b4b",
+  "icons": [
+    {
+      "src": "/images/favicon package/lightning-favicon android 192px.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/images/favicon package/lightning-favicon pwa 512px.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+} 
