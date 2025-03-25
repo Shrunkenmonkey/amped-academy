@@ -12,12 +12,12 @@ import { useCart } from '@/context/CartContext';
 const PRODUCTS = [
   {
     id: "lee-fretmap-acoustic",
-    name: "Lee Fretmap for Acoustic Guitar",
+    name: "Lee Fretmap for Electric and Acoustic Guitar",
     description: "The perfect companion for acoustic guitarists. These stickers help you visualize chord patterns and scales across the entire fretboard, speeding up your learning process dramatically.",
     price: 24.99,
-    image: "/images/Product images/products jpg 800px/guitar jpg 800.jpg",
-    webpImage: "/images/Product images/products webp 800px/guitar webp 800.webp",
-    popular: false,
+    image: "/images/Product images/products jpg 400px/guitar jpg 400.jpg",
+    webpImage: "/images/Product images/products webp 400px/guitar webp 400.webp",
+    popular: true,
     features: [
       "Perfect for acoustic steel-string guitars",
       "Complete fretboard coverage",
@@ -31,9 +31,9 @@ const PRODUCTS = [
     name: "Lee Fretmap for Electric Guitar - Pentatonic Blues",
     description: "Unlock the secrets of blues pentatonic scales with our electric guitar fretmap. Perfect for blues, rock, and jazz players looking to master improvisation.",
     price: 24.99,
-    image: "/images/Product images/products jpg 800px/guitar pentatonic blues jpg 800.jpg",
-    webpImage: "/images/Product images/products webp 800px/guitar pentatonic blues webp 800.webp",
-    popular: true,
+    image: "/images/Product images/products jpg 400px/guitar pentatonic blues jpg 400.jpg",
+    webpImage: "/images/Product images/products webp 400px/guitar pentatonic blues webp 400.webp",
+    popular: false,
     features: [
       "Designed for electric guitars",
       "Highlights pentatonic patterns",
@@ -44,11 +44,11 @@ const PRODUCTS = [
   },
   {
     id: "lee-fretmap-classical",
-    name: "Lee Fretmap for Classical Guitar",
+    name: "Lee Fretmap for Classical Nylon String Guitar",
     description: "Designed specifically for nylon-string classical guitars. These stickers help you navigate the fretboard while learning classical pieces and techniques.",
     price: 24.99,
-    image: "/images/Product images/products jpg 800px/guitar classical nylon jpg 800.jpg",
-    webpImage: "/images/Product images/products webp 800px/guitar classical nylon webp 800.webp",
+    image: "/images/Product images/products jpg 400px/guitar classical nylon jpg 400.jpg",
+    webpImage: "/images/Product images/products webp 400px/guitar classical nylon webp 400.webp",
     popular: false,
     features: [
       "Sized for classical guitar necks",
