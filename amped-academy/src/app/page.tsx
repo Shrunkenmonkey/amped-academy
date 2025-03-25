@@ -4,7 +4,7 @@ import { Star, CheckCircle } from 'lucide-react';
 import BackgroundImage from "@/components/BackgroundImage";
 
 export const metadata: Metadata = {
-  title: "Unlock Guitar Mastery: Color-Coded Fretboard Stickers for Visual Learners | Amped Academy",
+  title: "Amped Academy Visual Guitar Learning System lee fretmap",
   description: "Master the guitar fretboard fast with our color-coded stickers! Perfect for visual learners, beginners of all levels. Durable, easy to apply, and proven to accelerate learning. Shop now!",
 };
 
