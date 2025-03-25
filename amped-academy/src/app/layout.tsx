@@ -28,15 +28,11 @@ export const metadata: Metadata = {
   manifest: '/manifest.json',
   icons: {
     icon: [
-      { url: '/images/favicon package/amped-favicon-png.png', sizes: '32x32', type: 'image/png' },
-      { url: '/images/favicon package/lightning-favicon-webp.webp', type: 'image/webp', sizes: '32x32' }
+      { url: '/favicon.ico' },
+      { url: '/images/favicon package/amped-favicon-png.png', type: 'image/png' }
     ],
     apple: [
-      { 
-        url: '/images/favicon package/lightning-favicon-apple-180px.png',
-        sizes: '180x180',
-        type: 'image/png'
-      }
+      { url: '/images/favicon package/lightning-favicon-apple-180px.png', sizes: '180x180', type: 'image/png' }
     ],
     other: [
       {
