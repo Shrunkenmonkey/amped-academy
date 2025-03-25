@@ -36,7 +36,8 @@ export const metadata: Metadata = {
       { 
         url: '/images/favicon package/lightning-favicon-apple-180px.png',
         sizes: '180x180',
-        type: 'image/png'
+        type: 'image/png',
+        media: '(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)'
       }
     ],
     other: [
