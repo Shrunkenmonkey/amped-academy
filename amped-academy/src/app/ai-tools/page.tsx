@@ -1,8 +1,10 @@
+'use client';
+
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Zap, Brain, Sparkles, Lightbulb, Music, Wand2 } from "lucide-react";
-import PageHero from "@/components/PageHero";
-import BackgroundImage from "@/components/BackgroundImage";
+import { Music, Mic, Guitar, Wand2, Brain, Sparkles, Zap, LineChart, Lightbulb, Code2, Bot, Cpu, Database, Network, LineChart as LineChartIcon } from "lucide-react";
+import Hero from '@/components/Hero';
+import { SECTION_STYLES, BUTTON_STYLES } from '@/constants/styles';
 
 export const metadata: Metadata = {
   title: "AI-Powered Music Tools | Amped Academy",
@@ -132,83 +134,26 @@ const useCases = [
   }
 ];
 
-// Hero Section
-const HeroSection = () => (
-  <section className="relative text-white py-8">
-    <div className="absolute inset-0 z-0 overflow-hidden bg-indigo-900">
-      <BackgroundImage 
-        src="/images/backgrounds/lightning-background jpg.jpg"
-        webpSrc="/images/backgrounds/lightning-background webp.webp"
-        alt="Lightning background"
-        priority={true}
-      />
-      <div className="absolute inset-0 bg-black opacity-25"></div>
-    </div>
-    
-    <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div className="text-center py-12">
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-white" style={TEXT_STYLES.shadowHeavy}>
-          AI Music Tools
-        </h1>
-        <p className="text-3xl md:text-4xl text-white" style={TEXT_STYLES.shadowMedium}>
-          Enhance Your Musical Journey with AI
-        </p>
-      </div>
-    </div>
-  </section>
-);
-
 export default function AIToolsPage() {
   return (
     <div className="min-h-screen bg-gray-900 text-white">
-      {/* Hero Section */}
-      <HeroSection />
+      <Hero 
+        title="AI Music Tools"
+        subtitle="Enhance Your Musical Journey with AI"
+      />
 
-      {/* AI Song Generator section */}
-      <section className="py-16 bg-gray-900">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* How AI Enhances Your Music section */}
+      <section className={`${SECTION_STYLES.section} bg-gray-800`}>
+        <div className={SECTION_STYLES.container}>
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-white mb-4">AI Song Generator</h2>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">Create unique songs powered by artificial intelligence</p>
-          </div>
-          
-          <div className="flex flex-col items-center">
-            <a href="https://www.leefretmap.com" target="_blank" rel="noopener noreferrer" className="block mb-8">
-              <picture>
-                <img 
-                  src="/images/ai song generator image webp 400.webp" 
-                  alt="AI Song Generator" 
-                  className="rounded-lg shadow-xl hover:shadow-2xl transition-all duration-300 max-w-full h-auto"
-                  width={400}
-                  height={400}
-                />
-              </picture>
-            </a>
-            <a 
-              href="https://www.leefretmap.com" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="bg-indigo-600 hover:bg-indigo-700 text-white px-8 py-4 rounded-md font-medium text-lg inline-flex items-center gap-2 transition-colors duration-300"
-            >
-              <Music className="h-5 w-5" />
-              Generate Your Song Now
-            </a>
-          </div>
-        </div>
-      </section>
-
-      {/* Use cases - providing semantic relevance for SEO */}
-      <section className="py-16 bg-gray-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-white mb-4">How AI Enhances Your Music</h2>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">Our machine learning technology adapts to your unique musical style and learning needs.</p>
+            <h2 className={SECTION_STYLES.heading}>How AI Enhances Your Music</h2>
+            <p className={SECTION_STYLES.subheading}>Our machine learning technology adapts to your unique musical style and learning needs.</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className={SECTION_STYLES.grid}>
             {useCases.map((useCase, index) => (
-              <div key={index} className="bg-gray-700 p-6 rounded-lg border border-gray-600 shadow-sm">
-                <div className="w-12 h-12 mb-4 bg-gray-600 rounded-lg flex items-center justify-center text-blue-400">
+              <div key={index} className={SECTION_STYLES.card}>
+                <div className="w-12 h-12 mb-4 bg-gray-700 rounded-lg flex items-center justify-center text-blue-400">
                   {useCase.icon}
                 </div>
                 <h3 className="text-xl font-semibold mb-2 text-white">{useCase.title}</h3>
@@ -220,16 +165,16 @@ export default function AIToolsPage() {
       </section>
 
       {/* Tools section */}
-      <section className="py-16 bg-gray-900">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className={SECTION_STYLES.section}>
+        <div className={SECTION_STYLES.container}>
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-white mb-4">Our AI-Powered Music Tools</h2>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">Discover how our artificial intelligence tools can transform your musical practice, composition, and learning.</p>
+            <h2 className={SECTION_STYLES.heading}>Our AI-Powered Music Tools</h2>
+            <p className={SECTION_STYLES.subheading}>Discover how our artificial intelligence tools can transform your musical practice, composition, and learning.</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className={SECTION_STYLES.grid}>
             {aiTools.map((tool) => (
-              <div key={tool.id} className="bg-gray-800 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+              <div key={tool.id} className={SECTION_STYLES.card}>
                 <div className="relative h-48 bg-gray-700">
                   <div className="absolute inset-0 flex items-center justify-center">
                     <div className="p-4 bg-gray-800/80 backdrop-blur-sm rounded-full">
@@ -262,11 +207,11 @@ export default function AIToolsPage() {
                   </div>
                   
                   {!tool.comingSoon ? (
-                    <Link href={`/ai-tools/${tool.id}`} className="inline-flex items-center px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-md">
+                    <Link href={`/ai-tools/${tool.id}`} className={BUTTON_STYLES.primary}>
                       Try Now
                     </Link>
                   ) : (
-                    <button className="inline-flex items-center px-4 py-2 bg-gray-700 text-gray-400 font-medium rounded-md cursor-not-allowed">
+                    <button className={BUTTON_STYLES.disabled}>
                       Coming Soon
                     </button>
                   )}
@@ -277,18 +222,18 @@ export default function AIToolsPage() {
         </div>
       </section>
 
-      {/* How it works section - additional semantic content for SEO */}
-      <section className="py-16 bg-gray-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* How it works section */}
+      <section className={`${SECTION_STYLES.section} bg-gray-800`}>
+        <div className={SECTION_STYLES.container}>
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-white mb-4">How Our AI Technology Works</h2>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">Our machine learning models are trained on vast datasets of music to provide intelligent assistance.</p>
+            <h2 className={SECTION_STYLES.heading}>How Our AI Technology Works</h2>
+            <p className={SECTION_STYLES.subheading}>Our machine learning models are trained on vast datasets of music to provide intelligent assistance.</p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            <div className="bg-gray-700 p-6 rounded-lg shadow-sm">
+          <div className={SECTION_STYLES.grid}>
+            <div className={SECTION_STYLES.card}>
               <div className="text-center mb-4">
-                <div className="w-12 h-12 mx-auto bg-gray-600 rounded-full flex items-center justify-center">
+                <div className="w-12 h-12 mx-auto bg-gray-700 rounded-full flex items-center justify-center">
                   <span className="text-blue-400 font-bold text-xl">1</span>
                 </div>
               </div>
@@ -296,9 +241,9 @@ export default function AIToolsPage() {
               <p className="text-gray-300">Our AI analyzes thousands of musical compositions across genres and time periods to learn patterns in melody, harmony, rhythm, and structure.</p>
             </div>
             
-            <div className="bg-gray-700 p-6 rounded-lg shadow-sm">
+            <div className={SECTION_STYLES.card}>
               <div className="text-center mb-4">
-                <div className="w-12 h-12 mx-auto bg-gray-600 rounded-full flex items-center justify-center">
+                <div className="w-12 h-12 mx-auto bg-gray-700 rounded-full flex items-center justify-center">
                   <span className="text-blue-400 font-bold text-xl">2</span>
                 </div>
               </div>
@@ -306,9 +251,9 @@ export default function AIToolsPage() {
               <p className="text-gray-300">As you use our tools, the AI learns your preferences, style, and skill level to provide increasingly personalized recommendations and feedback.</p>
             </div>
             
-            <div className="bg-gray-700 p-6 rounded-lg shadow-sm">
+            <div className={SECTION_STYLES.card}>
               <div className="text-center mb-4">
-                <div className="w-12 h-12 mx-auto bg-gray-600 rounded-full flex items-center justify-center">
+                <div className="w-12 h-12 mx-auto bg-gray-700 rounded-full flex items-center justify-center">
                   <span className="text-blue-400 font-bold text-xl">3</span>
                 </div>
               </div>
@@ -319,16 +264,16 @@ export default function AIToolsPage() {
         </div>
       </section>
 
-      {/* Testimonials for E-E-A-T signals */}
-      <section className="py-16 bg-gray-900">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Testimonials section */}
+      <section className={SECTION_STYLES.section}>
+        <div className={SECTION_STYLES.container}>
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-white mb-4">What Our Users Say</h2>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">Join thousands of musicians who are transforming their practice with our AI tools.</p>
+            <h2 className={SECTION_STYLES.heading}>What Our Users Say</h2>
+            <p className={SECTION_STYLES.subheading}>Join thousands of musicians who are transforming their practice with our AI tools.</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="bg-gray-800 p-6 rounded-lg shadow-sm">
+            <div className={SECTION_STYLES.card}>
               <div className="flex items-center mb-4">
                 <div className="h-12 w-12 rounded-full bg-gray-700 flex items-center justify-center text-xl font-bold text-blue-400">
                   ML
@@ -341,7 +286,7 @@ export default function AIToolsPage() {
               <p className="text-gray-300 italic">&quot;The Practice Analyzer has transformed my rehearsal routine. The detailed feedback on my dynamics and articulation helped me prepare for my recent album recording with incredible precision.&quot;</p>
             </div>
 
-            <div className="bg-gray-800 p-6 rounded-lg shadow-sm">
+            <div className={SECTION_STYLES.card}>
               <div className="flex items-center mb-4">
                 <div className="h-12 w-12 rounded-full bg-gray-700 flex items-center justify-center text-xl font-bold text-blue-400">
                   TR
@@ -357,12 +302,12 @@ export default function AIToolsPage() {
         </div>
       </section>
 
-      {/* FAQ Section with structured data for featured snippets */}
-      <section className="py-16 bg-gray-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* FAQ Section */}
+      <section className={`${SECTION_STYLES.section} bg-gray-800`}>
+        <div className={SECTION_STYLES.container}>
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-white mb-4">Frequently Asked Questions</h2>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">Learn more about our AI-powered music tools.</p>
+            <h2 className={SECTION_STYLES.heading}>Frequently Asked Questions</h2>
+            <p className={SECTION_STYLES.subheading}>Learn more about our AI-powered music tools.</p>
           </div>
 
           <div className="max-w-3xl mx-auto divide-y divide-gray-700">
@@ -380,19 +325,6 @@ export default function AIToolsPage() {
               <h3 className="text-xl font-semibold text-white">Will AI make my music sound generic or unoriginal?</h3>
               <p className="mt-2 text-gray-300">Our AI tools are designed to enhance your creative process, not replace it. They provide suggestions and options based on your input and preferences, allowing you to maintain your unique voice while exploring new possibilities.</p>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-16 bg-indigo-600 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold mb-4">Ready to Transform Your Music with AI?</h2>
-          <p className="text-xl max-w-3xl mx-auto mb-8">Join thousands of musicians who are already using our AI tools to enhance their learning, practice, and creative process.</p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="#" className="bg-indigo-500 hover:bg-indigo-400 text-white px-8 py-4 rounded-md font-medium text-lg inline-block">
-              Try AI Tools
-            </Link>
           </div>
         </div>
       </section>
