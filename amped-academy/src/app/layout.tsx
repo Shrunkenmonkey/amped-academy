@@ -16,8 +16,11 @@ export const metadata: Metadata = {
   keywords: ["guitar learning", "fretmap", "music education", "scales", "chords", "modes"],
   authors: [{ name: "Amped Academy" }],
   icons: {
-    icon: '/images/favicon package/lightning-favicon pwa 512px.png',
-    shortcut: '/images/favicon package/lightning-favicon pwa 512px.png',
+    icon: [
+      { url: '/favicon.ico' },
+      { url: '/images/favicon package/lightning-favicon pwa 512px.png', sizes: '512x512', type: 'image/png' }
+    ],
+    shortcut: '/favicon.ico',
     apple: '/images/favicon package/lightning-favicon pwa 512px.png',
   },
   manifest: '/manifest.json',
@@ -37,10 +40,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link rel="icon" href="/images/favicon package/lightning-favicon pwa 512px.png" />
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" href="/images/favicon package/lightning-favicon pwa 512px.png" type="image/png" />
         <link rel="apple-touch-icon" href="/images/favicon package/lightning-favicon pwa 512px.png" />
         <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#1e1b4b" />
+        <meta name="msapplication-TileColor" content="#1e1b4b" />
+        <meta name="msapplication-config" content="none" />
       </head>
       <body className={inter.className}>
         <Providers>
