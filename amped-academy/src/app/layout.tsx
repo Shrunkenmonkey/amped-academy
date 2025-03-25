@@ -29,7 +29,8 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       { url: '/favicon.ico', sizes: 'any' },
-      { url: '/images/favicon package/amped-favicon-png.png', type: 'image/png' }
+      { url: '/images/favicon package/amped-favicon-png.png', type: 'image/png' },
+      { url: '/images/favicon package/lightning-favicon-webp.webp', type: 'image/webp' }
     ],
     shortcut: [
       { url: '/favicon.ico', sizes: 'any' }
@@ -76,6 +77,7 @@ export default function RootLayout({
       <head>
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="shortcut icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" href="/images/favicon package/lightning-favicon-webp.webp" type="image/webp" />
       </head>
       <body className={inter.className}>
         <Providers>
