@@ -28,35 +28,35 @@ export const metadata: Metadata = {
   manifest: '/manifest.json',
   icons: {
     icon: [
-      { url: '/images/favicon package/lightning-favicon-windows-48px.png', type: 'image/png', sizes: '48x48' },
-      { url: '/images/favicon package/lightning-favicon-webp.webp', type: 'image/webp' },
-      { url: '/images/favicon package/amped-favicon-png.png', type: 'image/png' },
+      { url: '/images/favicon%20package/lightning-favicon-windows-48px.png', type: 'image/png', sizes: '48x48' },
+      { url: '/images/favicon%20package/lightning-favicon-webp.webp', type: 'image/webp' },
+      { url: '/images/favicon%20package/amped-favicon-png.png', type: 'image/png' },
       { url: '/favicon.ico', sizes: 'any' }
     ],
     shortcut: [
       { url: '/favicon.ico', sizes: 'any' }
     ],
     apple: [
-      { url: '/images/favicon package/lightning-favicon-apple-180px.png', sizes: '180x180', type: 'image/png' }
+      { url: '/images/favicon%20package/lightning-favicon-apple-180px.png', sizes: '180x180', type: 'image/png' }
     ],
     other: [
       {
         rel: 'icon',
         type: 'image/png',
         sizes: '48x48',
-        url: '/images/favicon package/lightning-favicon-windows-48px.png'
+        url: '/images/favicon%20package/lightning-favicon-windows-48px.png'
       },
       {
         rel: 'icon',
         type: 'image/png',
         sizes: '192x192',
-        url: '/images/favicon package/lightning-favicon-android-192px.png'
+        url: '/images/favicon%20package/lightning-favicon-android-192px.png'
       },
       {
         rel: 'icon',
         type: 'image/png',
         sizes: '512x512',
-        url: '/images/favicon package/lightning-favicon-pwa-512px.png'
+        url: '/images/favicon%20package/lightning-favicon-pwa-512px.png'
       }
     ]
   }
