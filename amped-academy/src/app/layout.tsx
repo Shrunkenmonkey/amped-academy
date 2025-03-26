@@ -15,12 +15,17 @@ export const metadata: Metadata = {
   description: "Transform your guitar playing with the Lee Fretmap visual learning system. Color-coded fretboard stickers to master scales, chords, and modes.",
   keywords: ["guitar learning", "fretmap", "music education", "scales", "chords", "modes"],
   authors: [{ name: "Amped Academy" }],
-  appleWebApp: {
-    capable: true,
-    statusBarStyle: 'default',
-    title: "Amped Academy Visual Guitar Learning System lee fretmap",
+  viewport: {
+    width: 'device-width',
+    initialScale: 1,
+    maximumScale: 5,
+    userScalable: true,
   },
   manifest: '/manifest.json',
+  other: {
+    'mobile-web-app-capable': 'yes',
+    'apple-mobile-web-app-capable': 'yes'
+  },
   icons: {
     icon: [
       { url: '/images/favicon-package/lightning-favicon-webp.webp', type: 'image/webp' },
@@ -61,6 +66,7 @@ export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
   maximumScale: 5,
+  userScalable: true,
 };
 
 export default function RootLayout({
