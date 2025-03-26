@@ -1,6 +1,71 @@
 # Amped Academy Website
 
-This repository contains the Amped Academy website built with Next.js.
+A modern e-commerce and learning platform for guitar enthusiasts, built with Next.js 14.
+
+## Features
+
+- 🎸 Interactive guitar learning platform
+- 🛍️ E-commerce functionality for Fretmap products
+- 🎥 Video lessons and backing tracks
+- 🎨 Modern, responsive design
+- 🔒 Secure shopping cart
+- 🎯 SEO optimized
+
+## Tech Stack
+
+- Next.js 14
+- TypeScript
+- Tailwind CSS
+- Lucide Icons
+- YouTube API Integration
+
+## Getting Started
+
+1. Clone the repository:
+```bash
+git clone [repository-url]
+```
+
+2. Install dependencies:
+```bash
+cd amped-academy
+npm install
+```
+
+3. Run the development server:
+```bash
+npm run dev
+```
+
+4. Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+## Project Structure
+
+```
+amped-academy/
+├── src/
+│   ├── app/           # Next.js app router pages
+│   ├── components/    # Reusable components
+│   ├── constants/     # Constants and configurations
+│   └── context/       # React context providers
+├── public/            # Static assets
+└── package.json       # Project dependencies
+```
+
+## Environment Variables
+
+Create a `.env.local` file in the root directory with the following variables:
+```
+NEXT_PUBLIC_BASE_URL=http://localhost:3000
+```
+
+## Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
 
 ## Deployment to Vercel
 

@@ -8,7 +8,12 @@ const nextConfig = {
     ignoreDuringBuilds: true,
   },
   images: {
-    domains: ['img.youtube.com'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'img.youtube.com',
+      },
+    ],
     unoptimized: false,
     formats: ['image/avif', 'image/webp'],
     minimumCacheTTL: 60,
@@ -21,7 +26,6 @@ const nextConfig = {
   },
   trailingSlash: true,
   output: 'standalone',
-  swcMinify: true,
 };
 
 module.exports = nextConfig;
