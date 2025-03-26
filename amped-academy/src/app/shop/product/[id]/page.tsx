@@ -12,7 +12,7 @@ import ShareButton from '@/components/ShareButton';
 // Product data (same as in shop/page.tsx)
 const PRODUCTS = [
   {
-    id: "lee-fretmap-acoustic",
+    id: "price_1R70uCP5sBTJ16iOrCBTKMxq",
     name: "Lee Fretmap for Electric and Acoustic Guitar",
     description: "The perfect companion for acoustic guitarists. These stickers help you visualize chord patterns and scales across the entire fretboard, speeding up your learning process dramatically.",
     price: 24.99,
