@@ -12,8 +12,23 @@ export default function CheckoutPage() {
   const { items, totalPrice, clearCart } = useCart();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [stripeEnabled, setStripeEnabled] = useState(false);
+
+  useEffect(() => {
+    // Check if Stripe is properly configured
+    if (!process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY) {
+      setError('Stripe is not properly configured. Please contact support.');
+      return;
+    }
+    setStripeEnabled(true);
+  }, []);
 
   const handleCheckout = async () => {
+    if (!stripeEnabled) {
+      setError('Stripe is not properly configured. Please contact support.');
+      return;
+    }
+
     try {
       setLoading(true);
       setError(null);
@@ -43,7 +58,11 @@ export default function CheckoutPage() {
 
       // Redirect to Stripe Checkout
       const stripe = await stripePromise;
-      const { error: stripeError } = await stripe!.redirectToCheckout({
+      if (!stripe) {
+        throw new Error('Stripe failed to initialize');
+      }
+
+      const { error: stripeError } = await stripe.redirectToCheckout({
         sessionId,
       });
 
@@ -52,6 +71,8 @@ export default function CheckoutPage() {
       }
     } catch (err) {
       setError(err instanceof Error ? err.message : 'An error occurred');
+      console.error('Checkout error:', err);
+    } finally {
       setLoading(false);
     }
   };
