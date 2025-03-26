@@ -1,10 +1,6 @@
 {
   "version": 2,
   "framework": "nextjs",
-  "github": {
-    "enabled": true,
-    "silent": false
-  },
   "headers": [
     {
       "source": "/(.*)\\.webp",
