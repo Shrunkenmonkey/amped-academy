@@ -21,6 +21,16 @@ export const metadata: Metadata = {
     title: "Amped Academy Visual Guitar Learning System lee fretmap",
   },
   manifest: '/manifest.json',
+  viewport: {
+    width: 'device-width',
+    initialScale: 1,
+    maximumScale: 5,
+    userScalable: true,
+  },
+  other: {
+    'mobile-web-app-capable': 'yes',
+    'apple-mobile-web-app-capable': 'yes',
+  },
   icons: {
     icon: [
       { url: '/images/favicon-package/lightning-favicon-webp.webp', type: 'image/webp' },
