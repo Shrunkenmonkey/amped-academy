@@ -31,8 +31,6 @@ function BackgroundImageComponent({
     setIsLoaded(false);
   }, [src, webpSrc]);
 
-  const imageSizes = "(min-width: 1280px) 1280px, 100vw";
-
   return (
     <div className="h-full w-full relative">
       {!hasError && (
@@ -42,12 +40,12 @@ function BackgroundImageComponent({
               <source
                 srcSet={`${webpSrc} 1x, ${webpSrc} 2x`}
                 type="image/webp"
-                sizes={imageSizes}
+                sizes="100vw"
               />
               <source
                 srcSet={`${src} 1x, ${src} 2x`}
                 type="image/jpeg"
-                sizes={imageSizes}
+                sizes="100vw"
               />
               <Image 
                 src={src}
@@ -59,7 +57,7 @@ function BackgroundImageComponent({
                 style={{ opacity: opacity / 100 }}
                 onError={() => setHasError(true)}
                 onLoad={() => setIsLoaded(true)}
-                sizes={imageSizes}
+                sizes="100vw"
                 loading={priority ? "eager" : "lazy"}
               />
             </picture>
@@ -74,7 +72,7 @@ function BackgroundImageComponent({
               style={{ opacity: opacity / 100 }}
               onError={() => setHasError(true)}
               onLoad={() => setIsLoaded(true)}
-              sizes={imageSizes}
+              sizes="100vw"
               loading={priority ? "eager" : "lazy"}
             />
           )}
