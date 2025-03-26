@@ -1,12 +1,22 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { useCart } from '@/context/CartContext';
 import BackgroundImage from "@/components/BackgroundImage";
 import { CheckCircle } from 'lucide-react';
 
 export default function SuccessPage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen bg-gray-900 text-white flex items-center justify-center">
+      <div className="text-2xl">Loading...</div>
+    </div>}>
+      <SuccessContent />
+    </Suspense>
+  );
+}
+
+function SuccessContent() {
   const searchParams = useSearchParams();
   const { clearCart } = useCart();
   const sessionId = searchParams.get('session_id');
