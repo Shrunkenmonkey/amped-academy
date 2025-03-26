@@ -1,5 +1,6 @@
 import { memo } from 'react';
 import BackgroundImage from "./BackgroundImage";
+import { IMAGES } from '@/constants/images';
 
 interface PageHeroProps {
   title: string;
@@ -17,8 +18,8 @@ interface PageHeroProps {
 function PageHero({
   title,
   subtitle,
-  backgroundSrc = "/images/backgrounds/lightning-background jpg.jpg",
-  webpBackgroundSrc = "/images/backgrounds/lightning-background webp.webp",
+  backgroundSrc = IMAGES.backgrounds.lightning.jpg,
+  webpBackgroundSrc = IMAGES.backgrounds.lightning.webp,
   children,
   minHeight = "200px",
   backgroundAlt = "Background image",

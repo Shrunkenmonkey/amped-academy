@@ -1,5 +1,6 @@
 import BackgroundImage from "@/components/BackgroundImage";
 import { TEXT_STYLES } from "@/constants/styles";
+import { IMAGES } from '@/constants/images';
 
 interface HeroProps {
   title: string;
@@ -13,8 +14,8 @@ interface HeroProps {
 
 export default function Hero({ title, subtitle, backgroundImage }: HeroProps) {
   const defaultBackground = {
-    src: "/images/backgrounds/lightning-background jpg.jpg",
-    webpSrc: "/images/backgrounds/lightning-background webp.webp",
+    src: IMAGES.backgrounds.lightning.jpg,
+    webpSrc: IMAGES.backgrounds.lightning.webp,
     alt: "Lightning background"
   };
 
