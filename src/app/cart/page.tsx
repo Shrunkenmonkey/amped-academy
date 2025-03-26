@@ -3,7 +3,6 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { useRouter } from 'next/navigation';
 import { ArrowLeft, Trash2, ShoppingCart, CreditCard } from 'lucide-react';
 import { useCart } from '@/context/CartContext';
 import BackgroundImage from '@/components/BackgroundImage';
@@ -19,14 +18,8 @@ const TEXT_STYLES = {
 };
 
 export default function CartPage() {
-  const router = useRouter();
   const { items, removeFromCart, updateQuantity, totalItems, totalPrice } = useCart();
   const [couponCode, setCouponCode] = useState('');
-
-  // Handle checkout button
-  const handleCheckout = () => {
-    router.push('/shop/checkout');
-  };
 
   return (
     <div className="min-h-screen bg-gray-900 text-white">
@@ -168,13 +161,13 @@ export default function CartPage() {
                 </div>
               </div>
               
-              <button 
-                onClick={handleCheckout}
+              <Link 
+                href="/shop/checkout"
                 className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-md font-medium flex items-center justify-center gap-2"
               >
                 <CreditCard className="h-5 w-5" />
                 Proceed to Checkout
-              </button>
+              </Link>
             </div>
           </div>
         )}
