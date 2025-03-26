@@ -15,11 +15,6 @@ export const metadata: Metadata = {
   description: "Transform your guitar playing with the Lee Fretmap visual learning system. Color-coded fretboard stickers to master scales, chords, and modes.",
   keywords: ["guitar learning", "fretmap", "music education", "scales", "chords", "modes"],
   authors: [{ name: "Amped Academy" }],
-  viewport: {
-    width: 'device-width',
-    initialScale: 1,
-    maximumScale: 5,
-  },
   appleWebApp: {
     capable: true,
     statusBarStyle: 'default',
