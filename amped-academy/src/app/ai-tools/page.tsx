@@ -1,16 +1,8 @@
-'use client';
-
-import type { Metadata } from "next";
-import Link from "next/link";
+import Link from 'next/link';
+import Image from 'next/image';
 import { Music, Mic, Guitar, Wand2, Brain, Sparkles, Zap, LineChart, Lightbulb, Code2, Bot, Cpu, Database, Network, LineChart as LineChartIcon } from "lucide-react";
 import Hero from '@/components/Hero';
 import { SECTION_STYLES, BUTTON_STYLES } from '@/constants/styles';
-
-export const metadata: Metadata = {
-  title: "AI-Powered Music Tools | Amped Academy",
-  description: "Enhance your music learning and creation with Amped Academy's cutting-edge AI tools for composition, practice, performance analysis, and more.",
-  keywords: ["music AI tools", "AI composition tools", "AI music education", "machine learning in music", "AI-powered music practice"],
-};
 
 // Text shadow styles for glow effect
 const TEXT_STYLES = {
@@ -19,96 +11,11 @@ const TEXT_STYLES = {
   },
   shadowMedium: { 
     textShadow: "0 0 15px rgba(0, 0, 0, 0.9), 0 0 25px rgba(0, 0, 0, 0.8), 0 0 35px rgba(0, 0, 0, 0.7), 0 0 45px rgba(0, 0, 0, 0.6)"
+  },
+  shadowLight: { 
+    textShadow: "0 0 10px rgba(0, 0, 0, 0.9), 0 0 20px rgba(0, 0, 0, 0.8), 0 0 30px rgba(0, 0, 0, 0.7)"
   }
 };
-
-// Mock AI tools data - in a real application, this would come from a database or API
-const aiTools = [
-  {
-    id: "tool-1",
-    name: "Amped Composer",
-    description: "AI-powered composition assistant that helps you create original music by suggesting melodies, harmonies, and chord progressions based on your style preferences.",
-    features: [
-      "Smart melody generator based on your input",
-      "Chord progression suggestions",
-      "Style-matching for various genres",
-      "Export to MIDI or sheet music"
-    ],
-    icon: <Music className="h-6 w-6" />,
-    image: "/images/ai-tool-1.jpg",
-    comingSoon: false
-  },
-  {
-    id: "tool-2",
-    name: "Practice Analyzer",
-    description: "Advanced audio analysis tool that listens to your practice sessions and provides real-time feedback on timing, pitch accuracy, and expression.",
-    features: [
-      "Real-time pitch and rhythm analysis",
-      "Detailed performance metrics",
-      "Personalized improvement suggestions",
-      "Progress tracking over time"
-    ],
-    icon: <Zap className="h-6 w-6" />,
-    image: "/images/ai-tool-2.jpg",
-    comingSoon: false
-  },
-  {
-    id: "tool-3",
-    name: "Theory Helper",
-    description: "Interactive music theory assistant that explains concepts in context and helps you understand the theory behind your favorite songs and compositions.",
-    features: [
-      "Song analysis and theory explanation",
-      "Interactive lessons adapted to your level",
-      "Visual aids for complex concepts",
-      "Quiz and test functionality"
-    ],
-    icon: <Brain className="h-6 w-6" />,
-    image: "/images/ai-tool-3.jpg",
-    comingSoon: false
-  },
-  {
-    id: "tool-4",
-    name: "Arrangement Studio",
-    description: "AI-powered arrangement tool that helps transform your basic ideas into fully arranged compositions with instrument selection and orchestration suggestions.",
-    features: [
-      "Intelligent orchestration suggestions",
-      "Style-based arrangement templates",
-      "Dynamic mixing presets",
-      "Instrument role recommendation"
-    ],
-    icon: <Sparkles className="h-6 w-6" />,
-    image: "/images/ai-tool-4.jpg",
-    comingSoon: false
-  },
-  {
-    id: "tool-5",
-    name: "Lyrics Generator",
-    description: "Creative AI assistant that helps you craft lyrics by suggesting phrases, rhymes, and themes based on your input and emotional direction.",
-    features: [
-      "Theme-based lyric suggestions",
-      "Advanced rhyme patterns",
-      "Emotional tone matching",
-      "Structure templates for various song forms"
-    ],
-    icon: <Lightbulb className="h-6 w-6" />,
-    image: "/images/ai-tool-5.jpg",
-    comingSoon: true
-  },
-  {
-    id: "tool-6",
-    name: "Sound Designer",
-    description: "Next-generation sound design tool that uses AI to create unique instrument sounds, textures, and effects based on your descriptions.",
-    features: [
-      "Text-to-sound generation",
-      "Hybrid instrument creation",
-      "Parameter exploration with AI guidance",
-      "Export to popular plugin formats"
-    ],
-    icon: <Wand2 className="h-6 w-6" />,
-    image: "/images/ai-tool-6.jpg",
-    comingSoon: true
-  }
-];
 
 // Use cases for semantic relevance in SEO
 const useCases = [
@@ -126,11 +33,6 @@ const useCases = [
     title: "Music Education",
     description: "Learn music theory concepts more effectively with adaptive AI tools that adjust to your learning style and pace.",
     icon: <Brain className="h-8 w-8 text-indigo-600" />
-  },
-  {
-    title: "Production",
-    description: "Enhance your music production workflow with AI tools for arranging, mixing, and sound design.",
-    icon: <Sparkles className="h-8 w-8 text-indigo-600" />
   }
 ];
 
@@ -142,82 +44,29 @@ export default function AIToolsPage() {
         subtitle="Enhance Your Musical Journey with AI"
       />
 
-      {/* How AI Enhances Your Music section */}
-      <section className={`${SECTION_STYLES.section} bg-gray-800`}>
-        <div className={SECTION_STYLES.container}>
-          <div className="text-center mb-12">
-            <h2 className={SECTION_STYLES.heading}>How AI Enhances Your Music</h2>
-            <p className={SECTION_STYLES.subheading}>Our machine learning technology adapts to your unique musical style and learning needs.</p>
-          </div>
-
-          <div className={SECTION_STYLES.grid}>
-            {useCases.map((useCase, index) => (
-              <div key={index} className={SECTION_STYLES.card}>
-                <div className="w-12 h-12 mb-4 bg-gray-700 rounded-lg flex items-center justify-center text-blue-400">
-                  {useCase.icon}
-                </div>
-                <h3 className="text-xl font-semibold mb-2 text-white">{useCase.title}</h3>
-                <p className="text-gray-300">{useCase.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Tools section */}
-      <section className={SECTION_STYLES.section}>
-        <div className={SECTION_STYLES.container}>
-          <div className="text-center mb-12">
-            <h2 className={SECTION_STYLES.heading}>Our AI-Powered Music Tools</h2>
-            <p className={SECTION_STYLES.subheading}>Discover how our artificial intelligence tools can transform your musical practice, composition, and learning.</p>
-          </div>
-
-          <div className={SECTION_STYLES.grid}>
-            {aiTools.map((tool) => (
-              <div key={tool.id} className={SECTION_STYLES.card}>
-                <div className="relative h-48 bg-gray-700">
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="p-4 bg-gray-800/80 backdrop-blur-sm rounded-full">
-                      <div className="text-blue-400">
-                        {tool.icon}
-                      </div>
-                    </div>
-                  </div>
-                  {tool.comingSoon && (
-                    <div className="absolute top-2 right-2 bg-blue-600 text-white text-xs font-bold px-2 py-1 rounded">
-                      COMING SOON
-                    </div>
-                  )}
-                </div>
-                
-                <div className="p-6">
-                  <h3 className="text-xl font-semibold mb-2 text-white">{tool.name}</h3>
-                  <p className="text-gray-300 mb-4">{tool.description}</p>
-                  
-                  <div className="mb-4">
-                    <h4 className="text-sm font-semibold text-gray-300 mb-2">Key Features:</h4>
-                    <ul className="text-sm text-gray-400 space-y-1">
-                      {tool.features.map((feature, index) => (
-                        <li key={index} className="flex items-start">
-                          <span className="text-blue-400 mr-2">•</span>
-                          <span>{feature}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                  
-                  {!tool.comingSoon ? (
-                    <Link href={`/ai-tools/${tool.id}`} className={BUTTON_STYLES.primary}>
-                      Try Now
-                    </Link>
-                  ) : (
-                    <button className={BUTTON_STYLES.disabled}>
-                      Coming Soon
-                    </button>
-                  )}
-                </div>
-              </div>
-            ))}
+      {/* Clickable Image Section */}
+      <section className="py-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Link href="https://www.leefretmap.com" target="_blank" rel="noopener noreferrer">
+            <div className="relative w-full max-w-[400px] mx-auto">
+              <Image
+                src="/images/ai song generator image webp 400.webp"
+                alt="AI Song Generator"
+                width={400}
+                height={400}
+                className="w-full h-auto rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
+              />
+            </div>
+          </Link>
+          <div className="text-center mt-6">
+            <Link 
+              href="https://www.leefretmap.com" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="inline-block bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-md font-medium text-lg transition-colors duration-200"
+            >
+              Try it Free
+            </Link>
           </div>
         </div>
       </section>
