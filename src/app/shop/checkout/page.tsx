@@ -5,18 +5,51 @@ import { useCart } from '@/context/CartContext';
 import { loadStripe } from '@stripe/stripe-js';
 import BackgroundImage from "@/components/BackgroundImage";
 
-// Initialize Stripe
-const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!);
-
 export default function CheckoutPage() {
   const { items, totalPrice, clearCart } = useCart();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [stripe, setStripe] = useState<any>(null);
+
+  useEffect(() => {
+    // Initialize Stripe
+    const initStripe = async () => {
+      try {
+        const publishableKey = process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY;
+        if (!publishableKey) {
+          console.error('Stripe publishable key is missing');
+          setError('Payment system is not properly configured');
+          return;
+        }
+        
+        const stripeInstance = await loadStripe(publishableKey);
+        if (!stripeInstance) {
+          console.error('Failed to initialize Stripe');
+          setError('Failed to initialize payment system');
+          return;
+        }
+        
+        setStripe(stripeInstance);
+      } catch (err) {
+        console.error('Error initializing Stripe:', err);
+        setError('Error initializing payment system');
+      }
+    };
+
+    initStripe();
+  }, []);
 
   const handleCheckout = async () => {
+    if (!stripe) {
+      setError('Payment system is not ready. Please try again in a moment.');
+      return;
+    }
+
     try {
       setLoading(true);
       setError(null);
+
+      console.log('Creating checkout session with items:', items);
 
       // Create checkout session
       const response = await fetch('/api/create-checkout-session', {
@@ -26,29 +59,46 @@ export default function CheckoutPage() {
         },
         body: JSON.stringify({
           items: items.map(item => ({
-            priceId: item.id, // This should match your Stripe price ID
+            id: item.id, // This is the Stripe price ID
             quantity: item.quantity,
           })),
         }),
       });
 
-      const { sessionId, error } = await response.json();
+      console.log('Checkout session response status:', response.status);
+      const responseText = await response.text();
+      console.log('Checkout session response text:', responseText);
 
-      if (error) {
-        throw new Error(error);
+      let data;
+      try {
+        data = JSON.parse(responseText);
+      } catch (e) {
+        console.error('Failed to parse response as JSON:', e);
+        throw new Error('Invalid response from server');
       }
 
+      if (!response.ok) {
+        console.error('Checkout session error:', data);
+        throw new Error(data.error || 'Failed to create checkout session');
+      }
+
+      console.log('Checkout session created:', data);
+
+      const { sessionId } = data;
+
       // Redirect to Stripe Checkout
-      const stripe = await stripePromise;
-      const { error: stripeError } = await stripe!.redirectToCheckout({
+      const { error: stripeError } = await stripe.redirectToCheckout({
         sessionId,
       });
 
       if (stripeError) {
+        console.error('Stripe redirect error:', stripeError);
         throw new Error(stripeError.message);
       }
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'An error occurred');
+      console.error('Checkout error:', err);
+      setError(err instanceof Error ? err.message : 'An error occurred during checkout');
+    } finally {
       setLoading(false);
     }
   };

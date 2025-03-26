@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from "react";
+import { useState, memo } from "react";
 import Link from 'next/link';
 import Image from "next/image";
 import { Play, X, ArrowRight } from "lucide-react";
@@ -145,7 +145,7 @@ const VIDEO_CATEGORIES: VideoCategory[] = [
 ];
 
 // Video Card Component
-function VideoCard({ video, onOpenModal }: { video: Video; onOpenModal: (video: Video) => void }) {
+const VideoCard = memo(function VideoCard({ video, onOpenModal }: { video: Video; onOpenModal: (video: Video) => void }) {
   // Extract YouTube video ID
   const youtubeVideoId = video.youtubeLink?.split('/').pop() || '';
 
@@ -155,12 +155,17 @@ function VideoCard({ video, onOpenModal }: { video: Video; onOpenModal: (video: 
         <div className="aspect-w-16 aspect-h-9 relative">
           <div className="absolute inset-0 bg-gray-700 overflow-hidden">
             {video.youtubeLink ? (
-              <div className="relative w-full h-full cursor-pointer" onClick={() => onOpenModal(video)}>
+              <div 
+                className="relative w-full h-full cursor-pointer group" 
+                onClick={() => onOpenModal(video)}
+              >
                 <Image 
                   src={`https://img.youtube.com/vi/${youtubeVideoId}/hqdefault.jpg`}
                   alt={video.title}
                   fill
-                  className="object-cover hover:opacity-80 transition-opacity duration-200"
+                  className="object-cover group-hover:opacity-80 transition-opacity duration-200"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  priority={false}
                 />
               </div>
             ) : (
@@ -173,13 +178,12 @@ function VideoCard({ video, onOpenModal }: { video: Video; onOpenModal: (video: 
             )}
           </div>
         </div>
-        <div className="absolute bottom-2 right-2 bg-black bg-opacity-70 text-white text-xs px-2 py-1 rounded">
-          {video.duration}
-        </div>
       </div>
       <div className="p-4">
         <h3 className="text-lg font-semibold mb-2 text-white text-center">{video.title}</h3>
-        <p className="text-sm text-white mb-3 text-center">{video.description}</p>
+        {video.description && (
+          <p className="text-sm text-white mb-3 text-center">{video.description}</p>
+        )}
         <div className="flex justify-between items-center">
           <span className="text-sm text-white font-medium">
             By {video.instructor}
@@ -194,15 +198,23 @@ function VideoCard({ video, onOpenModal }: { video: Video; onOpenModal: (video: 
       </div>
     </div>
   );
-}
+});
+
+VideoCard.displayName = 'VideoCard';
 
 // Video Modal Component
-function VideoModal({ video, onClose }: { video: Video; onClose: () => void }) {
+const VideoModal = memo(function VideoModal({ video, onClose }: { video: Video; onClose: () => void }) {
   // Extract YouTube video ID
   const youtubeVideoId = video.youtubeLink?.split('/').pop() || '';
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-90 z-50 flex items-center justify-center p-4">
+    <div 
+      className="fixed inset-0 bg-black bg-opacity-90 z-50 flex items-center justify-center p-4"
+      onClick={(e) => {
+        // Close modal when clicking the backdrop
+        if (e.target === e.currentTarget) onClose();
+      }}
+    >
       <div className="bg-gray-900 rounded-lg overflow-hidden max-w-5xl w-full max-h-[90vh] flex flex-col">
         <div className="p-4 border-b border-gray-800 flex justify-between items-center">
           <div className="text-center flex-grow">
@@ -219,6 +231,7 @@ function VideoModal({ video, onClose }: { video: Video; onClose: () => void }) {
             <button 
               onClick={onClose} 
               className="text-gray-300 hover:text-white p-1"
+              aria-label="Close modal"
             >
               <X className="h-6 w-6" />
             </button>
@@ -228,10 +241,11 @@ function VideoModal({ video, onClose }: { video: Video; onClose: () => void }) {
           <div className="aspect-w-16 aspect-h-9 w-full h-full">
             {video.youtubeLink ? (
               <iframe
-                src={`https://www.youtube.com/embed/${youtubeVideoId}?autoplay=1`}
+                src={`https://www.youtube.com/embed/${youtubeVideoId}?autoplay=1&rel=0&cc_load_policy=0&cc_lang_pref=&yt:cc=0`}
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
                 className="w-full h-full"
+                title={`${video.title} video player`}
               ></iframe>
             ) : (
               <div className="w-full h-full flex items-center justify-center bg-gray-800 text-gray-400">
@@ -243,17 +257,31 @@ function VideoModal({ video, onClose }: { video: Video; onClose: () => void }) {
       </div>
     </div>
   );
-}
+});
+
+VideoModal.displayName = 'VideoModal';
 
 // Category Section Component
-function CategorySection({ category, onOpenModal }: { category: VideoCategory; onOpenModal: (video: Video) => void }) {
+const CategorySection = memo(function CategorySection({ 
+  category, 
+  onOpenModal 
+}: { 
+  category: VideoCategory; 
+  onOpenModal: (video: Video) => void 
+}) {
   return (
     <div className="mb-16">
       <div className="mb-6 text-center">
         <h2 className="text-4xl font-bold text-white mb-3 text-center">{category.title}</h2>
         <p className="text-lg text-white opacity-80">{category.description}</p>
       </div>
-      <div className={`grid gap-6 ${category.videos.length === 1 ? 'grid-cols-1 sm:grid-cols-3 lg:grid-cols-3' : 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3'}`}>
+      <div 
+        className={`grid gap-6 ${
+          category.videos.length === 1 
+            ? 'grid-cols-1 sm:grid-cols-3 lg:grid-cols-3' 
+            : 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3'
+        }`}
+      >
         {category.videos.length === 1 ? (
           <div className="sm:col-start-2">
             <VideoCard video={category.videos[0]} onOpenModal={onOpenModal} />
@@ -266,7 +294,9 @@ function CategorySection({ category, onOpenModal }: { category: VideoCategory; o
       </div>
     </div>
   );
-}
+});
+
+CategorySection.displayName = 'CategorySection';
 
 // Main Page Component
 export default function VideosPage() {

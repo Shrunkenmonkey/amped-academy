@@ -127,7 +127,7 @@ const FAQS = [
 // Product options
 const PRODUCTS = [
   {
-    id: "lee-fretmap-acoustic",
+    id: "price_1R70uCP5sBTJ16iOrCBTKMxq",
     name: "Lee Fretmap for Electric and Acoustic Guitar",
     price: 24.99,
     image: "/images/Product images/products jpg 400px/guitar jpg 400.jpg",
@@ -135,7 +135,7 @@ const PRODUCTS = [
     popular: true,
   },
   {
-    id: "lee-fretmap-electric",
+    id: "price_YOUR_ELECTRIC_PENTATONIC_PRICE_ID",
     name: "Lee Fretmap for Electric Guitar - Pentatonic Blues",
     price: 24.99,
     image: "/images/Product images/products jpg 400px/guitar pentatonic blues jpg 400.jpg",
@@ -143,7 +143,7 @@ const PRODUCTS = [
     popular: false,
   },
   {
-    id: "lee-fretmap-classical",
+    id: "price_YOUR_CLASSICAL_PRICE_ID",
     name: "Lee Fretmap for Classical Nylon String Guitar",
     price: 24.99,
     image: "/images/Product images/products jpg 400px/guitar classical nylon jpg 400.jpg",

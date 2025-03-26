@@ -1,17 +1,18 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { useParams } from 'next/navigation';
-import { ArrowLeft, Star, ShoppingCart, Share2, Heart, X } from 'lucide-react';
+import { useParams, useRouter } from 'next/navigation';
+import { ArrowLeft, Star, ShoppingCart, X } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
 import BackgroundImage from '@/components/BackgroundImage';
 import { useCart } from '@/context/CartContext';
+import ShareButton from '@/components/ShareButton';
 
 // Product data (same as in shop/page.tsx)
 const PRODUCTS = [
   {
-    id: "lee-fretmap-acoustic",
+    id: "price_1R70uCP5sBTJ16iOrCBTKMxq",
     name: "Lee Fretmap for Electric and Acoustic Guitar",
     description: "The perfect companion for acoustic guitarists. These stickers help you visualize chord patterns and scales across the entire fretboard, speeding up your learning process dramatically.",
     price: 24.99,
@@ -29,7 +30,7 @@ const PRODUCTS = [
     ]
   },
   {
-    id: "lee-fretmap-electric",
+    id: "price_YOUR_ELECTRIC_PENTATONIC_PRICE_ID",
     name: "Lee Fretmap for Electric Guitar - Pentatonic Blues",
     description: "Unlock the secrets of blues pentatonic scales with our electric guitar fretmap. Perfect for blues, rock, and jazz players looking to master improvisation.",
     price: 24.99,
@@ -47,7 +48,7 @@ const PRODUCTS = [
     ]
   },
   {
-    id: "lee-fretmap-classical",
+    id: "price_YOUR_CLASSICAL_PRICE_ID",
     name: "Lee Fretmap for Classical Nylon String Guitar",
     description: "Designed specifically for nylon-string classical guitars. These stickers help you navigate the fretboard while learning classical pieces and techniques.",
     price: 24.99,
@@ -168,6 +169,7 @@ const TEXT_STYLES = {
 
 export default function ProductPage() {
   const params = useParams();
+  const router = useRouter();
   const [product, setProduct] = useState<typeof PRODUCTS[0] | null>(null);
   const [loading, setLoading] = useState(true);
   const [quantity, setQuantity] = useState(1);
@@ -197,6 +199,7 @@ export default function ProductPage() {
           image: product.image,
         });
       }
+      router.push('/cart'); // Navigate to cart page after adding items
     }
   };
 
@@ -338,12 +341,11 @@ export default function ProductPage() {
                   <ShoppingCart className="w-5 h-5 mr-2" />
                   Add to Cart
                 </button>
-                <button className="bg-gray-700 hover:bg-gray-600 text-white px-4 py-3 rounded-md font-medium flex items-center justify-center">
-                  <Heart className="w-5 h-5" />
-                </button>
-                <button className="bg-gray-700 hover:bg-gray-600 text-white px-4 py-3 rounded-md font-medium flex items-center justify-center">
-                  <Share2 className="w-5 h-5" />
-                </button>
+                <ShareButton 
+                  title={product.name}
+                  url={`${process.env.NEXT_PUBLIC_BASE_URL}/shop/product/${product.id}`}
+                  description={product.description}
+                />
               </div>
             </div>
           </div>

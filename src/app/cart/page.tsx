@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 import { ArrowLeft, Trash2, ShoppingCart, CreditCard } from 'lucide-react';
 import { useCart } from '@/context/CartContext';
 import BackgroundImage from '@/components/BackgroundImage';
@@ -18,13 +19,13 @@ const TEXT_STYLES = {
 };
 
 export default function CartPage() {
+  const router = useRouter();
   const { items, removeFromCart, updateQuantity, totalItems, totalPrice } = useCart();
   const [couponCode, setCouponCode] = useState('');
 
   // Handle checkout button
   const handleCheckout = () => {
-    alert('Checkout functionality would be integrated here.');
-    // Implement actual checkout logic as needed
+    router.push('/shop/checkout');
   };
 
   return (
