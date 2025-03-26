@@ -127,7 +127,7 @@ const FAQS = [
 // Product options
 const PRODUCTS = [
   {
-    id: "lee-fretmap-acoustic",
+    id: "price_1OvXXXXXXXXXXXXX",
     name: "Lee Fretmap for Electric and Acoustic Guitar",
     price: 24.99,
     image: "/images/Product images/products jpg 400px/guitar jpg 400.jpg",
@@ -135,7 +135,7 @@ const PRODUCTS = [
     popular: true,
   },
   {
-    id: "lee-fretmap-electric",
+    id: "price_2OvXXXXXXXXXXXXX",
     name: "Lee Fretmap for Electric Guitar - Pentatonic Blues",
     price: 24.99,
     image: "/images/Product images/products jpg 400px/guitar pentatonic blues jpg 400.jpg",

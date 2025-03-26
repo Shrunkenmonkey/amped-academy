@@ -24,16 +24,9 @@ export async function POST(req: Request) {
       );
     }
 
-    // Create line items for Stripe
+    // Create line items for Stripe using price IDs
     const lineItems = items.map(item => ({
-      price_data: {
-        currency: 'usd',
-        product_data: {
-          name: item.name,
-          images: item.image ? [item.image] : undefined,
-        },
-        unit_amount: Math.round(item.price * 100), // Convert to cents
-      },
+      price: item.id, // This should be the Stripe price ID
       quantity: item.quantity,
     }));
 
@@ -45,6 +38,9 @@ export async function POST(req: Request) {
       mode: 'payment',
       success_url: `${req.headers.get('origin')}/shop/success?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${req.headers.get('origin')}/shop`,
+      shipping_address_collection: {
+        allowed_countries: ['US', 'CA', 'GB', 'AU', 'NZ'], // Add more countries as needed
+      },
     });
 
     console.log('Stripe session created:', session.id);
