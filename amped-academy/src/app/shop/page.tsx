@@ -1,9 +1,12 @@
+'use client';
+
 import { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, Star, CheckCircle, ShoppingCart, Play, Zap, Users } from 'lucide-react';
 import Image from "next/image";
 import BackgroundImage from "@/components/BackgroundImage";
 import { ProductCard } from "@/components/ProductCard";
+import { useCart } from '@/context/CartContext';
 
 export const metadata: Metadata = {
   title: "Lee Fretmap Stickers | Guitar Learning Tools | Amped Academy",
@@ -135,7 +138,7 @@ const PRODUCTS = [
     popular: true,
   },
   {
-    id: "lee-fretmap-electric",
+    id: "price_YOUR_ELECTRIC_PENTATONIC_PRICE_ID",
     name: "Lee Fretmap for Electric Guitar - Pentatonic Blues",
     price: 24.99,
     image: "/images/Product images/products jpg 400px/guitar pentatonic blues jpg 400.jpg",
@@ -143,7 +146,7 @@ const PRODUCTS = [
     popular: false,
   },
   {
-    id: "lee-fretmap-classical",
+    id: "price_YOUR_CLASSICAL_PRICE_ID",
     name: "Lee Fretmap for Classical Nylon String Guitar",
     price: 24.99,
     image: "/images/Product images/products jpg 400px/guitar classical nylon jpg 400.jpg",
@@ -151,7 +154,7 @@ const PRODUCTS = [
     popular: false,
   },
   {
-    id: "lee-fretmap-bass",
+    id: "price_YOUR_BASS_PRICE_ID",
     name: "Lee Fretmap for Bass Guitar",
     price: 24.99,
     image: "/images/Product images/products jpg 400px/bass jpg 400.jpg",
@@ -159,7 +162,7 @@ const PRODUCTS = [
     popular: false,
   },
   {
-    id: "lee-fretmap-harmonic-minor",
+    id: "price_YOUR_HARMONIC_MINOR_PRICE_ID",
     name: "Lee Fretmap for Guitar - Harmonic Minor",
     price: 24.99,
     image: "/images/Product images/products jpg 400px/guitar harmonic minor jpg 400.jpg",
@@ -167,7 +170,7 @@ const PRODUCTS = [
     popular: false,
   },
   {
-    id: "lee-fretmap-bass-pentatonic",
+    id: "price_YOUR_BASS_PENTATONIC_PRICE_ID",
     name: "Lee Fretmap for Bass - Pentatonic Blues",
     price: 24.99,
     image: "/images/Product images/products jpg 400px/bass pentatonic blues jpg 400.jpg",
@@ -175,7 +178,7 @@ const PRODUCTS = [
     popular: false,
   },
   {
-    id: "lee-fretmap-piano",
+    id: "price_YOUR_PIANO_PRICE_ID",
     name: "Lee Fretmap for Piano/Keyboard",
     price: 24.99,
     image: "/images/Product images/products jpg 400px/piano keyboard jpg 400.jpg",
@@ -183,7 +186,7 @@ const PRODUCTS = [
     popular: false,
   },
   {
-    id: "lee-fretmap-ukulele",
+    id: "price_YOUR_UKULELE_PRICE_ID",
     name: "Lee Fretmap for Ukulele",
     price: 24.99,
     image: "/images/Product images/products jpg 400px/ukulele jpg 400.jpg",
@@ -280,6 +283,15 @@ export default function ShopPage() {
         </div>
         
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-end mb-4">
+            <Link 
+              href="/shop/checkout"
+              className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-md font-medium transition-colors duration-200 flex items-center"
+            >
+              <ShoppingCart className="w-5 h-5 mr-2" />
+              Checkout
+            </Link>
+          </div>
           <div className="text-center py-12">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-white" style={TEXT_STYLES.shadowHeavy}>
               Shop

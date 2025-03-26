@@ -31,7 +31,6 @@ function ProductCardComponent({ product }: ProductCardProps) {
       price: product.price,
       image: product.image,
     });
-    router.push('/shop/checkout'); // Navigate to checkout page after adding item
   };
 
   return (
