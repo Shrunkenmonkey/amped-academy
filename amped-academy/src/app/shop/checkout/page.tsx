@@ -26,17 +26,20 @@ export default function CheckoutPage() {
         },
         body: JSON.stringify({
           items: items.map(item => ({
-            priceId: item.id, // This should match your Stripe price ID
+            name: item.name,
+            price: item.price,
             quantity: item.quantity,
+            image: item.image,
           })),
         }),
       });
 
-      const { sessionId, error } = await response.json();
-
-      if (error) {
-        throw new Error(error);
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.error || 'Failed to create checkout session');
       }
+
+      const { sessionId } = await response.json();
 
       // Redirect to Stripe Checkout
       const stripe = await stripePromise;
