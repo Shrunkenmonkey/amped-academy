@@ -162,7 +162,7 @@ export default function CartPage() {
               </div>
               
               <Link 
-                href="/shop/checkout"
+                href="/shop/checkout/"
                 className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-md font-medium flex items-center justify-center gap-2"
               >
                 <CreditCard className="h-5 w-5" />

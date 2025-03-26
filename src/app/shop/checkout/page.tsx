@@ -5,7 +5,7 @@ import { useCart } from '@/context/CartContext';
 import { loadStripe } from '@stripe/stripe-js';
 import BackgroundImage from "@/components/BackgroundImage";
 
-export default function CheckoutPage() {
+const CheckoutPage = () => {
   const { items, totalPrice, clearCart } = useCart();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -189,4 +189,6 @@ export default function CheckoutPage() {
       </div>
     </div>
   );
-} 
+};
+
+export default CheckoutPage; 
