@@ -59,10 +59,8 @@ export default function CheckoutPage() {
         },
         body: JSON.stringify({
           items: items.map(item => ({
-            name: item.name,
-            price: item.price,
+            id: item.id, // This is the Stripe price ID
             quantity: item.quantity,
-            image: item.image,
           })),
         }),
       });
