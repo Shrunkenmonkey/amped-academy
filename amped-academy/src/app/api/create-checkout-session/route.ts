@@ -3,6 +3,9 @@ import { stripe } from '@/lib/stripe';
 
 export async function POST(req: Request) {
   try {
+    console.log('Received checkout request');
+    console.log('STRIPE_SECRET_KEY exists:', !!process.env.STRIPE_SECRET_KEY);
+
     if (!process.env.STRIPE_SECRET_KEY) {
       console.error('STRIPE_SECRET_KEY is not configured');
       return NextResponse.json(
@@ -12,9 +15,10 @@ export async function POST(req: Request) {
     }
 
     const body = await req.json();
-    console.log('Received checkout request:', body);
+    console.log('Request body:', body);
 
     const { items } = body;
+    console.log('Items from request:', items);
 
     if (!items || !Array.isArray(items) || items.length === 0) {
       console.error('Invalid items in request:', items);
@@ -32,6 +36,22 @@ export async function POST(req: Request) {
 
     console.log('Creating Stripe session with line items:', lineItems);
 
+    // Verify the price exists in Stripe
+    try {
+      for (const item of lineItems) {
+        console.log('Verifying price:', item.price);
+        const price = await stripe.prices.retrieve(item.price);
+        console.log(`Verified price ${item.price}:`, price);
+      }
+    } catch (error) {
+      console.error('Error verifying price:', error);
+      return NextResponse.json(
+        { error: `Invalid price ID: ${error instanceof Error ? error.message : 'Unknown error'}` },
+        { status: 400 }
+      );
+    }
+
+    console.log('Creating Stripe checkout session...');
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ['card'],
       line_items: lineItems,
@@ -43,7 +63,7 @@ export async function POST(req: Request) {
       },
     });
 
-    console.log('Stripe session created:', session.id);
+    console.log('Stripe session created successfully:', session.id);
 
     return NextResponse.json({ sessionId: session.id });
   } catch (error) {

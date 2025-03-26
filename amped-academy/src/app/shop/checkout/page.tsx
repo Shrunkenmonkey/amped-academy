@@ -5,7 +5,7 @@ import { useCart } from '@/context/CartContext';
 import { loadStripe } from '@stripe/stripe-js';
 import BackgroundImage from "@/components/BackgroundImage";
 
-export default function CheckoutPage() {
+const CheckoutPage = () => {
   const { items, totalPrice, clearCart } = useCart();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -15,14 +15,20 @@ export default function CheckoutPage() {
     // Initialize Stripe
     const initStripe = async () => {
       try {
+        console.log('Initializing Stripe...');
         const publishableKey = process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY;
+        console.log('Publishable key exists:', !!publishableKey);
+        
         if (!publishableKey) {
           console.error('Stripe publishable key is missing');
           setError('Payment system is not properly configured');
           return;
         }
         
+        console.log('Loading Stripe instance...');
         const stripeInstance = await loadStripe(publishableKey);
+        console.log('Stripe instance loaded:', !!stripeInstance);
+        
         if (!stripeInstance) {
           console.error('Failed to initialize Stripe');
           setError('Failed to initialize payment system');
@@ -40,7 +46,11 @@ export default function CheckoutPage() {
   }, []);
 
   const handleCheckout = async () => {
+    console.log('Checkout button clicked');
+    console.log('Stripe instance exists:', !!stripe);
+    
     if (!stripe) {
+      console.error('Stripe not initialized');
       setError('Payment system is not ready. Please try again in a moment.');
       return;
     }
@@ -66,19 +76,28 @@ export default function CheckoutPage() {
       });
 
       console.log('Checkout session response status:', response.status);
+      const responseText = await response.text();
+      console.log('Checkout session response text:', responseText);
 
-      if (!response.ok) {
-        const errorData = await response.json();
-        console.error('Checkout session error:', errorData);
-        throw new Error(errorData.error || 'Failed to create checkout session');
+      let data;
+      try {
+        data = JSON.parse(responseText);
+      } catch (e) {
+        console.error('Failed to parse response as JSON:', e);
+        throw new Error('Invalid response from server');
       }
 
-      const data = await response.json();
+      if (!response.ok) {
+        console.error('Checkout session error:', data);
+        throw new Error(data.error || 'Failed to create checkout session');
+      }
+
       console.log('Checkout session created:', data);
 
       const { sessionId } = data;
 
       // Redirect to Stripe Checkout
+      console.log('Redirecting to Stripe Checkout with session:', sessionId);
       const { error: stripeError } = await stripe.redirectToCheckout({
         sessionId,
       });
@@ -181,4 +200,6 @@ export default function CheckoutPage() {
       </div>
     </div>
   );
-} 
+};
+
+export default CheckoutPage; 
