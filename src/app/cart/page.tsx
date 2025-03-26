@@ -23,12 +23,6 @@ export default function CartPage() {
   const [couponCode, setCouponCode] = useState('');
   const router = useRouter();
 
-  const handleCheckoutClick = () => {
-    console.log('Checkout button clicked');
-    console.log('Current items:', items);
-    router.push('/shop/checkout');
-  };
-
   return (
     <div className="min-h-screen bg-gray-900 text-white">
       {/* Hero Section */}
@@ -169,13 +163,19 @@ export default function CartPage() {
                 </div>
               </div>
               
-              <button 
-                onClick={handleCheckoutClick}
+              <Link 
+                href="/shop/checkout"
+                onClick={(e) => {
+                  e.preventDefault();
+                  console.log('Checkout button clicked');
+                  console.log('Current items:', items);
+                  router.push('/shop/checkout');
+                }}
                 className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-md font-medium flex items-center justify-center gap-2"
               >
                 <CreditCard className="h-5 w-5" />
                 Proceed to Checkout
-              </button>
+              </Link>
             </div>
           </div>
         )}
