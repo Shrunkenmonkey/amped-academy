@@ -51,6 +51,12 @@ export default function LessonsPage() {
             >
               View PDF Guide
             </Link>
+            <Link 
+              href="/videos" 
+              className="px-6 py-3 bg-blue-600 text-white font-medium rounded-md text-center hover:bg-blue-700"
+            >
+              Watch Videos
+            </Link>
           </div>
           
           <div className="text-gray-300">
@@ -61,10 +67,16 @@ export default function LessonsPage() {
             
             <h3 className="text-xl font-semibold mt-6 mb-2 text-center">What You'll Learn</h3>
             <ul className="list-disc pl-6 space-y-2">
-              <li>How to apply Lee Fretmap stickers to your guitar</li>
-              <li>Understanding the color-coding system</li>
-              <li>Basic music theory concepts</li>
-              <li>Practice exercises and tips</li>
+              <li>How to navigate the fretboard easily</li>
+              <li>Basics of notes and scales</li>
+              <li>Simple music theory for guitar</li>
+              <li>Playing major and minor scales</li>
+              <li>Exercises to improve fretboard skills</li>
+              <li>Building common chords</li>
+              <li>Using pentatonic scales for solos</li>
+              <li>Understanding chord progressions</li>
+              <li>Adding advanced chords like 7ths</li>
+              <li>Exploring musical modes</li>
             </ul>
           </div>
         </div>
@@ -78,14 +90,6 @@ export default function LessonsPage() {
               <p className="text-gray-300 mb-3 text-center">
                 Watch step-by-step demonstrations and technique guides.
               </p>
-              <div className="text-center">
-                <Link 
-                  href="/videos" 
-                  className="text-blue-400 hover:text-blue-300 font-medium"
-                >
-                  Browse Videos
-                </Link>
-              </div>
             </div>
             
             <div>
@@ -93,14 +97,6 @@ export default function LessonsPage() {
               <p className="text-gray-300 mb-3 text-center">
                 Practice with backing tracks specifically for Lee Fretmap users.
               </p>
-              <div className="text-center">
-                <Link 
-                  href="/resources" 
-                  className="text-blue-400 hover:text-blue-300 font-medium"
-                >
-                  Download Tracks
-                </Link>
-              </div>
             </div>
           </div>
         </div>

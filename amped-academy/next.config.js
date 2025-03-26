@@ -9,7 +9,7 @@ const nextConfig = {
   },
   images: {
     domains: ['img.youtube.com'],
-    unoptimized: process.env.NODE_ENV !== 'production',
+    unoptimized: false,
     formats: ['image/avif', 'image/webp'],
     minimumCacheTTL: 60,
   },
@@ -20,6 +20,8 @@ const nextConfig = {
     optimizePackageImports: ['lucide-react'],
   },
   trailingSlash: true,
+  output: 'standalone',
+  swcMinify: true,
 };
 
 module.exports = nextConfig;

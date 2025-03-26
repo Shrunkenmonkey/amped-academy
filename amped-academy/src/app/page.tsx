@@ -26,9 +26,9 @@ const testimonials = [
   },
   {
     id: 3,
-    name: "Alex D.",
-    role: "Online Content Creator",
-    content: "As someone creating guitar content for social media, these stickers helped me visualize patterns I couldn't see before. My followers have noticed my improved playing too!",
+    name: "John Lewis",
+    role: "Guitar enthusiast",
+    content: "Learning music theory took my guitar playing to the next level. It helped me break through the intermediate hump, and now I can improvise with ease. I feel more confident and free when I play!",
     rating: 5,
   },
 ];

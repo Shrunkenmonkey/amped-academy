@@ -1,10 +1,12 @@
 'use client';
 
 import { useState } from "react";
-import Link from "next/link";
+import Link from 'next/link';
 import Image from "next/image";
-import { Play, X } from "lucide-react";
+import { Play, X, ArrowRight } from "lucide-react";
 import BackgroundImage from "@/components/BackgroundImage";
+import Hero from '@/components/Hero';
+import { SECTION_STYLES, BUTTON_STYLES } from '@/constants/styles';
 
 // Video Types
 interface Video {
@@ -43,28 +45,13 @@ const VIDEO_CATEGORIES: VideoCategory[] = [
     videos: [
       {
         id: "begin-1",
-        title: "Getting Started with Guitar",
-        instructor: "Mark Thompson",
+        title: "How To Install The Fret Maps",
+        instructor: "Amped Academy",
         duration: "12:45",
         thumbnail: "/images/video-thumb-1.jpg",
-        description: "Learn the fundamentals of guitar playing with this comprehensive introduction for absolute beginners."
-      },
-      {
-        id: "begin-2",
-        title: "Piano Basics: Hand Positioning",
-        instructor: "Sarah Chen",
-        duration: "15:30",
-        thumbnail: "/images/video-thumb-2.jpg",
-        description: "Master the correct hand positioning and posture for piano playing to build a solid foundation."
-      },
-      {
-        id: "begin-3",
-        title: "Understanding Music Notation",
-        instructor: "David Rodriguez",
-        duration: "18:20",
-        thumbnail: "/images/video-thumb-3.jpg",
-        description: "A complete guide to reading music notation, from notes and rests to time signatures and key signatures."
-      },
+        description: "This video provides a step-by-step guide on installing a fret map for your guitar",
+        youtubeLink: "https://youtu.be/UpqD5kxtUk4"
+      }
     ]
   },
   {
@@ -74,46 +61,85 @@ const VIDEO_CATEGORIES: VideoCategory[] = [
     videos: [
       {
         id: "adv-1",
-        title: "Jazz Improvisation Masterclass",
-        instructor: "Robert Hayes",
-        duration: "35:20",
+        title: "BB King Style Backing Track in A minor",
+        instructor: "Amped Academy",
+        duration: "5:03",
         thumbnail: "/images/video-thumb-7.jpg",
-        description: "Dive deep into the art of jazz improvisation with techniques from bebop to modern jazz approaches."
+        description: "",
+        youtubeLink: "https://youtu.be/nn6lvFzYyCg"
       },
       {
         id: "adv-2",
-        title: "Classical Composition: Form and Structure",
-        instructor: "Elizabeth Chen",
-        duration: "42:15",
+        title: "Stevie Ray Vaughn Style Backing Track",
+        instructor: "Amped Academy",
+        duration: "5:03",
         thumbnail: "/images/video-thumb-8.jpg",
-        description: "Learn the principles of classical composition including sonata form, theme and variations, and more."
+        description: "",
+        youtubeLink: "https://youtu.be/WC0yG1yIFLI"
       },
       {
         id: "adv-3",
-        title: "Studio Production Techniques",
-        instructor: "James Wilson",
-        duration: "38:30",
+        title: "Basic Backing track Chord play along",
+        instructor: "Amped Academy",
+        duration: "5:03",
         thumbnail: "/images/video-thumb-9.jpg",
-        description: "Professional studio production techniques covering mixing, mastering, and advanced sound design."
+        description: "",
+        youtubeLink: "https://youtu.be/5GKpDxxoczs"
       },
       {
         id: "adv-4",
-        title: "A Minor 12 Bar Blues Backing Track",
+        title: "SRV Slow Backing Track",
         instructor: "Amped Academy",
         duration: "5:03",
         thumbnail: "/images/video-thumb-10.jpg",
-        description: "Jimmy Page style 12 bar blues backing track in A minor for guitar practice and improvisation",
-        youtubeLink: "https://youtu.be/BQq2YNgcgo8"
+        description: "",
+        youtubeLink: "https://youtu.be/NN4-G_z9cDk"
       },
       {
         id: "adv-5",
-        title: "Hard Rock Backing Track in Am",
+        title: "Chord Play Along",
         instructor: "Amped Academy",
         duration: "6:21",
         thumbnail: "/images/video-thumb-11.jpg",
-        description: "Hard rock backing track in A minor perfect for practicing solos and improvisation",
+        description: "",
+        youtubeLink: "https://youtu.be/g4u5TX1AiqE"
+      },
+      {
+        id: "adv-6",
+        title: "ZZ Top Billy Gibbons Style Backing",
+        instructor: "Amped Academy",
+        duration: "5:03",
+        thumbnail: "/images/video-thumb-12.jpg",
+        description: "",
+        youtubeLink: "https://youtu.be/0C_zNxIUL0M"
+      },
+      {
+        id: "adv-7",
+        title: "Blues Blue Note Backing Track",
+        instructor: "Amped Academy",
+        duration: "5:03",
+        thumbnail: "/images/video-thumb-13.jpg",
+        description: "",
+        youtubeLink: "https://youtu.be/q9y2gB4Jwn4"
+      },
+      {
+        id: "adv-8",
+        title: "Jimmy Page Led Zepplin Style Backing",
+        instructor: "Amped Academy",
+        duration: "5:03",
+        thumbnail: "/images/video-thumb-14.jpg",
+        description: "",
         youtubeLink: "https://youtu.be/BQq2YNgcgo8"
       },
+      {
+        id: "adv-9",
+        title: "Mark Knopfler Dire Straits Style Backing",
+        instructor: "Amped Academy",
+        duration: "5:03",
+        thumbnail: "/images/video-thumb-15.jpg",
+        description: "",
+        youtubeLink: "https://youtu.be/4x5azuwKBpE"
+      }
     ]
   },
 ];
@@ -227,19 +253,16 @@ function CategorySection({ category, onOpenModal }: { category: VideoCategory; o
         <h2 className="text-4xl font-bold text-white mb-3 text-center">{category.title}</h2>
         <p className="text-lg text-white opacity-80">{category.description}</p>
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {category.videos.map(video => (
-          <VideoCard key={video.id} video={video} onOpenModal={onOpenModal} />
-        ))}
-      </div>
-      
-      <div className="mt-8 text-center">
-        <Link 
-          href={`/videos/category/${category.id}`} 
-          className="inline-flex items-center px-6 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-md font-medium transition-colors duration-200"
-        >
-          View all {category.title} <span className="ml-1">→</span>
-        </Link>
+      <div className={`grid gap-6 ${category.videos.length === 1 ? 'grid-cols-1 sm:grid-cols-3 lg:grid-cols-3' : 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3'}`}>
+        {category.videos.length === 1 ? (
+          <div className="sm:col-start-2">
+            <VideoCard video={category.videos[0]} onOpenModal={onOpenModal} />
+          </div>
+        ) : (
+          category.videos.map(video => (
+            <VideoCard key={video.id} video={video} onOpenModal={onOpenModal} />
+          ))
+        )}
       </div>
     </div>
   );

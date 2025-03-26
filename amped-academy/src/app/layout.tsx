@@ -23,8 +23,8 @@ export const metadata: Metadata = {
   manifest: '/manifest.json',
   icons: {
     icon: [
-      { url: '/images/favicon-package/lightning-favicon-windows-48px.png', type: 'image/png', sizes: '48x48' },
       { url: '/images/favicon-package/lightning-favicon-webp.webp', type: 'image/webp' },
+      { url: '/images/favicon-package/lightning-favicon-windows-48px.png', type: 'image/png', sizes: '48x48' },
       { url: '/images/favicon-package/amped-favicon-png.png', type: 'image/png' },
       { url: '/favicon.ico', sizes: 'any' }
     ],

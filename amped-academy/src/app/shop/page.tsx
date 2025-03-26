@@ -35,7 +35,7 @@ const FEATURES = [
   },
   {
     title: "Removable & Safe",
-    description: "Apply and remove cleanly without damaging your instrument.",
+    description: "Crafted with a special adhesive that makes peeling them off a breeze, leaving behind almost no mess.",
     icon: <CheckCircle className="h-6 w-6" />,
   },
   {
@@ -98,29 +98,29 @@ const TESTIMONIALS = [
     text: "I was skeptical at first, but these stickers helped me make connections I was missing. The colors make music theory much more intuitive!",
   },
   {
-    name: "Alex D.",
-    title: "Online Content Creator",
-    text: "As someone creating guitar content for social media, these stickers helped me visualize patterns I couldn't see before. My followers have noticed!",
+    name: "John Lewis",
+    title: "Guitar enthusiast",
+    text: "Learning music theory took my guitar playing to the next level. It helped me break through the intermediate hump, and now I can improvise with ease. I feel more confident and free when I play!"
   }
 ];
 
 // FAQs
 const FAQS = [
   {
-    question: "How long do the stickers last?",
-    answer: "Our stickers are made with premium laminated material that withstands regular playing. With proper care, they can last for years without peeling or fading."
+    question: "How Long Do the Stickers Last?",
+    answer: "Get ready to unleash some sticker sorcery! Our premium vinyl stickers are not only top-tier, but they come with a sleek laminated layer—think of it as a superhero cape for your gear, fending off wear and tear like a pro. And the best part? Your fingers never even get to touch the printed surface—talk about VIP treatment! These stickers are designed to outlast the competition. But hey, for the smoothest cleanup, we recommend rocking them on your guitar for no more than 6 months."
   },
   {
-    question: "Will they damage my guitar?",
-    answer: "No, our stickers use a special adhesive that doesn't leave residue when removed. They're completely safe for your instrument's finish."
+    question: "Will they leave residue on my guitar?",
+    answer: "Our stickers are like magic—crafted with a special adhesive that makes peeling them off a breeze, leaving behind almost no mess. Cleanup? Practically nonexistent! But here's the deal: don't let them bake in direct sunlight or roast in high heat. Then again, that's a golden rule for any musical instrument, not just our awesome stickers."
   },
   {
     question: "Do they work for left-handed guitars?",
-    answer: "Yes! We offer specific left-handed versions of all our sticker sets. Just select the left-handed option when ordering."
+    answer: "Absolutely! They're totally interchangeable and work like a charm on both right-handed AND left-handed guitars. So whether you're strumming with your left or right hand, they've got you covered!"
   },
   {
     question: "Are they easy to apply?",
-    answer: "Absolutely. Each set comes with detailed application instructions, and most users complete the process in under 15 minutes."
+    answer: "Absolutely! Most users breeze through it in under 15 minutes, and we've got a video to show you the ropes—no stress, just success!"
   }
 ];
 
@@ -346,7 +346,6 @@ export default function ShopPage() {
             <div className="text-center mb-12">
               <h2 className="text-3xl font-bold text-white">Frequently Asked Questions</h2>
               <p className="mt-4 text-xl text-gray-300 max-w-3xl mx-auto">
-                Everything you need to know about Lee Fretmap Stickers
               </p>
             </div>
             

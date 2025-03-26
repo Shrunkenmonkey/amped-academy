@@ -17,6 +17,8 @@ const PRODUCTS = [
     price: 24.99,
     image: "/images/Product images/products jpg 400px/guitar jpg 400.jpg",
     webpImage: "/images/Product images/products webp 400px/guitar webp 400.webp",
+    highResImage: "/images/Product images/products jpg 800px/guitar jpg 800.jpg",
+    highResWebpImage: "/images/Product images/products webp 800px/guitar webp 800.webp",
     popular: true,
     features: [
       "Perfect for acoustic steel-string guitars",
@@ -33,6 +35,8 @@ const PRODUCTS = [
     price: 24.99,
     image: "/images/Product images/products jpg 400px/guitar pentatonic blues jpg 400.jpg",
     webpImage: "/images/Product images/products webp 400px/guitar pentatonic blues webp 400.webp",
+    highResImage: "/images/Product images/products jpg 800px/guitar pentatonic blues jpg 800.jpg",
+    highResWebpImage: "/images/Product images/products webp 800px/guitar pentatonic blues webp 800.webp",
     popular: false,
     features: [
       "Designed for electric guitars",
@@ -49,6 +53,8 @@ const PRODUCTS = [
     price: 24.99,
     image: "/images/Product images/products jpg 400px/guitar classical nylon jpg 400.jpg",
     webpImage: "/images/Product images/products webp 400px/guitar classical nylon webp 400.webp",
+    highResImage: "/images/Product images/products jpg 800px/guitar classical nylon jpg 800.jpg",
+    highResWebpImage: "/images/Product images/products webp 800px/guitar classical nylon webp 800.webp",
     popular: false,
     features: [
       "Perfect for classical guitars",
@@ -65,6 +71,8 @@ const PRODUCTS = [
     price: 24.99,
     image: "/images/Product images/products jpg 400px/bass jpg 400.jpg",
     webpImage: "/images/Product images/products webp 400px/bass webp 400.webp",
+    highResImage: "/images/Product images/products jpg 800px/bass jpg 800.jpg",
+    highResWebpImage: "/images/Product images/products webp 800px/bass webp 800.webp",
     popular: false,
     features: [
       "Bass-specific design",
@@ -81,6 +89,8 @@ const PRODUCTS = [
     price: 24.99,
     image: "/images/Product images/products jpg 400px/guitar harmonic minor jpg 400.jpg",
     webpImage: "/images/Product images/products webp 400px/guitar harmonic minor webp 400.webp",
+    highResImage: "/images/Product images/products jpg 800px/guitar harmonic minor jpg 800.jpg",
+    highResWebpImage: "/images/Product images/products webp 800px/guitar harmonic minor webp 800.webp",
     popular: false,
     features: [
       "Harmonic minor scale focus",
@@ -97,6 +107,8 @@ const PRODUCTS = [
     price: 24.99,
     image: "/images/Product images/products jpg 400px/bass pentatonic blues jpg 400.jpg",
     webpImage: "/images/Product images/products webp 400px/bass pentatonic blues webp 400.webp",
+    highResImage: "/images/Product images/products jpg 800px/bass pentatonic blues jpg 800.jpg",
+    highResWebpImage: "/images/Product images/products webp 800px/bass pentatonic blues webp 800.webp",
     popular: false,
     features: [
       "Bass pentatonic focus",
@@ -113,6 +125,8 @@ const PRODUCTS = [
     price: 24.99,
     image: "/images/Product images/products jpg 400px/piano keyboard jpg 400.jpg",
     webpImage: "/images/Product images/products webp 400px/piano keyboard webp 400.webp",
+    highResImage: "/images/Product images/products jpg 800px/piano keyboard jpg 800.jpg",
+    highResWebpImage: "/images/Product images/products webp 800px/piano keyboard webp 800.webp",
     popular: false,
     features: [
       "Piano and keyboard compatible",
@@ -129,6 +143,8 @@ const PRODUCTS = [
     price: 24.99,
     image: "/images/Product images/products jpg 400px/ukulele jpg 400.jpg",
     webpImage: "/images/Product images/products webp 400px/ukulele webp 400.webp",
+    highResImage: "/images/Product images/products jpg 800px/ukulele jpg 800.jpg",
+    highResWebpImage: "/images/Product images/products webp 800px/ukulele webp 800.webp",
     popular: false,
     features: [
       "Ukulele-specific design",
@@ -398,13 +414,17 @@ export default function ProductPage() {
             <div className="w-full h-full">
               <picture>
                 <source 
-                  srcSet={product.webpImage} 
+                  srcSet={product.highResWebpImage} 
                   type="image/webp"
                 />
-                <img
-                  src={product.image}
+                <Image
+                  src={product.highResImage}
                   alt={product.name}
+                  width={1200}
+                  height={1200}
                   className="w-full h-full object-contain"
+                  quality={100}
+                  priority
                 />
               </picture>
             </div>

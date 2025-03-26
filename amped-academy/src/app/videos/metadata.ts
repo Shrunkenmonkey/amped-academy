@@ -1,7 +1,6 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Music Lesson Videos | Amped Academy",
-  description: "Browse our collection of high-quality music lesson videos covering theory, technique, and performance for all skill levels.",
-  keywords: ["music lesson videos", "online music tutorials", "learn music online", "music education videos"],
+  title: "Guitar Learning Videos | Amped Academy",
+  description: "Watch our comprehensive guitar learning videos. From beginner basics to advanced techniques, learn at your own pace with our expert instructors.",
 }; 
