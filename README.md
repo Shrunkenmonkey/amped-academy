@@ -1,4 +1,4 @@
-# Amped Academy Website
+# Amped Academy
 
 A modern e-commerce and learning platform for guitar enthusiasts, built with Next.js 14.
 
@@ -8,36 +8,62 @@ A modern e-commerce and learning platform for guitar enthusiasts, built with Nex
 - 🛍️ E-commerce functionality for Fretmap products
 - 🎥 Video lessons and backing tracks
 - 🎨 Modern, responsive design
-- 🔒 Secure shopping cart
+- 🔒 Secure shopping cart with Stripe integration
 - 🎯 SEO optimized
+- 📊 Analytics integration
+- ⚡ Performance monitoring
 
 ## Tech Stack
 
 - Next.js 14
+- React 18
 - TypeScript
 - Tailwind CSS
+- Stripe Payments
+- Vercel Analytics
+- Vercel Speed Insights
 - Lucide Icons
 - YouTube API Integration
 
 ## Getting Started
 
+### Prerequisites
+
+- Node.js 18.x or later
+- npm 9.x or later
+
+### Installation
+
 1. Clone the repository:
 ```bash
 git clone [repository-url]
+cd amped-academy
 ```
 
 2. Install dependencies:
 ```bash
-cd amped-academy
 npm install
 ```
 
-3. Run the development server:
+3. Create a `.env.local` file in the root directory and add your environment variables:
+```bash
+cp .env.example .env.local
+```
+
+Required environment variables:
+```
+NEXT_PUBLIC_BASE_URL=http://localhost:3000
+NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=your_stripe_publishable_key
+STRIPE_SECRET_KEY=your_stripe_secret_key
+STRIPE_WEBHOOK_SECRET=your_stripe_webhook_secret
+```
+
+4. Run the development server:
 ```bash
 npm run dev
 ```
 
-4. Open [http://localhost:3000](http://localhost:3000) in your browser.
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 ## Project Structure
 
@@ -45,19 +71,30 @@ npm run dev
 amped-academy/
 ├── src/
 │   ├── app/           # Next.js app router pages
-│   ├── components/    # Reusable components
+│   │   ├── shop/     # E-commerce section
+│   │   ├── videos/   # Video lessons section
+│   │   └── api/      # API routes
+│   ├── components/    # Reusable UI components
 │   ├── constants/     # Constants and configurations
-│   └── context/       # React context providers
-├── public/            # Static assets
-└── package.json       # Project dependencies
+│   ├── context/      # React context providers
+│   └── lib/          # Utility functions and services
+├── public/           # Static assets
+├── next.config.js    # Next.js configuration
+└── tailwind.config.js # Tailwind CSS configuration
 ```
 
-## Environment Variables
+## Deployment
 
-Create a `.env.local` file in the root directory with the following variables:
-```
-NEXT_PUBLIC_BASE_URL=http://localhost:3000
-```
+This project is configured for deployment on Vercel:
+
+1. Push your code to GitHub
+2. Connect your repository to Vercel
+3. Configure environment variables in Vercel:
+   - `NEXT_PUBLIC_BASE_URL`
+   - `NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY`
+   - `STRIPE_SECRET_KEY`
+   - `STRIPE_WEBHOOK_SECRET`
+4. Deploy!
 
 ## Contributing
 
@@ -67,51 +104,12 @@ NEXT_PUBLIC_BASE_URL=http://localhost:3000
 4. Push to the branch (`git push origin feature/amazing-feature`)
 5. Open a Pull Request
 
-## Deployment to Vercel
+## Learn More
 
-This project is configured for deployment to Vercel via GitHub. Follow these steps to deploy:
+- [Next.js Documentation](https://nextjs.org/docs)
+- [Stripe Documentation](https://stripe.com/docs)
+- [Tailwind CSS Documentation](https://tailwindcss.com/docs)
 
-### Deploying with GitHub
+## License
 
-1. Ensure your code is pushed to a GitHub repository:
-   ```
-   git add .
-   git commit -m "Prepare for Vercel deployment"
-   git push origin main
-   ```
-
-2. Go to [Vercel](https://vercel.com/) and sign in with your GitHub account.
-
-3. Click "Add New" > "Project" and select your GitHub repository.
-
-4. Vercel will automatically detect that this is a Next.js project.
-
-5. Configure your project:
-   - Framework Preset: Next.js
-   - Root Directory: ./
-   - Build Command: npm run build
-   - Output Directory: amped-academy/.next
-
-6. Click "Deploy" and Vercel will build and deploy your application.
-
-### Automatic Deployments
-
-With the GitHub integration enabled in `vercel.json`, any commits to your main branch will trigger automatic deployments.
-
-## Local Development
-
-```
-npm run dev
-```
-
-## Building for Production
-
-```
-npm run build
-```
-
-## Running Production Build
-
-```
-npm run start
-``` 
+This project is private and confidential.

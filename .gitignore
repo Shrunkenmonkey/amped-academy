@@ -26,6 +26,7 @@ yarn-error.log*
 
 # Local env files
 .env*.local
+.env
 
 # Vercel
 .vercel
@@ -51,4 +52,4 @@ logs
 .rollup.cache/
 
 # Build artifacts
-.turbo 
+.turbo
