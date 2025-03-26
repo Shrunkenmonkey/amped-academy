@@ -18,10 +18,11 @@ const CheckoutPage = () => {
         console.log('Initializing Stripe...');
         const publishableKey = process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY;
         console.log('Publishable key exists:', !!publishableKey);
+        console.log('Publishable key length:', publishableKey?.length);
         
         if (!publishableKey) {
           console.error('Stripe publishable key is missing');
-          setError('Payment system is not properly configured');
+          setError('Payment system is not properly configured. Please try again later.');
           return;
         }
         
@@ -31,14 +32,15 @@ const CheckoutPage = () => {
         
         if (!stripeInstance) {
           console.error('Failed to initialize Stripe');
-          setError('Failed to initialize payment system');
+          setError('Failed to initialize payment system. Please try again later.');
           return;
         }
         
         setStripe(stripeInstance);
+        console.log('Stripe initialized successfully');
       } catch (err) {
         console.error('Error initializing Stripe:', err);
-        setError('Error initializing payment system');
+        setError('Error initializing payment system. Please try again later.');
       }
     };
 
@@ -48,10 +50,17 @@ const CheckoutPage = () => {
   const handleCheckout = async () => {
     console.log('Checkout button clicked');
     console.log('Stripe instance exists:', !!stripe);
+    console.log('Cart items:', items);
     
     if (!stripe) {
       console.error('Stripe not initialized');
       setError('Payment system is not ready. Please try again in a moment.');
+      return;
+    }
+
+    if (!items || items.length === 0) {
+      console.error('No items in cart');
+      setError('Your cart is empty. Please add items before checking out.');
       return;
     }
 
@@ -69,7 +78,7 @@ const CheckoutPage = () => {
         },
         body: JSON.stringify({
           items: items.map(item => ({
-            id: item.id, // This is the Stripe price ID
+            id: item.id,
             quantity: item.quantity,
           })),
         }),
@@ -96,10 +105,15 @@ const CheckoutPage = () => {
 
       const { sessionId } = data;
 
+      if (!sessionId) {
+        throw new Error('No session ID received from server');
+      }
+
       // Redirect to Stripe Checkout
       console.log('Redirecting to Stripe Checkout with session:', sessionId);
       const { error: stripeError } = await stripe.redirectToCheckout({
         sessionId,
+        mode: 'payment',
       });
 
       if (stripeError) {
@@ -132,8 +146,8 @@ const CheckoutPage = () => {
       <section className="relative text-white py-8">
         <div className="absolute inset-0 z-0 overflow-hidden bg-indigo-900">
           <BackgroundImage 
-            src="/images/backgrounds/lightning-background jpg.jpg"
-            webpSrc="/images/backgrounds/lightning-background webp.webp"
+            src="/images/backgrounds/lightning-background-jpg.jpg"
+            webpSrc="/images/backgrounds/lightning-background-webp.webp"
             alt="Lightning background"
             priority={true}
           />
