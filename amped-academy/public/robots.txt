@@ -1,6 +1,11 @@
-# Allow all web crawlers
+# Allow all crawlers
 User-agent: *
 Allow: /
 
 # Sitemap location
-Sitemap: https://amped-academy.vercel.app/sitemap.xml 
+Sitemap: https://www.ampedacademy.xyz/sitemap.xml
+
+# Disallow admin and private routes
+Disallow: /admin/
+Disallow: /api/
+Disallow: /private/ 
