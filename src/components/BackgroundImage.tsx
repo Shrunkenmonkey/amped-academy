@@ -31,16 +31,24 @@ function BackgroundImageComponent({
     setIsLoaded(false);
   }, [src, webpSrc]);
 
-  // Use webpSrc if provided, otherwise fallback to src
-  const imageSrc = webpSrc || src;
+  const imageSizes = "(min-width: 1280px) 1280px, 100vw";
 
   return (
     <div className="h-full w-full relative">
       {!hasError && (
         <>
-          {webpSrc && (
+          {webpSrc ? (
             <picture>
-              <source srcSet={webpSrc} type="image/webp" />
+              <source
+                srcSet={`${webpSrc} 1x, ${webpSrc} 2x`}
+                type="image/webp"
+                sizes={imageSizes}
+              />
+              <source
+                srcSet={`${src} 1x, ${src} 2x`}
+                type="image/jpeg"
+                sizes={imageSizes}
+              />
               <Image 
                 src={src}
                 alt={alt}
@@ -51,14 +59,13 @@ function BackgroundImageComponent({
                 style={{ opacity: opacity / 100 }}
                 onError={() => setHasError(true)}
                 onLoad={() => setIsLoaded(true)}
-                sizes="100vw"
+                sizes={imageSizes}
                 loading={priority ? "eager" : "lazy"}
               />
             </picture>
-          )}
-          {!webpSrc && (
+          ) : (
             <Image 
-              src={imageSrc}
+              src={src}
               alt={alt}
               fill
               priority={priority}
@@ -67,7 +74,7 @@ function BackgroundImageComponent({
               style={{ opacity: opacity / 100 }}
               onError={() => setHasError(true)}
               onLoad={() => setIsLoaded(true)}
-              sizes="100vw"
+              sizes={imageSizes}
               loading={priority ? "eager" : "lazy"}
             />
           )}
