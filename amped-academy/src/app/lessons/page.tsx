@@ -19,8 +19,8 @@ export default function LessonsPage() {
       <section className="relative text-white py-8">
         <div className="absolute inset-0 z-0 overflow-hidden bg-indigo-900">
           <BackgroundImage 
-            src="/images/backgrounds/lightning-background jpg.jpg"
-            webpSrc="/images/backgrounds/lightning-background webp.webp"
+            src="/images/backgrounds/lightning-background-jpg.jpg"
+            webpSrc="/images/backgrounds/lightning-background-webp.webp"
             alt="Lightning background"
             priority={true}
           />

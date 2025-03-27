@@ -13,8 +13,8 @@ interface HeroProps {
 
 export default function Hero({ title, subtitle, backgroundImage }: HeroProps) {
   const defaultBackground = {
-    src: "/images/backgrounds/lightning-background jpg.jpg",
-    webpSrc: "/images/backgrounds/lightning-background webp.webp",
+    src: "/images/backgrounds/lightning-background-jpg.jpg",
+    webpSrc: "/images/backgrounds/lightning-background-webp.webp",
     alt: "Lightning background"
   };
 

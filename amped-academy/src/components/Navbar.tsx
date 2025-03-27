@@ -2,7 +2,7 @@
 
 import { useState, memo } from 'react';
 import Link from 'next/link';
-import { Menu, X, ShoppingCart, Cpu, LucideIcon } from 'lucide-react';
+import { Menu, X, ShoppingCart, Cpu, Share2, LucideIcon } from 'lucide-react';
 import { useCart } from '@/context/CartContext';
 
 // Navigation items - centralized for both mobile and desktop
@@ -22,7 +22,44 @@ type NavigationItem = {
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [showShareMenu, setShowShareMenu] = useState(false);
   const { totalItems } = useCart();
+
+  const handleShare = (platform: string) => {
+    const url = window.location.href;
+    const text = `Check out Amped Academy - Revolutionary music learning tools!`;
+    
+    let shareUrl = '';
+    switch (platform) {
+      case 'facebook':
+        shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`;
+        break;
+      case 'twitter':
+        shareUrl = `https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=${encodeURIComponent(text)}`;
+        break;
+      case 'instagram':
+        shareUrl = 'https://www.instagram.com';
+        break;
+      case 'snapchat':
+        shareUrl = `https://www.snapchat.com/share?url=${encodeURIComponent(url)}`;
+        break;
+      default:
+        if (typeof navigator !== 'undefined' && 'share' in navigator) {
+          navigator.share({
+            title: 'Amped Academy',
+            text: text,
+            url: url,
+          }).catch(console.error);
+          return;
+        }
+    }
+    
+    if (shareUrl) {
+      window.open(shareUrl, '_blank', 'width=600,height=400');
+    }
+    
+    setShowShareMenu(false);
+  };
 
   return (
     <header className="bg-black text-white shadow-lg sticky top-0 z-50">
@@ -62,10 +99,79 @@ const Navbar = () => {
                 </span>
               )}
             </Link>
+            <div className="relative">
+              <button 
+                onClick={() => setShowShareMenu(!showShareMenu)}
+                className="flex items-center text-white px-4 py-2 rounded-md hover:bg-gray-800 transition"
+                aria-label="Share"
+              >
+                <Share2 className="h-5 w-5" />
+              </button>
+              
+              {showShareMenu && (
+                <div className="absolute right-0 mt-2 w-48 bg-gray-800 rounded-md shadow-lg overflow-hidden z-50">
+                  <div className="py-1">
+                    <button
+                      onClick={() => handleShare('facebook')}
+                      className="w-full px-4 py-2 text-left hover:bg-gray-700 text-white"
+                    >
+                      Share on Facebook
+                    </button>
+                    <button
+                      onClick={() => handleShare('twitter')}
+                      className="w-full px-4 py-2 text-left hover:bg-gray-700 text-white"
+                    >
+                      Share on X
+                    </button>
+                    <button
+                      onClick={() => handleShare('instagram')}
+                      className="w-full px-4 py-2 text-left hover:bg-gray-700 text-white"
+                    >
+                      Share on Instagram
+                    </button>
+                    <button
+                      onClick={() => handleShare('snapchat')}
+                      className="w-full px-4 py-2 text-left hover:bg-gray-700 text-white"
+                    >
+                      Share on Snapchat
+                    </button>
+                    {typeof navigator !== 'undefined' && 'share' in navigator && (
+                      <button
+                        onClick={() => handleShare('native')}
+                        className="w-full px-4 py-2 text-left hover:bg-gray-700 text-white"
+                      >
+                        Share...
+                      </button>
+                    )}
+                  </div>
+                </div>
+              )}
+            </div>
           </nav>
           
           {/* Mobile navigation toggle */}
-          <div className="md:hidden flex items-center">
+          <div className="md:hidden flex items-center space-x-4">
+            <Link 
+              href="/cart" 
+              className="flex items-center text-white p-2 rounded-md hover:bg-gray-800 transition relative"
+              aria-label="Shopping Cart"
+            >
+              <ShoppingCart className="h-6 w-6" />
+              {totalItems > 0 && (
+                <span className="absolute -top-2 -right-2 bg-blue-600 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
+                  {totalItems > 99 ? '99+' : totalItems}
+                </span>
+              )}
+            </Link>
+            <div className="relative">
+              <button 
+                onClick={() => setShowShareMenu(!showShareMenu)}
+                className="p-2 rounded-md text-white hover:bg-gray-800 transition"
+                aria-label="Share"
+              >
+                <Share2 className="h-6 w-6" />
+              </button>
+            </div>
             <button 
               onClick={() => setIsOpen(!isOpen)}
               className="p-2 rounded-md text-white hover:bg-gray-800 focus:outline-none" 
@@ -79,6 +185,46 @@ const Navbar = () => {
       
       {/* Mobile menu */}
       {isOpen && <MobileMenu navigation={navigation} onClose={() => setIsOpen(false)} />}
+      
+      {/* Mobile share menu */}
+      {showShareMenu && (
+        <div className="md:hidden absolute right-0 left-0 mt-2 mx-4 bg-gray-800 rounded-md shadow-lg overflow-hidden z-50">
+          <div className="py-1">
+            <button
+              onClick={() => handleShare('facebook')}
+              className="w-full px-4 py-2 text-left hover:bg-gray-700 text-white"
+            >
+              Share on Facebook
+            </button>
+            <button
+              onClick={() => handleShare('twitter')}
+              className="w-full px-4 py-2 text-left hover:bg-gray-700 text-white"
+            >
+              Share on X
+            </button>
+            <button
+              onClick={() => handleShare('instagram')}
+              className="w-full px-4 py-2 text-left hover:bg-gray-700 text-white"
+            >
+              Share on Instagram
+            </button>
+            <button
+              onClick={() => handleShare('snapchat')}
+              className="w-full px-4 py-2 text-left hover:bg-gray-700 text-white"
+            >
+              Share on Snapchat
+            </button>
+            {typeof navigator !== 'undefined' && 'share' in navigator && (
+              <button
+                onClick={() => handleShare('native')}
+                className="w-full px-4 py-2 text-left hover:bg-gray-700 text-white"
+              >
+                Share...
+              </button>
+            )}
+          </div>
+        </div>
+      )}
     </header>
   );
 };
@@ -107,19 +253,6 @@ const MobileMenu = memo(({
             {item.name}
           </Link>
         ))}
-        <Link
-          href="/cart"
-          onClick={onClose}
-          className="flex items-center text-white px-3 py-3 rounded-md hover:bg-gray-800 transition relative"
-        >
-          <ShoppingCart className="h-5 w-5 mr-2" />
-          <span>Cart</span>
-          {totalItems > 0 && (
-            <span className="ml-2 bg-blue-600 text-white text-xs rounded-full px-2 py-1 inline-flex items-center justify-center">
-              {totalItems > 99 ? '99+' : totalItems}
-            </span>
-          )}
-        </Link>
       </div>
     </div>
   );

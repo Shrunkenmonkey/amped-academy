@@ -28,12 +28,11 @@ export const metadata: Metadata = {
       { url: '/images/favicon-package/amped-favicon-png.png', type: 'image/png' },
       { url: '/favicon.ico', sizes: 'any' }
     ],
-    shortcut: [
-      { url: '/favicon.ico', sizes: 'any' }
-    ],
     apple: [
+      { url: '/favicon.ico', sizes: 'any' },
       { url: '/images/favicon-package/lightning-favicon-apple-180px.png', sizes: '180x180', type: 'image/png' }
     ],
+    shortcut: ['/favicon.ico'],
     other: [
       {
         rel: 'icon',

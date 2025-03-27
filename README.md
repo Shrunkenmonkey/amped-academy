@@ -1,52 +1,89 @@
-# Amped Academy Website
+# Amped Academy
 
-This repository contains the Amped Academy website built with Next.js.
+A modern e-commerce platform for guitar learning tools, built with Next.js, Stripe, and Tailwind CSS.
 
-## Deployment to Vercel
+## Features
 
-This project is configured for deployment to Vercel via GitHub. Follow these steps to deploy:
+- Modern, responsive design
+- Stripe payment integration
+- Shopping cart functionality
+- Product catalog
+- Social sharing
+- Image optimization
+- SEO friendly
 
-### Deploying with GitHub
+## Tech Stack
 
-1. Ensure your code is pushed to a GitHub repository:
-   ```
-   git add .
-   git commit -m "Prepare for Vercel deployment"
-   git push origin main
-   ```
+- Next.js 14
+- TypeScript
+- Tailwind CSS
+- Stripe
+- React Context API
+- Lucide Icons
 
-2. Go to [Vercel](https://vercel.com/) and sign in with your GitHub account.
+## Prerequisites
 
-3. Click "Add New" > "Project" and select your GitHub repository.
+- Node.js 18.x or later
+- npm or yarn
+- Stripe account
+- Vercel account (for deployment)
 
-4. Vercel will automatically detect that this is a Next.js project.
+## Environment Variables
 
-5. Configure your project:
-   - Framework Preset: Next.js
-   - Root Directory: ./
-   - Build Command: npm run build
-   - Output Directory: amped-academy/.next
+Create a `.env.local` file in the root directory with the following variables:
 
-6. Click "Deploy" and Vercel will build and deploy your application.
-
-### Automatic Deployments
-
-With the GitHub integration enabled in `vercel.json`, any commits to your main branch will trigger automatic deployments.
-
-## Local Development
-
+```env
+NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=your_stripe_publishable_key
+STRIPE_SECRET_KEY=your_stripe_secret_key
 ```
+
+## Getting Started
+
+1. Clone the repository:
+```bash
+git clone https://github.com/yourusername/amped-academy.git
+cd amped-academy
+```
+
+2. Install dependencies:
+```bash
+npm install
+# or
+yarn install
+```
+
+3. Run the development server:
+```bash
 npm run dev
+# or
+yarn dev
 ```
 
-## Building for Production
+4. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-```
-npm run build
-```
+## Deployment
 
-## Running Production Build
+1. Push your code to GitHub
+2. Connect your repository to Vercel
+3. Add your environment variables in Vercel's project settings
+4. Deploy!
 
-```
-npm run start
-``` 
+## Stripe Integration
+
+1. Create a Stripe account at [stripe.com](https://stripe.com)
+2. Get your API keys from the Stripe Dashboard
+3. Add the keys to your environment variables
+4. Create products and prices in your Stripe Dashboard
+5. Update the `stripePriceId` in the product data to match your Stripe prices
+
+## Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details. 

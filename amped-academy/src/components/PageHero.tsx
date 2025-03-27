@@ -17,8 +17,8 @@ interface PageHeroProps {
 function PageHero({
   title,
   subtitle,
-  backgroundSrc = "/images/backgrounds/lightning-background jpg.jpg",
-  webpBackgroundSrc = "/images/backgrounds/lightning-background webp.webp",
+  backgroundSrc = "/images/backgrounds/lightning-background-jpg.jpg",
+  webpBackgroundSrc = "/images/backgrounds/lightning-background-webp.webp",
   children,
   minHeight = "200px",
   backgroundAlt = "Background image",

@@ -8,6 +8,7 @@ type CartItem = {
   price: number;
   image: string;
   quantity: number;
+  stripePriceId?: string;
 };
 
 type CartContextType = {
@@ -20,17 +21,15 @@ type CartContextType = {
   totalPrice: number;
 };
 
-const CartContext = createContext<CartContextType>({
-  items: [],
-  addToCart: () => {},
-  removeFromCart: () => {},
-  updateQuantity: () => {},
-  clearCart: () => {},
-  totalItems: 0,
-  totalPrice: 0,
-});
+const CartContext = createContext<CartContextType | undefined>(undefined);
 
-export const useCart = () => useContext(CartContext);
+export const useCart = () => {
+  const context = useContext(CartContext);
+  if (context === undefined) {
+    throw new Error('useCart must be used within a CartProvider');
+  }
+  return context;
+};
 
 export const CartProvider = ({ children }: { children: React.ReactNode }) => {
   const [items, setItems] = useState<CartItem[]>([]);
@@ -65,14 +64,11 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
     setItems(prev => {
       const existingItem = prev.find(item => item.id === product.id);
       if (existingItem) {
-        // If item already exists, increase quantity
         return prev.map(item => 
           item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
         );
-      } else {
-        // Otherwise add new item
-        return [...prev, { ...product, quantity: 1 }];
       }
+      return [...prev, { ...product, quantity: 1 }];
     });
   };
 

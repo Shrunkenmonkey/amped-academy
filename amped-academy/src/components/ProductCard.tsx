@@ -2,6 +2,7 @@
 
 import { memo } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { Star, ShoppingCart } from 'lucide-react';
 import { useCart } from '@/context/CartContext';
 
@@ -20,6 +21,7 @@ type ProductCardProps = {
 
 function ProductCardComponent({ product }: ProductCardProps) {
   const { addToCart } = useCart();
+  const router = useRouter();
 
   const handleAddToCart = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault(); // Prevent navigation from the Link
@@ -29,6 +31,7 @@ function ProductCardComponent({ product }: ProductCardProps) {
       price: product.price,
       image: product.image,
     });
+    router.push('/cart'); // Navigate to cart page
   };
 
   return (
@@ -68,7 +71,15 @@ function ProductCardComponent({ product }: ProductCardProps) {
               ))}
             </div>
           </div>
-          <p className="text-gray-300 mb-4 text-center">Perfect for visual learners looking to master the fretboard quickly.</p>
+          <p className="text-gray-300 mb-4 text-center">
+            {product.id === "lee-fretmap-piano" 
+              ? "Perfect for visual learners looking to master the keyboard quickly."
+              : product.id === "lee-fretmap-harmonic-minor"
+              ? "For more advanced players looking to take their ideas to the next level."
+              : product.id === "lee-fretmap-electric" || product.id === "lee-fretmap-bass-pentatonic"
+              ? "Includes the \"blue\" note to really spice up blues improvisations."
+              : "This is the starter set for use with the video lessons and ebook."}
+          </p>
           <div className="flex space-x-3">
             <div 
               className="flex-1 bg-transparent border border-blue-600 hover:bg-blue-600 text-white px-4 py-2 rounded-md font-medium text-center transition-colors duration-200"

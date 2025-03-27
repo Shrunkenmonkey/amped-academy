@@ -1,8 +1,8 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { useParams } from 'next/navigation';
-import { ArrowLeft, Star, ShoppingCart, Share2, Heart, X } from 'lucide-react';
+import { useParams, useRouter } from 'next/navigation';
+import { ArrowLeft, Star, ShoppingCart, Share2, X } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
 import BackgroundImage from '@/components/BackgroundImage';
@@ -13,15 +13,16 @@ const PRODUCTS = [
   {
     id: "lee-fretmap-acoustic",
     name: "Lee Fretmap for Electric and Acoustic Guitar",
-    description: "The perfect companion for acoustic guitarists. These stickers help you visualize chord patterns and scales across the entire fretboard, speeding up your learning process dramatically.",
+    description: "The Lee Fretmap system is a revolutionary approach to learning the fretboard, designed by musicians for musicians. Each sticker is precisely color-coded to help you visually understand relationships between notes, scales, and chords.\n\nOur stickers are made from high-quality, durable materials that won't damage your instrument and can be easily removed.\n\nWhen you purchase a Lee Fretmap set, you'll also receive access to our online learning resources, including video tutorials, backing tracks and practice exercises designed to help you make the most of your Fretmap stickers.",
     price: 24.99,
-    image: "/images/Product images/products jpg 400px/guitar jpg 400.jpg",
-    webpImage: "/images/Product images/products webp 400px/guitar webp 400.webp",
-    highResImage: "/images/Product images/products jpg 800px/guitar jpg 800.jpg",
-    highResWebpImage: "/images/Product images/products webp 800px/guitar webp 800.webp",
+    stripePriceId: "price_1R70uCP5sBTJ16iOrCBTKMxq",
+    image: "/images/product-images/products-jpg-400px/guitar-jpg-400.jpg",
+    webpImage: "/images/product-images/products-webp-400px/guitar-webp-400.webp",
+    highResImage: "/images/product-images/products-jpg-800px/guitar-jpg-800.jpg",
+    highResWebpImage: "/images/product-images/products-webp-800px/guitar-webp-800.webp",
     popular: true,
     features: [
-      "Perfect for acoustic steel-string guitars",
+      "Perfect for electric and acoustic guitars",
       "Color-coded for easy note recognition",
       "Includes free online tutorials",
       "Durable, long-lasting material",
@@ -31,12 +32,13 @@ const PRODUCTS = [
   {
     id: "lee-fretmap-electric",
     name: "Lee Fretmap for Electric Guitar - Pentatonic Blues",
-    description: "Unlock the secrets of blues pentatonic scales with our electric guitar fretmap. Perfect for blues, rock, and jazz players looking to master improvisation.",
+    description: "The Lee Fretmap system is a revolutionary approach to learning the fretboard, designed by musicians for musicians. Each sticker is precisely color-coded to help you visually understand relationships between notes, scales, and chords.\n\nOur stickers are made from high-quality, durable materials that won't damage your instrument and can be easily removed.\n\nWhen you purchase a Lee Fretmap set, you'll also receive access to our online learning resources, including video tutorials, backing tracks and practice exercises designed to help you make the most of your Fretmap stickers.",
     price: 24.99,
-    image: "/images/Product images/products jpg 400px/guitar pentatonic blues jpg 400.jpg",
-    webpImage: "/images/Product images/products webp 400px/guitar pentatonic blues webp 400.webp",
-    highResImage: "/images/Product images/products jpg 800px/guitar pentatonic blues jpg 800.jpg",
-    highResWebpImage: "/images/Product images/products webp 800px/guitar pentatonic blues webp 800.webp",
+    stripePriceId: "price_1R70uCP5sBTJ16iOrCBTKMxq",
+    image: "/images/product-images/products-jpg-400px/guitar-pentatonic-blues-jpg-400.jpg",
+    webpImage: "/images/product-images/products-webp-400px/guitar-pentatonic-blues-webp-400.webp",
+    highResImage: "/images/product-images/products-jpg-800px/guitar-pentatonic-blues-jpg-800.jpg",
+    highResWebpImage: "/images/product-images/products-webp-800px/guitar-pentatonic-blues-webp-800.webp",
     popular: false,
     features: [
       "Designed for electric guitars",
@@ -49,12 +51,12 @@ const PRODUCTS = [
   {
     id: "lee-fretmap-classical",
     name: "Lee Fretmap for Classical Nylon String Guitar",
-    description: "Designed specifically for nylon-string classical guitars. These stickers help you navigate the fretboard while learning classical pieces and techniques.",
+    description: "The Lee Fretmap system is a revolutionary approach to learning the fretboard, designed by musicians for musicians. Each sticker is precisely color-coded to help you visually understand relationships between notes, scales, and chords.\n\nOur stickers are made from high-quality, durable materials that won't damage your instrument and can be easily removed.\n\nWhen you purchase a Lee Fretmap set, you'll also receive access to our online learning resources, including video tutorials, backing tracks and practice exercises designed to help you make the most of your Fretmap stickers.",
     price: 24.99,
-    image: "/images/Product images/products jpg 400px/guitar classical nylon jpg 400.jpg",
-    webpImage: "/images/Product images/products webp 400px/guitar classical nylon webp 400.webp",
-    highResImage: "/images/Product images/products jpg 800px/guitar classical nylon jpg 800.jpg",
-    highResWebpImage: "/images/Product images/products webp 800px/guitar classical nylon webp 800.webp",
+    image: "/images/product-images/products-jpg-400px/guitar-classical-nylon-jpg-400.jpg",
+    webpImage: "/images/product-images/products-webp-400px/guitar-classical-nylon-webp-400.webp",
+    highResImage: "/images/product-images/products-jpg-800px/guitar-classical-nylon-jpg-800.jpg",
+    highResWebpImage: "/images/product-images/products-webp-800px/guitar-classical-nylon-webp-800.webp",
     popular: false,
     features: [
       "Perfect for classical guitars",
@@ -67,30 +69,29 @@ const PRODUCTS = [
   {
     id: "lee-fretmap-bass",
     name: "Lee Fretmap for Bass Guitar",
-    description: "Master the bass fretboard with our specialized stickers. Perfect for both beginners and intermediate players looking to improve their bass playing skills.",
+    description: "The Lee Fretmap system is a revolutionary approach to learning the fretboard, designed by musicians for musicians. Each sticker is precisely color-coded to help you visually understand relationships between notes, scales, and chords.\n\nOur stickers are made from high-quality, durable materials that won't damage your instrument and can be easily removed.\n\nWhen you purchase a Lee Fretmap set, you'll also receive access to our online learning resources, including video tutorials, backing tracks and practice exercises designed to help you make the most of your Fretmap stickers.",
     price: 24.99,
-    image: "/images/Product images/products jpg 400px/bass jpg 400.jpg",
-    webpImage: "/images/Product images/products webp 400px/bass webp 400.webp",
-    highResImage: "/images/Product images/products jpg 800px/bass jpg 800.jpg",
-    highResWebpImage: "/images/Product images/products webp 800px/bass webp 800.webp",
+    image: "/images/product-images/products-jpg-400px/bass-jpg-400.jpg",
+    webpImage: "/images/product-images/products-webp-400px/bass-webp-400.webp",
+    highResImage: "/images/product-images/products-jpg-800px/bass-jpg-800.jpg",
+    highResWebpImage: "/images/product-images/products-webp-800px/bass-webp-800.webp",
     popular: false,
     features: [
       "Bass-specific design",
-      "4 and 5 string compatible",
+      "Fits all 4 string basses",
       "Focuses on bass patterns",
-      "Includes rhythm guides",
       "Perfect for all bass styles"
     ]
   },
   {
     id: "lee-fretmap-harmonic-minor",
     name: "Lee Fretmap for Guitar - Harmonic Minor",
-    description: "Explore the exotic sounds of harmonic minor scales with our specialized fretmap. Perfect for metal, jazz, and classical guitarists.",
+    description: "The Lee Fretmap system is a revolutionary approach to learning the fretboard, designed by musicians for musicians. Each sticker is precisely color-coded to help you visually understand relationships between notes, scales, and chords.\n\nOur stickers are made from high-quality, durable materials that won't damage your instrument and can be easily removed.\n\nWhen you purchase a Lee Fretmap set, you'll also receive access to our online learning resources, including video tutorials, backing tracks and practice exercises designed to help you make the most of your Fretmap stickers.",
     price: 24.99,
-    image: "/images/Product images/products jpg 400px/guitar harmonic minor jpg 400.jpg",
-    webpImage: "/images/Product images/products webp 400px/guitar harmonic minor webp 400.webp",
-    highResImage: "/images/Product images/products jpg 800px/guitar harmonic minor jpg 800.jpg",
-    highResWebpImage: "/images/Product images/products webp 800px/guitar harmonic minor webp 800.webp",
+    image: "/images/product-images/products-jpg-400px/guitar-harmonic-minor-jpg-400.jpg",
+    webpImage: "/images/product-images/products-webp-400px/guitar-harmonic-minor-webp-400.webp",
+    highResImage: "/images/product-images/products-jpg-800px/guitar-harmonic-minor-jpg-800.jpg",
+    highResWebpImage: "/images/product-images/products-webp-800px/guitar-harmonic-minor-webp-800.webp",
     popular: false,
     features: [
       "Harmonic minor scale focus",
@@ -103,12 +104,12 @@ const PRODUCTS = [
   {
     id: "lee-fretmap-bass-pentatonic",
     name: "Lee Fretmap for Bass - Pentatonic Blues",
-    description: "Master blues bass lines with our pentatonic-focused fretmap. Perfect for blues, rock, and funk bass players.",
+    description: "The Lee Fretmap system is a revolutionary approach to learning the fretboard, designed by musicians for musicians. Each sticker is precisely color-coded to help you visually understand relationships between notes, scales, and chords.\n\nOur stickers are made from high-quality, durable materials that won't damage your instrument and can be easily removed.\n\nWhen you purchase a Lee Fretmap set, you'll also receive access to our online learning resources, including video tutorials, backing tracks and practice exercises designed to help you make the most of your Fretmap stickers.",
     price: 24.99,
-    image: "/images/Product images/products jpg 400px/bass pentatonic blues jpg 400.jpg",
-    webpImage: "/images/Product images/products webp 400px/bass pentatonic blues webp 400.webp",
-    highResImage: "/images/Product images/products jpg 800px/bass pentatonic blues jpg 800.jpg",
-    highResWebpImage: "/images/Product images/products webp 800px/bass pentatonic blues webp 800.webp",
+    image: "/images/product-images/products-jpg-400px/bass-pentatonic-blues-jpg-400.jpg",
+    webpImage: "/images/product-images/products-webp-400px/bass-pentatonic-blues-webp-400.webp",
+    highResImage: "/images/product-images/products-jpg-800px/bass-pentatonic-blues-jpg-800.jpg",
+    highResWebpImage: "/images/product-images/products-webp-800px/bass-pentatonic-blues-webp-800.webp",
     popular: false,
     features: [
       "Bass pentatonic focus",
@@ -121,12 +122,12 @@ const PRODUCTS = [
   {
     id: "lee-fretmap-piano",
     name: "Lee Fretmap for Piano/Keyboard",
-    description: "Visualize piano scales and chords with our innovative keyboard stickers. Perfect for piano and keyboard players of all levels.",
+    description: "The Lee Fretmap system is a revolutionary approach to learning the fretboard, designed by musicians for musicians. Each sticker is precisely color-coded to help you visually understand relationships between notes, scales, and chords.\n\nOur stickers are made from high-quality, durable materials that won't damage your instrument and can be easily removed.\n\nWhen you purchase a Lee Fretmap set, you'll also receive access to our online learning resources, including video tutorials, backing tracks and practice exercises designed to help you make the most of your Fretmap stickers.",
     price: 24.99,
-    image: "/images/Product images/products jpg 400px/piano keyboard jpg 400.jpg",
-    webpImage: "/images/Product images/products webp 400px/piano keyboard webp 400.webp",
-    highResImage: "/images/Product images/products jpg 800px/piano keyboard jpg 800.jpg",
-    highResWebpImage: "/images/Product images/products webp 800px/piano keyboard webp 800.webp",
+    image: "/images/product-images/products-jpg-400px/piano-keyboard-jpg-400.jpg",
+    webpImage: "/images/product-images/products-webp-400px/piano-keyboard-webp-400.webp",
+    highResImage: "/images/product-images/products-jpg-800px/piano-keyboard-jpg-800.jpg",
+    highResWebpImage: "/images/product-images/products-webp-800px/piano-keyboard-webp-800.webp",
     popular: false,
     features: [
       "Piano and keyboard compatible",
@@ -139,12 +140,12 @@ const PRODUCTS = [
   {
     id: "lee-fretmap-ukulele",
     name: "Lee Fretmap for Ukulele",
-    description: "Learn ukulele chords and scales with our specialized stickers. Perfect for ukulele players of all skill levels.",
+    description: "The Lee Fretmap system is a revolutionary approach to learning the fretboard, designed by musicians for musicians. Each sticker is precisely color-coded to help you visually understand relationships between notes, scales, and chords.\n\nOur stickers are made from high-quality, durable materials that won't damage your instrument and can be easily removed.\n\nWhen you purchase a Lee Fretmap set, you'll also receive access to our online learning resources, including video tutorials, backing tracks and practice exercises designed to help you make the most of your Fretmap stickers.",
     price: 24.99,
-    image: "/images/Product images/products jpg 400px/ukulele jpg 400.jpg",
-    webpImage: "/images/Product images/products webp 400px/ukulele webp 400.webp",
-    highResImage: "/images/Product images/products jpg 800px/ukulele jpg 800.jpg",
-    highResWebpImage: "/images/Product images/products webp 800px/ukulele webp 800.webp",
+    image: "/images/product-images/products-jpg-400px/ukulele-jpg-400.jpg",
+    webpImage: "/images/product-images/products-webp-400px/ukulele-webp-400.webp",
+    highResImage: "/images/product-images/products-jpg-800px/ukulele-jpg-800.jpg",
+    highResWebpImage: "/images/product-images/products-webp-800px/ukulele-webp-800.webp",
     popular: false,
     features: [
       "Ukulele-specific design",
@@ -173,6 +174,8 @@ export default function ProductPage() {
   const [quantity, setQuantity] = useState(1);
   const { addToCart } = useCart();
   const [enlargedImage, setEnlargedImage] = useState(false);
+  const [showShareMenu, setShowShareMenu] = useState(false);
+  const router = useRouter();
 
   useEffect(() => {
     // Scroll to top when page loads
@@ -195,13 +198,53 @@ export default function ProductPage() {
           name: product.name,
           price: product.price,
           image: product.image,
+          stripePriceId: product.stripePriceId,
         });
       }
+      router.push('/cart'); // Navigate to cart page
     }
   };
 
   const toggleEnlargedImage = () => {
     setEnlargedImage(!enlargedImage);
+  };
+
+  const handleShare = (platform: string) => {
+    if (!product) return;
+
+    const url = window.location.href;
+    const text = `Check out ${product.name} on Amped Academy!`;
+    
+    let shareUrl = '';
+    switch (platform) {
+      case 'facebook':
+        shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`;
+        break;
+      case 'twitter':
+        shareUrl = `https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=${encodeURIComponent(text)}`;
+        break;
+      case 'instagram':
+        shareUrl = 'https://www.instagram.com';
+        break;
+      case 'snapchat':
+        shareUrl = `https://www.snapchat.com/share?url=${encodeURIComponent(url)}`;
+        break;
+      default:
+        if (typeof navigator !== 'undefined' && 'share' in navigator) {
+          navigator.share({
+            title: product.name,
+            text: text,
+            url: url,
+          }).catch(console.error);
+          return;
+        }
+    }
+    
+    if (shareUrl) {
+      window.open(shareUrl, '_blank', 'width=600,height=400');
+    }
+    
+    setShowShareMenu(false);
   };
 
   if (loading) {
@@ -230,8 +273,8 @@ export default function ProductPage() {
       <section className="relative text-white py-8">
         <div className="absolute inset-0 z-0 overflow-hidden bg-indigo-900">
           <BackgroundImage 
-            src="/images/backgrounds/lightning-background jpg.jpg"
-            webpSrc="/images/backgrounds/lightning-background webp.webp"
+            src="/images/backgrounds/lightning-background-jpg.jpg"
+            webpSrc="/images/backgrounds/lightning-background-webp.webp"
             alt="Lightning background"
             priority={true}
           />
@@ -295,9 +338,15 @@ export default function ProductPage() {
                 <span className="text-gray-400 ml-2">4.9 (127 reviews)</span>
               </div>
 
-              <div className="prose prose-lg prose-invert mb-8">
-                <p>{product.description}</p>
-              </div>
+              <p className="text-gray-300 mb-6 text-lg">
+                {product.id === "lee-fretmap-piano" 
+                  ? "Perfect for visual learners looking to master the keyboard quickly."
+                  : product.id === "lee-fretmap-harmonic-minor"
+                  ? "For more advanced players looking to take their ideas to the next level."
+                  : product.id === "lee-fretmap-electric" || product.id === "lee-fretmap-bass-pentatonic"
+                  ? "Includes the \"blue\" note to really spice up blues improvisations."
+                  : "This is the starter set for use with the video lessons and ebook."}
+              </p>
 
               <div className="mb-8">
                 <h3 className="text-xl font-bold mb-4">Features:</h3>
@@ -338,12 +387,53 @@ export default function ProductPage() {
                   <ShoppingCart className="w-5 h-5 mr-2" />
                   Add to Cart
                 </button>
-                <button className="bg-gray-700 hover:bg-gray-600 text-white px-4 py-3 rounded-md font-medium flex items-center justify-center">
-                  <Heart className="w-5 h-5" />
-                </button>
-                <button className="bg-gray-700 hover:bg-gray-600 text-white px-4 py-3 rounded-md font-medium flex items-center justify-center">
-                  <Share2 className="w-5 h-5" />
-                </button>
+                <div className="relative">
+                  <button 
+                    onClick={() => setShowShareMenu(!showShareMenu)}
+                    className="bg-gray-700 hover:bg-gray-600 text-white px-4 py-3 rounded-md font-medium flex items-center justify-center"
+                  >
+                    <Share2 className="w-5 h-5" />
+                  </button>
+                  
+                  {showShareMenu && (
+                    <div className="absolute bottom-full right-0 mb-2 w-48 bg-gray-800 rounded-md shadow-lg overflow-hidden">
+                      <div className="py-1">
+                        <button
+                          onClick={() => handleShare('facebook')}
+                          className="w-full px-4 py-2 text-left hover:bg-gray-700 text-white"
+                        >
+                          Share on Facebook
+                        </button>
+                        <button
+                          onClick={() => handleShare('twitter')}
+                          className="w-full px-4 py-2 text-left hover:bg-gray-700 text-white"
+                        >
+                          Share on X
+                        </button>
+                        <button
+                          onClick={() => handleShare('instagram')}
+                          className="w-full px-4 py-2 text-left hover:bg-gray-700 text-white"
+                        >
+                          Share on Instagram
+                        </button>
+                        <button
+                          onClick={() => handleShare('snapchat')}
+                          className="w-full px-4 py-2 text-left hover:bg-gray-700 text-white"
+                        >
+                          Share on Snapchat
+                        </button>
+                        {typeof navigator !== 'undefined' && 'share' in navigator && (
+                          <button
+                            onClick={() => handleShare('native')}
+                            className="w-full px-4 py-2 text-left hover:bg-gray-700 text-white"
+                          >
+                            Share...
+                          </button>
+                        )}
+                      </div>
+                    </div>
+                  )}
+                </div>
               </div>
             </div>
           </div>
@@ -355,9 +445,9 @@ export default function ProductPage() {
               <div className="prose prose-lg prose-invert">
                 <p>The Lee Fretmap system is a revolutionary approach to learning the fretboard, designed by musicians for musicians. Each sticker is precisely color-coded to help you visually understand relationships between notes, scales, and chords.</p>
                 
-                <p className="mt-4">Our stickers are made from high-quality, durable materials that won't damage your instrument and can be easily removed without leaving residue. They're designed to withstand hours of practice without peeling or fading.</p>
+                <p className="mt-4">Our stickers are made from high-quality, durable materials that won't damage your instrument and can be easily removed.</p>
                 
-                <p className="mt-4">When you purchase a Lee Fretmap set, you'll also receive access to our online learning resources, including video tutorials, scale and chord reference guides, and practice exercises designed to help you make the most of your Fretmap stickers.</p>
+                <p className="mt-4">When you purchase a Lee Fretmap set, you'll also receive access to our online learning resources, including video tutorials, backing tracks and practice exercises designed to help you make the most of your Fretmap stickers.</p>
               </div>
             </div>
           </section>

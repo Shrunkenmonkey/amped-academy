@@ -173,9 +173,6 @@ function VideoCard({ video, onOpenModal }: { video: Video; onOpenModal: (video: 
             )}
           </div>
         </div>
-        <div className="absolute bottom-2 right-2 bg-black bg-opacity-70 text-white text-xs px-2 py-1 rounded">
-          {video.duration}
-        </div>
       </div>
       <div className="p-4">
         <h3 className="text-lg font-semibold mb-2 text-white text-center">{video.title}</h3>
@@ -286,8 +283,8 @@ export default function VideosPage() {
       <section className="relative text-white py-8">
         <div className="absolute inset-0 z-0 overflow-hidden bg-indigo-900">
           <BackgroundImage 
-            src="/images/backgrounds/lightning-background jpg.jpg"
-            webpSrc="/images/backgrounds/lightning-background webp.webp"
+            src="/images/backgrounds/lightning-background-jpg.jpg"
+            webpSrc="/images/backgrounds/lightning-background-webp.webp"
             alt="Lightning background"
             priority={true}
           />

@@ -7,14 +7,9 @@ export const TEXT_STYLES = {
   }
 };
 
-export const SECTION_STYLES = {
-  container: "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8",
-  section: "py-16",
-  heading: "text-3xl font-bold text-white mb-4",
-  subheading: "text-xl text-gray-300 max-w-3xl mx-auto",
-  card: "bg-gray-800 p-6 rounded-lg shadow-sm",
-  grid: "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-};
+export const SECTION_STYLES = "py-16 px-4 sm:px-6 lg:px-8";
+export const CONTAINER_STYLES = "max-w-7xl mx-auto";
+export const CARD_STYLES = "bg-gray-800 rounded-lg p-8 shadow-xl";
 
 export const BUTTON_STYLES = {
   primary: "inline-flex items-center px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-md transition-colors duration-200",
