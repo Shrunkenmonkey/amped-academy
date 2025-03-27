@@ -7,9 +7,24 @@ export const TEXT_STYLES = {
   }
 };
 
-export const SECTION_STYLES = "py-16 px-4 sm:px-6 lg:px-8";
-export const CONTAINER_STYLES = "max-w-7xl mx-auto";
-export const CARD_STYLES = "bg-gray-800 rounded-lg p-8 shadow-xl";
+export const SECTION_STYLES = {
+  section: "py-16 px-4 sm:px-6 lg:px-8",
+  container: "max-w-7xl mx-auto",
+  heading: "text-3xl font-bold text-white mb-4",
+  subheading: "text-xl text-gray-300 mb-8"
+};
+
+export const CONTAINER_STYLES = {
+  base: "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8",
+  narrow: "max-w-3xl mx-auto px-4 sm:px-6 lg:px-8",
+  wide: "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+};
+
+export const CARD_STYLES = {
+  base: "bg-gray-800 rounded-lg p-6 shadow-lg",
+  hover: "hover:shadow-xl transition-shadow duration-300",
+  interactive: "cursor-pointer hover:bg-gray-700 transition-colors duration-200"
+};
 
 export const BUTTON_STYLES = {
   primary: "inline-flex items-center px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-md transition-colors duration-200",
