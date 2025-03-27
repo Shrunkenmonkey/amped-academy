@@ -9,16 +9,6 @@
     "NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY": "@next_public_stripe_publishable_key",
     "STRIPE_SECRET_KEY": "@stripe_secret_key"
   },
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "/amped-academy/$1"
-    }
-  ],
-  "github": {
-    "enabled": true,
-    "silent": false
-  },
   "headers": [
     {
       "source": "/(.*)\\.webp",
