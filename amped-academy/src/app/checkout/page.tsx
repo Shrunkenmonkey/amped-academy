@@ -8,7 +8,7 @@ import { TEXT_STYLES, SECTION_STYLES, CONTAINER_STYLES, CARD_STYLES } from '@/co
 
 export default function CheckoutPage() {
   const router = useRouter();
-  const { items, total, clearCart } = useCart();
+  const { items, totalPrice, clearCart } = useCart();
   const [loading, setLoading] = useState(false);
 
   const handleCheckout = async () => {
@@ -35,9 +35,9 @@ export default function CheckoutPage() {
         alt="Lightning background"
         priority={true}
       />
-      <div className={`relative z-10 ${SECTION_STYLES}`}>
-        <div className={CONTAINER_STYLES}>
-          <div className={CARD_STYLES}>
+      <div className={`relative z-10 ${SECTION_STYLES.section}`}>
+        <div className={CONTAINER_STYLES.base}>
+          <div className={CARD_STYLES.base}>
             <h1 className="text-3xl font-bold mb-8" style={TEXT_STYLES.shadowHeavy}>
               Checkout
             </h1>
@@ -57,7 +57,7 @@ export default function CheckoutPage() {
                   <div className="border-t border-gray-700 pt-2 mt-2">
                     <div className="flex justify-between font-bold">
                       <span>Total</span>
-                      <span>${total.toFixed(2)}</span>
+                      <span>${totalPrice.toFixed(2)}</span>
                     </div>
                   </div>
                 </div>
