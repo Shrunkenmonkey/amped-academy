@@ -120,72 +120,72 @@ const FAQS = [
   }
 ];
 
-// Product options
+// Product data (same as in shop/product/[id]/page.tsx)
 const PRODUCTS = [
   {
     id: "price_1R70uCP5sBTJ16iOrCBTKMxq",
     name: "Lee Fretmap for Electric and Acoustic Guitar",
     price: 24.99,
-    image: "/images/Product-images/products-jpg-400px/guitar-jpg-400.jpg",
-    webpImage: "/images/Product-images/products-webp-400px/guitar-webp-400.webp",
-    popular: true,
+    image: "/images/product-images/products-jpg-400px/guitar-jpg-400.jpg",
+    webpImage: "/images/product-images/products-webp-400px/guitar-webp-400.webp",
+    popular: true
   },
   {
-    id: "price_YOUR_ELECTRIC_PENTATONIC_PRICE_ID",
+    id: "lee-fretmap-electric",
     name: "Lee Fretmap for Electric Guitar - Pentatonic Blues",
     price: 24.99,
-    image: "/images/Product-images/products-jpg-400px/guitar-pentatonic-blues-jpg-400.jpg",
-    webpImage: "/images/Product-images/products-webp-400px/guitar-pentatonic-blues-webp-400.webp",
-    popular: false,
+    image: "/images/product-images/products-jpg-400px/guitar-pentatonic-blues-jpg-400.jpg",
+    webpImage: "/images/product-images/products-webp-400px/guitar-pentatonic-blues-webp-400.webp",
+    popular: false
   },
   {
-    id: "price_YOUR_CLASSICAL_PRICE_ID",
+    id: "lee-fretmap-classical",
     name: "Lee Fretmap for Classical Nylon String Guitar",
     price: 24.99,
-    image: "/images/Product-images/products-jpg-400px/guitar-classical-nylon-jpg-400.jpg",
-    webpImage: "/images/Product-images/products-webp-400px/guitar-classical-nylon-webp-400.webp",
-    popular: false,
+    image: "/images/product-images/products-jpg-400px/guitar-classical-nylon-jpg-400.jpg",
+    webpImage: "/images/product-images/products-webp-400px/guitar-classical-nylon-webp-400.webp",
+    popular: false
   },
   {
-    id: "price_YOUR_BASS_PRICE_ID",
+    id: "lee-fretmap-bass",
     name: "Lee Fretmap for Bass Guitar",
     price: 24.99,
-    image: "/images/Product-images/products-jpg-400px/bass-jpg-400.jpg",
-    webpImage: "/images/Product-images/products-webp-400px/bass-webp-400.webp",
-    popular: false,
+    image: "/images/product-images/products-jpg-400px/bass-jpg-400.jpg",
+    webpImage: "/images/product-images/products-webp-400px/bass-webp-400.webp",
+    popular: false
   },
   {
-    id: "price_YOUR_HARMONIC_MINOR_PRICE_ID",
+    id: "lee-fretmap-harmonic-minor",
     name: "Lee Fretmap for Guitar - Harmonic Minor",
     price: 24.99,
-    image: "/images/Product-images/products-jpg-400px/guitar-harmonic-minor-jpg-400.jpg",
-    webpImage: "/images/Product-images/products-webp-400px/guitar-harmonic-minor-webp-400.webp",
-    popular: false,
+    image: "/images/product-images/products-jpg-400px/guitar-harmonic-minor-jpg-400.jpg",
+    webpImage: "/images/product-images/products-webp-400px/guitar-harmonic-minor-webp-400.webp",
+    popular: false
   },
   {
-    id: "price_YOUR_BASS_PENTATONIC_PRICE_ID",
-    name: "Lee Fretmap for Bass - Pentatonic Blues",
+    id: "lee-fretmap-bass-pentatonic",
+    name: "Lee Fretmap for Bass Guitar - Pentatonic Blues",
     price: 24.99,
-    image: "/images/Product-images/products-jpg-400px/bass-pentatonic-blues-jpg-400.jpg",
-    webpImage: "/images/Product-images/products-webp-400px/bass-pentatonic-blues-webp-400.webp",
-    popular: false,
+    image: "/images/product-images/products-jpg-400px/bass-pentatonic-blues-jpg-400.jpg",
+    webpImage: "/images/product-images/products-webp-400px/bass-pentatonic-blues-webp-400.webp",
+    popular: false
   },
   {
-    id: "price_YOUR_PIANO_PRICE_ID",
+    id: "lee-fretmap-piano",
     name: "Lee Fretmap for Piano/Keyboard",
     price: 24.99,
-    image: "/images/Product-images/products-jpg-400px/piano-keyboard-jpg-400.jpg",
-    webpImage: "/images/Product-images/products-webp-400px/piano-keyboard-webp-400.webp",
-    popular: false,
+    image: "/images/product-images/products-jpg-400px/piano-keyboard-jpg-400.jpg",
+    webpImage: "/images/product-images/products-webp-400px/piano-keyboard-webp-400.webp",
+    popular: false
   },
   {
-    id: "price_YOUR_UKULELE_PRICE_ID",
+    id: "lee-fretmap-ukulele",
     name: "Lee Fretmap for Ukulele",
     price: 24.99,
-    image: "/images/Product-images/products-jpg-400px/ukulele-jpg-400.jpg",
-    webpImage: "/images/Product-images/products-webp-400px/ukulele-webp-400.webp",
-    popular: false,
-  },
+    image: "/images/product-images/products-jpg-400px/ukulele-jpg-400.jpg",
+    webpImage: "/images/product-images/products-webp-400px/ukulele-webp-400.webp",
+    popular: false
+  }
 ];
 
 // Define Types
