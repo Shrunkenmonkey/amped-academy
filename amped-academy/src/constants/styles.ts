@@ -11,7 +11,9 @@ export const SECTION_STYLES = {
   section: "py-16 px-4 sm:px-6 lg:px-8",
   container: "max-w-7xl mx-auto",
   heading: "text-3xl font-bold text-white mb-4",
-  subheading: "text-xl text-gray-300 mb-8"
+  subheading: "text-xl text-gray-300 mb-8",
+  grid: "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8",
+  card: "bg-gray-800 rounded-lg p-6 shadow-lg hover:shadow-xl transition-shadow duration-300"
 };
 
 export const CONTAINER_STYLES = {
