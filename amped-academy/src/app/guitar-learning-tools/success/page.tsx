@@ -5,6 +5,17 @@ import { useSearchParams } from 'next/navigation';
 import { useCart } from '@/context/CartContext';
 import BackgroundImage from "@/components/BackgroundImage";
 import { CheckCircle } from 'lucide-react';
+import Hero from '@/components/Hero';
+
+// Text shadow styles for glow effect
+const TEXT_STYLES = {
+  shadowHeavy: { 
+    textShadow: "0 0 20px rgba(0, 0, 0, 0.9), 0 0 30px rgba(0, 0, 0, 0.8), 0 0 40px rgba(0, 0, 0, 0.7), 0 0 50px rgba(0, 0, 0, 0.6), 0 0 60px rgba(0, 0, 0, 0.5)"
+  },
+  shadowMedium: { 
+    textShadow: "0 0 15px rgba(0, 0, 0, 0.9), 0 0 25px rgba(0, 0, 0, 0.8), 0 0 35px rgba(0, 0, 0, 0.7), 0 0 45px rgba(0, 0, 0, 0.6)"
+  }
+};
 
 export default function SuccessPage() {
   return (
@@ -30,28 +41,10 @@ function SuccessContent() {
 
   return (
     <div className="min-h-screen bg-gray-900 text-white">
-      <section className="relative text-white py-8">
-        <div className="absolute inset-0 z-0 overflow-hidden bg-indigo-900">
-          <BackgroundImage 
-            src="/images/backgrounds/lightning-background jpg.jpg"
-            webpSrc="/images/backgrounds/lightning-background webp.webp"
-            alt="Lightning background"
-            priority={true}
-          />
-          <div className="absolute inset-0 bg-black opacity-25"></div>
-        </div>
-        
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center py-12">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-white">
-              Thank You!
-            </h1>
-            <p className="text-3xl md:text-4xl text-white">
-              Your order has been confirmed
-            </p>
-          </div>
-        </div>
-      </section>
+      <Hero 
+        title="Thank You!"
+        subtitle="Your order has been confirmed"
+      />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="bg-gray-800 rounded-lg shadow-lg p-8 text-center">
@@ -63,7 +56,7 @@ function SuccessContent() {
             Thank you for your purchase! You will receive a confirmation email shortly.
           </p>
           <a
-            href="/shop"
+            href="/guitar-learning-tools"
             className="inline-block bg-blue-600 hover:bg-blue-700 text-white py-3 px-6 rounded-md font-medium transition-colors duration-200"
           >
             Continue Shopping

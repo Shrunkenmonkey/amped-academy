@@ -113,44 +113,6 @@ export default function AIToolsPage() {
         </div>
       </section>
 
-      {/* Testimonials section */}
-      <section className={SECTION_STYLES.section}>
-        <div className={SECTION_STYLES.container}>
-          <div className="text-center mb-12">
-            <h2 className={SECTION_STYLES.heading}>What Our Users Say</h2>
-            <p className={SECTION_STYLES.subheading}>Join thousands of musicians who are transforming their practice with our AI tools.</p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className={SECTION_STYLES.card}>
-              <div className="flex items-center mb-4">
-                <div className="h-12 w-12 rounded-full bg-gray-700 flex items-center justify-center text-xl font-bold text-blue-400">
-                  ML
-                </div>
-                <div className="ml-4">
-                  <p className="font-semibold text-white">Michelle Lin</p>
-                  <p className="text-sm text-gray-400">Professional Pianist & Recording Artist</p>
-                </div>
-              </div>
-              <p className="text-gray-300 italic">&quot;The Practice Analyzer has transformed my rehearsal routine. The detailed feedback on my dynamics and articulation helped me prepare for my recent album recording with incredible precision.&quot;</p>
-            </div>
-
-            <div className={SECTION_STYLES.card}>
-              <div className="flex items-center mb-4">
-                <div className="h-12 w-12 rounded-full bg-gray-700 flex items-center justify-center text-xl font-bold text-blue-400">
-                  TR
-                </div>
-                <div className="ml-4">
-                  <p className="font-semibold text-white">Thomas Rodriguez</p>
-                  <p className="text-sm text-gray-400">Music Producer & Sound Engineer</p>
-                </div>
-              </div>
-              <p className="text-gray-300 italic">&quot;As a producer working with multiple artists, the Arrangement Studio has been a game-changer. It helps me quickly develop production ideas that complement each artist&apos;s unique style.&quot;</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* FAQ Section */}
       <section className={`${SECTION_STYLES.section} bg-gray-800`}>
         <div className={SECTION_STYLES.container}>

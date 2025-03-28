@@ -4,6 +4,7 @@ import { useState, memo } from 'react';
 import Link from 'next/link';
 import { Menu, X, ShoppingCart, Cpu, LucideIcon } from 'lucide-react';
 import { useCart } from '@/context/CartContext';
+import ShareButton from './ShareButton';
 
 // Navigation items - centralized for both mobile and desktop
 const navigation = [
@@ -49,6 +50,13 @@ const Navbar = () => {
                 )}
               </NavLink>
             ))}
+            <ShareButton 
+              title="Amped Academy"
+              url={typeof window !== 'undefined' ? window.location.href : ''}
+              description="Learn guitar and music theory with Amped Academy"
+              className="text-white px-4 py-2 rounded-md hover:bg-gray-800 transition"
+              showLabel={true}
+            />
             <Link 
               href="/cart" 
               className="flex items-center text-white px-4 py-2 rounded-md hover:bg-gray-800 transition relative"
@@ -107,6 +115,13 @@ const MobileMenu = memo(({
             {item.name}
           </Link>
         ))}
+        <ShareButton 
+          title="Amped Academy"
+          url={typeof window !== 'undefined' ? window.location.href : ''}
+          description="Learn guitar and music theory with Amped Academy"
+          className="flex w-full items-center text-white px-3 py-3 rounded-md hover:bg-gray-800 transition"
+          showLabel={true}
+        />
         <Link
           href="/cart"
           onClick={onClose}

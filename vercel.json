@@ -1,7 +1,5 @@
 {
   "version": 2,
-  "buildCommand": "cd amped-academy && npm install && npm run build",
-  "outputDirectory": "amped-academy/.next",
   "framework": "nextjs",
   "github": {
     "enabled": true,

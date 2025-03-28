@@ -135,7 +135,7 @@ const PRODUCTS = [
     popular: true,
   },
   {
-    id: "price_YOUR_ELECTRIC_PENTATONIC_PRICE_ID",
+    id: "price_1R7FQdP5sBTJ16iOkhgtytyM",
     name: "Lee Fretmap for Electric Guitar - Pentatonic Blues",
     price: 24.99,
     image: "/images/Product images/products jpg 400px/guitar pentatonic blues jpg 400.jpg",
@@ -143,7 +143,7 @@ const PRODUCTS = [
     popular: false,
   },
   {
-    id: "price_YOUR_CLASSICAL_PRICE_ID",
+    id: "price_1R7FRZP5sBTJ16iOa9ChfuWG",
     name: "Lee Fretmap for Classical Nylon String Guitar",
     price: 24.99,
     image: "/images/Product images/products jpg 400px/guitar classical nylon jpg 400.jpg",
@@ -151,15 +151,7 @@ const PRODUCTS = [
     popular: false,
   },
   {
-    id: "lee-fretmap-bass",
-    name: "Lee Fretmap for Bass Guitar",
-    price: 24.99,
-    image: "/images/Product images/products jpg 400px/bass jpg 400.jpg",
-    webpImage: "/images/Product images/products webp 400px/bass webp 400.webp",
-    popular: false,
-  },
-  {
-    id: "lee-fretmap-harmonic-minor",
+    id: "price_1R7FVaP5sBTJ16iOGhAuuLav",
     name: "Lee Fretmap for Guitar - Harmonic Minor",
     price: 24.99,
     image: "/images/Product images/products jpg 400px/guitar harmonic minor jpg 400.jpg",
@@ -167,7 +159,15 @@ const PRODUCTS = [
     popular: false,
   },
   {
-    id: "lee-fretmap-bass-pentatonic",
+    id: "price_1R7FTfP5sBTJ16iOcB7zKC39",
+    name: "Lee Fretmap for Bass Guitar",
+    price: 24.99,
+    image: "/images/Product images/products jpg 400px/bass jpg 400.jpg",
+    webpImage: "/images/Product images/products webp 400px/bass webp 400.webp",
+    popular: false,
+  },
+  {
+    id: "price_1R7FWsP5sBTJ16iONn6W8G8y",
     name: "Lee Fretmap for Bass - Pentatonic Blues",
     price: 24.99,
     image: "/images/Product images/products jpg 400px/bass pentatonic blues jpg 400.jpg",
@@ -175,7 +175,7 @@ const PRODUCTS = [
     popular: false,
   },
   {
-    id: "lee-fretmap-piano",
+    id: "price_1R7FXdP5sBTJ16iO95dyFWn9",
     name: "Lee Fretmap for Piano/Keyboard",
     price: 24.99,
     image: "/images/Product images/products jpg 400px/piano keyboard jpg 400.jpg",
@@ -183,7 +183,7 @@ const PRODUCTS = [
     popular: false,
   },
   {
-    id: "lee-fretmap-ukulele",
+    id: "price_1R7FYFP5sBTJ16iOSWuvAErj",
     name: "Lee Fretmap for Ukulele",
     price: 24.99,
     image: "/images/Product images/products jpg 400px/ukulele jpg 400.jpg",

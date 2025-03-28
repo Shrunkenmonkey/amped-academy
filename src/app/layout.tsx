@@ -27,14 +27,12 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
+      { url: '/favicon.ico', sizes: 'any' },
       { url: '/images/favicon-package/lightning-favicon-webp.webp', type: 'image/webp' },
       { url: '/images/favicon-package/lightning-favicon-windows-48px.png', type: 'image/png', sizes: '48x48' },
-      { url: '/images/favicon-package/amped-favicon-png.png', type: 'image/png' },
-      { url: '/favicon.ico', sizes: 'any' }
+      { url: '/images/favicon-package/amped-favicon-png.png', type: 'image/png' }
     ],
-    shortcut: [
-      { url: '/favicon.ico', sizes: 'any' }
-    ],
+    shortcut: ['/favicon.ico'],
     apple: [
       { url: '/images/favicon-package/lightning-favicon-apple-180px.png', sizes: '180x180', type: 'image/png' }
     ],
@@ -75,7 +73,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <head />
+      <head>
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" href="/images/favicon-package/lightning-favicon-webp.webp" type="image/webp" />
+        <link rel="icon" href="/images/favicon-package/lightning-favicon-windows-48px.png" type="image/png" sizes="48x48" />
+        <link rel="apple-touch-icon" href="/images/favicon-package/lightning-favicon-apple-180px.png" sizes="180x180" />
+      </head>
       <body className={inter.className}>
         <Providers>
           {children}

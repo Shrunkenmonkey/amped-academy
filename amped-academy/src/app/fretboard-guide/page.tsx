@@ -1,43 +1,36 @@
 'use client';
 
 import Link from 'next/link';
-import PageHero from '@/components/PageHero';
+import Hero from '@/components/Hero';
 import BackgroundImage from "@/components/BackgroundImage";
 
-// Text shadow styles for glow effect
-const textShadowHeavy = { 
-  textShadow: "0 0 20px rgba(0, 0, 0, 0.9), 0 0 30px rgba(0, 0, 0, 0.8), 0 0 40px rgba(0, 0, 0, 0.7), 0 0 50px rgba(0, 0, 0, 0.6), 0 0 60px rgba(0, 0, 0, 0.5)"
-};
-const textShadowMedium = { 
-  textShadow: "0 0 15px rgba(0, 0, 0, 0.9), 0 0 25px rgba(0, 0, 0, 0.8), 0 0 35px rgba(0, 0, 0, 0.7), 0 0 45px rgba(0, 0, 0, 0.6)"
-};
-
-export default function LessonsPage() {
+export default function FretboardGuidePage() {
   return (
     <div className="min-h-screen bg-gray-900 text-white">
       {/* Hero Section */}
-      <section className="relative text-white py-8">
-        <div className="absolute inset-0 z-0 overflow-hidden bg-indigo-900">
-          <BackgroundImage 
-            src="/images/backgrounds/lightning-background jpg.jpg"
-            webpSrc="/images/backgrounds/lightning-background webp.webp"
-            alt="Lightning background"
-            priority={true}
-          />
-          <div className="absolute inset-0 bg-black opacity-25"></div>
-        </div>
-        
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center py-12">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-white" style={textShadowHeavy}>
-              Lessons
-            </h1>
-            <p className="text-3xl md:text-4xl text-white" style={textShadowMedium}>
-              Your complete guide to the Lee Fretmap system
-            </p>
+      <Hero 
+        title="Fretboard Guide"
+        subtitle="Your complete guide to the Lee Fretmap system"
+      />
+      
+      {/* Topics Section - Centered Text */}
+      <div className="max-w-4xl mx-auto px-4 text-center py-8">
+        <h2 className="text-3xl font-bold mb-6">Essential Guitar Topics</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-lg">
+          <div>
+            <p>• Major & Minor Scales</p>
+            <p>• Chord Construction</p>
+            <p>• Fretboard Navigation</p>
+            <p>• Playing by Ear</p>
+          </div>
+          <div>
+            <p>• Music Theory Fundamentals</p>
+            <p>• Improvisation</p>
+            <p>• Pentatonic Patterns</p>
+            <p>• Scale Relationships</p>
           </div>
         </div>
-      </section>
+      </div>
       
       {/* Main Content */}
       <div className="max-w-4xl mx-auto py-12 px-4">

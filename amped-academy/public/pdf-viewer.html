@@ -21,6 +21,109 @@
       text-shadow: 0 0 15px rgba(0, 0, 0, 0.9), 0 0 25px rgba(0, 0, 0, 0.8), 0 0 35px rgba(0, 0, 0, 0.7), 0 0 45px rgba(0, 0, 0, 0.6);
     }
     
+    /* Navbar styles */
+    .navbar {
+      background-color: #000000;
+      color: white;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+    
+    .navbar-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 4rem;
+    }
+    
+    .logo {
+      font-weight: bold;
+      font-size: 1.25rem;
+      color: white;
+      text-decoration: none;
+    }
+    
+    .desktop-nav {
+      display: none;
+    }
+    
+    .nav-item {
+      color: white;
+      text-decoration: none;
+      margin-left: 2rem;
+      font-weight: 500;
+      transition: color 0.15s;
+    }
+    
+    .nav-item:hover {
+      color: #d1d5db; /* gray-300 */
+    }
+    
+    .mobile-menu-button {
+      padding: 0.5rem;
+      border-radius: 0.375rem;
+      background-color: transparent;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    
+    .mobile-menu-button:hover {
+      background-color: #1f2937; /* gray-800 */
+    }
+    
+    .mobile-menu {
+      display: none;
+      position: absolute;
+      top: 4rem;
+      left: 0;
+      right: 0;
+      background-color: #000000;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      z-index: 50;
+      padding: 0.5rem 0;
+      border-bottom-left-radius: 0.5rem;
+      border-bottom-right-radius: 0.5rem;
+    }
+    
+    .mobile-menu.open {
+      display: block;
+    }
+    
+    .mobile-nav-item {
+      display: flex;
+      align-items: center;
+      color: white;
+      text-decoration: none;
+      padding: 0.75rem 1rem;
+      border-radius: 0.375rem;
+      margin: 0.25rem 1rem;
+    }
+    
+    .mobile-nav-item:hover {
+      background-color: #1f2937; /* gray-800 */
+    }
+    
+    @media (min-width: 768px) {
+      .desktop-nav {
+        display: flex;
+        align-items: center;
+      }
+      
+      .mobile-menu-button {
+        display: none;
+      }
+      
+      .logo {
+        font-size: 1.5rem;
+      }
+    }
+    
     /* Hero section styles exactly matching videos page */
     .hero-section {
       position: relative;
@@ -133,11 +236,44 @@
   </style>
 </head>
 <body>
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="navbar-container">
+      <a href="/" class="logo">Amped Academy</a>
+      
+      <nav class="desktop-nav">
+        <a href="/" class="nav-item">Home</a>
+        <a href="/lessons-free-beginner-guitar-instruction" class="nav-item">Guitar Lessons</a>
+        <a href="/guitar-learning-tools" class="nav-item">Guitar Learning Tools</a>
+        <a href="/use-ai-to-make-songs-music" class="nav-item">Guitar AI Tools</a>
+        <a href="/fretboard-guide" class="nav-item">Fretboard Guide</a>
+        <a href="/guitar-learning-tools/cart" class="nav-item">Cart</a>
+      </nav>
+      
+      <button class="mobile-menu-button" id="mobile-menu-toggle">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+    
+    <div class="mobile-menu" id="mobile-menu">
+      <a href="/" class="mobile-nav-item">Home</a>
+      <a href="/lessons-free-beginner-guitar-instruction" class="mobile-nav-item">Guitar Lessons</a>
+      <a href="/guitar-learning-tools" class="mobile-nav-item">Guitar Learning Tools</a>
+      <a href="/use-ai-to-make-songs-music" class="mobile-nav-item">Guitar AI Tools</a>
+      <a href="/fretboard-guide" class="mobile-nav-item">Fretboard Guide</a>
+      <a href="/guitar-learning-tools/cart" class="mobile-nav-item">Cart</a>
+    </div>
+  </header>
+  
   <!-- Hero Section - exactly matching videos page structure -->
   <section class="hero-section">
     <div class="hero-background">
       <img 
-        src="/images/backgrounds/lightning-background.jpg" 
+        src="/images/backgrounds/lightning-background-jpg.jpg" 
         alt="Lightning background" 
         class="hero-background-image"
       />
@@ -146,7 +282,7 @@
     <div class="hero-content">
       <div class="hero-text">
         <h1 class="hero-title text-shadow-heavy">
-          Amped Academy Presents:
+          PDF Viewer
         </h1>
         <p class="hero-subtitle text-shadow-medium">
           Lee Fretmap Fretboard Mastery
@@ -157,7 +293,7 @@
   
   <div class="container">
     <div style="text-align: center; margin: 1rem 0;">
-      <a href="/lessons" class="back-button">Back to Lessons</a>
+      <a href="/lessons-free-beginner-guitar-instruction" class="back-button">Back to Lessons</a>
     </div>
     <div class="pdf-fallback">
       <p>Your browser may not be able to display the PDF directly.</p>
@@ -172,7 +308,7 @@
         
         // Create object element
         const obj = document.createElement('object');
-        obj.setAttribute('data', '/images/Text/Lee Fretmap Fretboard Mastery.pdf');
+        obj.setAttribute('data', '/images/Text-files/Lee-Fretmap-Fretboard-Mastery.pdf');
         obj.setAttribute('type', 'application/pdf');
         obj.setAttribute('width', '100%');
         obj.setAttribute('height', '850px');
@@ -202,6 +338,23 @@
         }, 1000);
       } catch (e) {
         console.error('Error creating PDF viewer:', e);
+      }
+      
+      // Mobile menu toggle functionality
+      const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+      const mobileMenu = document.getElementById('mobile-menu');
+      
+      if (mobileMenuToggle && mobileMenu) {
+        mobileMenuToggle.addEventListener('click', function() {
+          mobileMenu.classList.toggle('open');
+          
+          // Update icon based on menu state
+          if (mobileMenu.classList.contains('open')) {
+            this.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>';
+          } else {
+            this.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>';
+          }
+        });
       }
     };
   </script>

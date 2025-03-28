@@ -34,6 +34,20 @@ function ProductCardComponent({ product }: ProductCardProps) {
     router.push('/cart'); // Navigate to cart page after adding item
   };
 
+  // Get description based on product ID
+  const getDescription = (productId: string) => {
+    // Special descriptions for specific products
+    const descriptions: { [key: string]: string } = {
+      "price_1R70uCP5sBTJ16iOrCBTKMxq": "This is the sticker set to get for use with the videos and ebook.", // Product 1
+      "price_1R7FRZP5sBTJ16iOa9ChfuWG": "This is the sticker set to get for use with the videos and ebook.", // Product 3
+      "price_1R7FVaP5sBTJ16iOGhAuuLav": "For more advanced players looking to take their playing to the next level", // Product 4 (Harmonic Minor)
+      "price_1R7FTfP5sBTJ16iOcB7zKC39": "This is the sticker set to get for use with the videos and ebook.", // Product 5 (Bass Guitar)
+      "price_1R7FYFP5sBTJ16iOSWuvAErj": "This is the sticker set to get for use with the videos and ebook." // Product 8
+    };
+
+    return descriptions[productId] || "Perfect for visual learners looking to master the fretboard quickly.";
+  };
+
   return (
     <div className="bg-gray-800 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 h-full">
       <div className="relative">
@@ -69,7 +83,7 @@ function ProductCardComponent({ product }: ProductCardProps) {
             ))}
           </div>
         </div>
-        <p className="text-gray-300 mb-4 text-center">Perfect for visual learners looking to master the fretboard quickly.</p>
+        <p className="text-gray-300 mb-4 text-center">{getDescription(product.id)}</p>
         <div className="flex space-x-3">
           <Link 
             href={`/shop/product/${product.id}`}

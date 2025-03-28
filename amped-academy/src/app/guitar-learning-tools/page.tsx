@@ -6,6 +6,7 @@ import Image from "next/image";
 import BackgroundImage from "@/components/BackgroundImage";
 import { ProductCard } from "@/components/ProductCard";
 import { useCart } from '@/context/CartContext';
+import Hero from '@/components/Hero';
 
 // Text shadow styles for glow effect
 const TEXT_STYLES = {
@@ -120,72 +121,72 @@ const FAQS = [
   }
 ];
 
-// Product data (same as in shop/product/[id]/page.tsx)
+// Product options
 const PRODUCTS = [
   {
     id: "price_1R70uCP5sBTJ16iOrCBTKMxq",
     name: "Lee Fretmap for Electric and Acoustic Guitar",
     price: 24.99,
-    image: "/images/product-images/products-jpg-400px/guitar-jpg-400.jpg",
-    webpImage: "/images/product-images/products-webp-400px/guitar-webp-400.webp",
-    popular: true
+    image: "/images/Product-images/products-jpg-400px/guitar-jpg-400.jpg",
+    webpImage: "/images/Product-images/products-webp-400px/guitar-webp-400.webp",
+    popular: true,
   },
   {
-    id: "lee-fretmap-electric",
+    id: "price_1R7FQdP5sBTJ16iOkhgtytyM",
     name: "Lee Fretmap for Electric Guitar - Pentatonic Blues",
     price: 24.99,
-    image: "/images/product-images/products-jpg-400px/guitar-pentatonic-blues-jpg-400.jpg",
-    webpImage: "/images/product-images/products-webp-400px/guitar-pentatonic-blues-webp-400.webp",
-    popular: false
+    image: "/images/Product-images/products-jpg-400px/guitar-pentatonic-blues-jpg-400.jpg",
+    webpImage: "/images/Product-images/products-webp-400px/guitar-pentatonic-blues-webp-400.webp",
+    popular: false,
   },
   {
-    id: "lee-fretmap-classical",
+    id: "price_1R7FRZP5sBTJ16iOa9ChfuWG",
     name: "Lee Fretmap for Classical Nylon String Guitar",
     price: 24.99,
-    image: "/images/product-images/products-jpg-400px/guitar-classical-nylon-jpg-400.jpg",
-    webpImage: "/images/product-images/products-webp-400px/guitar-classical-nylon-webp-400.webp",
-    popular: false
+    image: "/images/Product-images/products-jpg-400px/guitar-classical-nylon-jpg-400.jpg",
+    webpImage: "/images/Product-images/products-webp-400px/guitar-classical-nylon-webp-400.webp",
+    popular: false,
   },
   {
-    id: "lee-fretmap-bass",
+    id: "price_1R7FTfP5sBTJ16iOcB7zKC39",
     name: "Lee Fretmap for Bass Guitar",
     price: 24.99,
-    image: "/images/product-images/products-jpg-400px/bass-jpg-400.jpg",
-    webpImage: "/images/product-images/products-webp-400px/bass-webp-400.webp",
-    popular: false
+    image: "/images/Product-images/products-jpg-400px/bass-jpg-400.jpg",
+    webpImage: "/images/Product-images/products-webp-400px/bass-webp-400.webp",
+    popular: false,
   },
   {
-    id: "lee-fretmap-harmonic-minor",
+    id: "price_1R7FVaP5sBTJ16iOGhAuuLav",
     name: "Lee Fretmap for Guitar - Harmonic Minor",
     price: 24.99,
-    image: "/images/product-images/products-jpg-400px/guitar-harmonic-minor-jpg-400.jpg",
-    webpImage: "/images/product-images/products-webp-400px/guitar-harmonic-minor-webp-400.webp",
-    popular: false
+    image: "/images/Product-images/products-jpg-400px/guitar-harmonic-minor-jpg-400.jpg",
+    webpImage: "/images/Product-images/products-webp-400px/guitar-harmonic-minor-webp-400.webp",
+    popular: false,
   },
   {
-    id: "lee-fretmap-bass-pentatonic",
-    name: "Lee Fretmap for Bass Guitar - Pentatonic Blues",
+    id: "price_1R7FWsP5sBTJ16iONn6W8G8y",
+    name: "Lee Fretmap for Bass - Pentatonic Blues",
     price: 24.99,
-    image: "/images/product-images/products-jpg-400px/bass-pentatonic-blues-jpg-400.jpg",
-    webpImage: "/images/product-images/products-webp-400px/bass-pentatonic-blues-webp-400.webp",
-    popular: false
+    image: "/images/Product-images/products-jpg-400px/bass-pentatonic-blues-jpg-400.jpg",
+    webpImage: "/images/Product-images/products-webp-400px/bass-pentatonic-blues-webp-400.webp",
+    popular: false,
   },
   {
-    id: "lee-fretmap-piano",
+    id: "price_1R7FXdP5sBTJ16iO95dyFWn9",
     name: "Lee Fretmap for Piano/Keyboard",
     price: 24.99,
-    image: "/images/product-images/products-jpg-400px/piano-keyboard-jpg-400.jpg",
-    webpImage: "/images/product-images/products-webp-400px/piano-keyboard-webp-400.webp",
-    popular: false
+    image: "/images/Product-images/products-jpg-400px/piano-keyboard-jpg-400.jpg",
+    webpImage: "/images/Product-images/products-webp-400px/piano-keyboard-webp-400.webp",
+    popular: false,
   },
   {
-    id: "lee-fretmap-ukulele",
+    id: "price_1R7FYFP5sBTJ16iOSWuvAErj",
     name: "Lee Fretmap for Ukulele",
     price: 24.99,
-    image: "/images/product-images/products-jpg-400px/ukulele-jpg-400.jpg",
-    webpImage: "/images/product-images/products-webp-400px/ukulele-webp-400.webp",
-    popular: false
-  }
+    image: "/images/Product-images/products-jpg-400px/ukulele-jpg-400.jpg",
+    webpImage: "/images/Product-images/products-webp-400px/ukulele-webp-400.webp",
+    popular: false,
+  },
 ];
 
 // Define Types
@@ -264,38 +265,11 @@ export default function ShopPage() {
   return (
     <div className="bg-gray-900 min-h-screen text-white">
       {/* Hero Section */}
-      <section className="relative text-white py-8">
-        <div className="absolute inset-0 z-0 overflow-hidden bg-indigo-900">
-          <BackgroundImage 
-            src="/images/backgrounds/lightning-background jpg.jpg"
-            webpSrc="/images/backgrounds/lightning-background webp.webp"
-            alt="Lightning background"
-            priority={true}
-          />
-          <div className="absolute inset-0 bg-black opacity-25"></div>
-        </div>
-        
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-end mb-4">
-            <Link 
-              href="/shop/checkout"
-              className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-md font-medium transition-colors duration-200 flex items-center"
-            >
-              <ShoppingCart className="w-5 h-5 mr-2" />
-              Checkout
-            </Link>
-          </div>
-          <div className="text-center py-12">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-white" style={TEXT_STYLES.shadowHeavy}>
-              Shop
-            </h1>
-            <p className="text-3xl md:text-4xl text-white" style={TEXT_STYLES.shadowMedium}>
-              Enhance your musical journey
-            </p>
-          </div>
-        </div>
-      </section>
-
+      <Hero 
+        title="Shop"
+        subtitle="Enhance your musical journey"
+      />
+      
       {/* Main Content */}
       <main className="bg-gray-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -351,6 +325,18 @@ export default function ShopPage() {
             <div className="text-center mb-12">
               <h2 className="text-3xl font-bold text-white">Frequently Asked Questions</h2>
               <p className="mt-4 text-xl text-gray-300 max-w-3xl mx-auto">
+                <div className="text-center font-medium text-blue-400 my-6">
+                  How to navigate the fretboard easily<br />
+                  Basics of notes and scales<br />
+                  Simple music theory for guitar<br />
+                  Playing major and minor scales<br />
+                  Exercises to improve fretboard skills<br />
+                  Building common chords<br />
+                  Using pentatonic scales for solos<br />
+                  Understanding chord progressions<br />
+                  Adding advanced chords like 7ths<br />
+                  Exploring musical modes
+                </div>
               </p>
             </div>
             

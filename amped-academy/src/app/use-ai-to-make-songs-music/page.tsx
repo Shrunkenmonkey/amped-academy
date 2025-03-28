@@ -50,7 +50,7 @@ export default function AIToolsPage() {
           <Link href="https://www.leefretmap.com" target="_blank" rel="noopener noreferrer">
             <div className="relative w-full max-w-[400px] mx-auto">
               <Image
-                src="/images/ai song generator image webp 400.webp"
+                src="/images/ai-song-generator-image-webp-400.webp"
                 alt="AI Song Generator"
                 width={400}
                 height={400}

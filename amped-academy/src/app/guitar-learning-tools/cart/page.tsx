@@ -1,11 +1,13 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowLeft, Trash2, ShoppingCart, CreditCard } from 'lucide-react';
 import { useCart } from '@/context/CartContext';
 import BackgroundImage from '@/components/BackgroundImage';
+import { loadStripe } from '@stripe/stripe-js';
+import Hero from '@/components/Hero';
 
 // Text shadow styles for glow effect
 const TEXT_STYLES = {
@@ -20,44 +22,117 @@ const TEXT_STYLES = {
 export default function CartPage() {
   const { items, removeFromCart, updateQuantity, totalItems, totalPrice } = useCart();
   const [couponCode, setCouponCode] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [stripe, setStripe] = useState<any>(null);
+
+  useEffect(() => {
+    // Initialize Stripe
+    const initStripe = async () => {
+      try {
+        const publishableKey = process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY;
+        
+        if (!publishableKey) {
+          console.error('Stripe publishable key is missing');
+          setError('Payment system is not properly configured. Please try again later.');
+          return;
+        }
+        
+        const stripeInstance = await loadStripe(publishableKey);
+        
+        if (!stripeInstance) {
+          console.error('Failed to initialize Stripe');
+          setError('Failed to initialize payment system. Please try again later.');
+          return;
+        }
+        
+        setStripe(stripeInstance);
+      } catch (err) {
+        console.error('Error initializing Stripe:', err);
+        setError('Error initializing payment system. Please try again later.');
+      }
+    };
+
+    initStripe();
+  }, []);
 
   // Handle checkout button
-  const handleCheckout = () => {
-    alert('Checkout functionality would be integrated here.');
-    // Implement actual checkout logic as needed
+  const handleCheckout = async () => {
+    if (!stripe) {
+      setError('Payment system is not ready. Please try again in a moment.');
+      return;
+    }
+
+    if (!items || items.length === 0) {
+      setError('Your cart is empty. Please add items before checking out.');
+      return;
+    }
+
+    try {
+      setLoading(true);
+      setError(null);
+
+      // Create checkout session
+      const response = await fetch('/api/create-checkout-session', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          items: items.map(item => ({
+            id: item.id,
+            quantity: item.quantity,
+          })),
+        }),
+      });
+
+      let data;
+      try {
+        data = JSON.parse(await response.text());
+      } catch (e) {
+        throw new Error('Invalid response from server');
+      }
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Failed to create checkout session');
+      }
+
+      const { sessionId } = data;
+
+      if (!sessionId) {
+        throw new Error('No session ID received from server');
+      }
+
+      // Redirect to Stripe Checkout
+      const { error: stripeError } = await stripe.redirectToCheckout({
+        sessionId,
+        mode: 'payment',
+      });
+
+      if (stripeError) {
+        throw new Error(stripeError.message);
+      }
+    } catch (err) {
+      console.error('Checkout error:', err);
+      setError(err instanceof Error ? err.message : 'An error occurred during checkout');
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
     <div className="min-h-screen bg-gray-900 text-white">
       {/* Hero Section */}
-      <section className="relative text-white py-8">
-        <div className="absolute inset-0 z-0 overflow-hidden bg-indigo-900">
-          <BackgroundImage 
-            src="/images/backgrounds/lightning-background jpg.jpg"
-            webpSrc="/images/backgrounds/lightning-background webp.webp"
-            alt="Lightning background"
-            priority={true}
-          />
-          <div className="absolute inset-0 bg-black opacity-25"></div>
-        </div>
-        
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center py-12">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-white" style={TEXT_STYLES.shadowHeavy}>
-              Your Cart
-            </h1>
-            <p className="text-3xl md:text-4xl text-white" style={TEXT_STYLES.shadowMedium}>
-              Review your selections
-            </p>
-          </div>
-        </div>
-      </section>
+      <Hero 
+        title="Your Cart"
+        subtitle="Review your selections"
+      />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Breadcrumb Navigation */}
         <div className="mb-8">
           <Link 
-            href="/shop" 
+            href="/guitar-learning-tools" 
             className="text-blue-400 hover:text-blue-300 flex items-center gap-1"
           >
             <ArrowLeft className="h-4 w-4" />
@@ -73,7 +148,7 @@ export default function CartPage() {
             <h2 className="text-2xl font-semibold mb-4">Your cart is empty</h2>
             <p className="text-gray-400 mb-8">Looks like you haven't added any products to your cart yet.</p>
             <Link 
-              href="/shop" 
+              href="/guitar-learning-tools" 
               className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-md font-medium text-lg inline-block"
             >
               Browse Products
@@ -167,12 +242,25 @@ export default function CartPage() {
                 </div>
               </div>
               
+              {error && (
+                <div className="mb-4 p-4 bg-red-900 text-white rounded-md text-sm">
+                  {error}
+                </div>
+              )}
+              
               <button 
                 onClick={handleCheckout}
-                className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-md font-medium flex items-center justify-center gap-2"
+                disabled={loading}
+                className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-md font-medium flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                <CreditCard className="h-5 w-5" />
-                Proceed to Checkout
+                {loading ? (
+                  'Processing...'
+                ) : (
+                  <>
+                    <CreditCard className="h-5 w-5" />
+                    Proceed to Checkout
+                  </>
+                )}
               </button>
             </div>
           </div>

@@ -66,7 +66,7 @@ export default function LessonsPage() {
             </p>
             
             <h3 className="text-xl font-semibold mt-6 mb-2 text-center">What You'll Learn</h3>
-            <ul className="list-disc pl-6 space-y-2">
+            <ul className="space-y-2 text-center">
               <li>How to navigate the fretboard easily</li>
               <li>Basics of notes and scales</li>
               <li>Simple music theory for guitar</li>

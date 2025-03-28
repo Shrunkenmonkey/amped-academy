@@ -8,10 +8,10 @@ import { useCart } from '@/context/CartContext';
 // Navigation items - centralized for both mobile and desktop
 const navigation = [
   { name: "Home", href: "/" },
-  { name: "Videos", href: "/videos" },
-  { name: "Shop", href: "/shop" },
-  { name: "AI Tools", href: "/ai-tools", icon: Cpu },
-  { name: "Lessons", href: "/lessons" },
+  { name: "Guitar Lessons", href: "/lessons-free-beginner-guitar-instruction" },
+  { name: "Guitar Learning Tools", href: "/guitar-learning-tools" },
+  { name: "Guitar AI Tools", href: "/use-ai-to-make-songs-music", icon: Cpu },
+  { name: "Fretboard Guide", href: "/fretboard-guide" },
 ];
 
 type NavigationItem = {
@@ -50,7 +50,7 @@ const Navbar = () => {
               </NavLink>
             ))}
             <Link 
-              href="/cart" 
+              href="/guitar-learning-tools/cart" 
               className="flex items-center text-white px-4 py-2 rounded-md hover:bg-gray-800 transition relative"
               aria-label="Shopping Cart"
             >
@@ -108,7 +108,7 @@ const MobileMenu = memo(({
           </Link>
         ))}
         <Link
-          href="/cart"
+          href="/guitar-learning-tools/cart"
           onClick={onClose}
           className="flex items-center text-white px-3 py-3 rounded-md hover:bg-gray-800 transition relative"
         >

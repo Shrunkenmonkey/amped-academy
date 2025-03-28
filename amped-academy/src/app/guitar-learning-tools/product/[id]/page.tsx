@@ -8,6 +8,7 @@ import Image from 'next/image';
 import BackgroundImage from '@/components/BackgroundImage';
 import { useCart } from '@/context/CartContext';
 import ShareButton from '@/components/ShareButton';
+import Hero from '@/components/Hero';
 
 // Product data (same as in shop/page.tsx)
 const PRODUCTS = [
@@ -16,10 +17,10 @@ const PRODUCTS = [
     name: "Lee Fretmap for Electric and Acoustic Guitar",
     description: "The perfect companion for acoustic guitarists. These stickers help you visualize chord patterns and scales across the entire fretboard, speeding up your learning process dramatically.",
     price: 24.99,
-    image: "/images/product-images/products-jpg-400px/guitar-jpg-400.jpg",
-    webpImage: "/images/product-images/products-webp-400px/guitar-webp-400.webp",
-    highResImage: "/images/product-images/products-jpg-800px/guitar-jpg-800.jpg",
-    highResWebpImage: "/images/product-images/products-webp-800px/guitar-webp-800.webp",
+    image: "/images/Product-images/products-jpg-400px/guitar-jpg-400.jpg",
+    webpImage: "/images/Product-images/products-webp-400px/guitar-webp-400.webp",
+    highResImage: "/images/Product-images/products-jpg-800px/guitar-jpg-800.jpg",
+    highResWebpImage: "/images/Product-images/products-webp-800px/guitar-webp-800.webp",
     popular: true,
     features: [
       "Perfect for acoustic steel-string guitars",
@@ -30,14 +31,14 @@ const PRODUCTS = [
     ]
   },
   {
-    id: "lee-fretmap-electric",
+    id: "price_1R7FQdP5sBTJ16iOkhgtytyM",
     name: "Lee Fretmap for Electric Guitar - Pentatonic Blues",
     description: "Unlock the secrets of blues pentatonic scales with our electric guitar fretmap. Perfect for blues, rock, and jazz players looking to master improvisation.",
     price: 24.99,
-    image: "/images/product-images/products-jpg-400px/guitar-pentatonic-blues-jpg-400.jpg",
-    webpImage: "/images/product-images/products-webp-400px/guitar-pentatonic-blues-webp-400.webp",
-    highResImage: "/images/product-images/products-jpg-800px/guitar-pentatonic-blues-jpg-800.jpg",
-    highResWebpImage: "/images/product-images/products-webp-800px/guitar-pentatonic-blues-webp-800.webp",
+    image: "/images/Product-images/products-jpg-400px/guitar-pentatonic-blues-jpg-400.jpg",
+    webpImage: "/images/Product-images/products-webp-400px/guitar-pentatonic-blues-webp-400.webp",
+    highResImage: "/images/Product-images/products-jpg-800px/guitar-pentatonic-blues-jpg-800.jpg",
+    highResWebpImage: "/images/Product-images/products-webp-800px/guitar-pentatonic-blues-webp-800.webp",
     popular: false,
     features: [
       "Designed for electric guitars",
@@ -48,14 +49,14 @@ const PRODUCTS = [
     ]
   },
   {
-    id: "lee-fretmap-classical",
+    id: "price_1R7FRZP5sBTJ16iOa9ChfuWG",
     name: "Lee Fretmap for Classical Nylon String Guitar",
     description: "Designed specifically for nylon-string classical guitars. These stickers help you navigate the fretboard while learning classical pieces and techniques.",
     price: 24.99,
-    image: "/images/product-images/products-jpg-400px/guitar-classical-nylon-jpg-400.jpg",
-    webpImage: "/images/product-images/products-webp-400px/guitar-classical-nylon-webp-400.webp",
-    highResImage: "/images/product-images/products-jpg-800px/guitar-classical-nylon-jpg-800.jpg",
-    highResWebpImage: "/images/product-images/products-webp-800px/guitar-classical-nylon-webp-800.webp",
+    image: "/images/Product-images/products-jpg-400px/guitar-classical-nylon-jpg-400.jpg",
+    webpImage: "/images/Product-images/products-webp-400px/guitar-classical-nylon-webp-400.webp",
+    highResImage: "/images/Product-images/products-jpg-800px/guitar-classical-nylon-jpg-800.jpg",
+    highResWebpImage: "/images/Product-images/products-webp-800px/guitar-classical-nylon-webp-800.webp",
     popular: false,
     features: [
       "Perfect for classical guitars",
@@ -66,14 +67,14 @@ const PRODUCTS = [
     ]
   },
   {
-    id: "lee-fretmap-bass",
+    id: "price_1R7FTfP5sBTJ16iOcB7zKC39",
     name: "Lee Fretmap for Bass Guitar",
     description: "Master the bass fretboard with our specialized stickers. Perfect for both beginners and intermediate players looking to improve their bass playing skills.",
     price: 24.99,
-    image: "/images/product-images/products-jpg-400px/bass-jpg-400.jpg",
-    webpImage: "/images/product-images/products-webp-400px/bass-webp-400.webp",
-    highResImage: "/images/product-images/products-jpg-800px/bass-jpg-800.jpg",
-    highResWebpImage: "/images/product-images/products-webp-800px/bass-webp-800.webp",
+    image: "/images/Product-images/products-jpg-400px/bass-jpg-400.jpg",
+    webpImage: "/images/Product-images/products-webp-400px/bass-webp-400.webp",
+    highResImage: "/images/Product-images/products-jpg-800px/bass-jpg-800.jpg",
+    highResWebpImage: "/images/Product-images/products-webp-800px/bass-webp-800.webp",
     popular: false,
     features: [
       "Bass-specific design",
@@ -84,75 +85,75 @@ const PRODUCTS = [
     ]
   },
   {
-    id: "lee-fretmap-harmonic-minor",
+    id: "price_1R7FVaP5sBTJ16iOGhAuuLav",
     name: "Lee Fretmap for Guitar - Harmonic Minor",
     description: "Explore the exotic sounds of harmonic minor scales with our specialized fretmap. Perfect for metal, jazz, and classical guitarists.",
     price: 24.99,
-    image: "/images/product-images/products-jpg-400px/guitar-harmonic-minor-jpg-400.jpg",
-    webpImage: "/images/product-images/products-webp-400px/guitar-harmonic-minor-webp-400.webp",
-    highResImage: "/images/product-images/products-jpg-800px/guitar-harmonic-minor-jpg-800.jpg",
-    highResWebpImage: "/images/product-images/products-webp-800px/guitar-harmonic-minor-webp-800.webp",
+    image: "/images/Product-images/products-jpg-400px/guitar-harmonic-minor-jpg-400.jpg",
+    webpImage: "/images/Product-images/products-webp-400px/guitar-harmonic-minor-webp-400.webp",
+    highResImage: "/images/Product-images/products-jpg-800px/guitar-harmonic-minor-jpg-800.jpg",
+    highResWebpImage: "/images/Product-images/products-webp-800px/guitar-harmonic-minor-webp-800.webp",
     popular: false,
     features: [
       "Harmonic minor scale focus",
       "Perfect for metal music",
       "Includes exotic patterns",
       "Jazz and classical compatible",
-      "Advanced theory included"
+      "Advanced scale visualization"
     ]
   },
   {
-    id: "lee-fretmap-bass-pentatonic",
-    name: "Lee Fretmap for Bass Guitar - Pentatonic Blues",
-    description: "Master the blues pentatonic scales on bass with our specialized stickers. Perfect for blues, rock, and jazz bassists.",
+    id: "price_1R7FWsP5sBTJ16iONn6W8G8y",
+    name: "Lee Fretmap for Bass - Pentatonic Blues",
+    description: "Master blues bass lines with our pentatonic-focused fretmap. Perfect for blues, rock, and funk bass players.",
     price: 24.99,
-    image: "/images/product-images/products-jpg-400px/bass-pentatonic-blues-jpg-400.jpg",
-    webpImage: "/images/product-images/products-webp-400px/bass-pentatonic-blues-webp-400.webp",
-    highResImage: "/images/product-images/products-jpg-800px/bass-pentatonic-blues-jpg-800.jpg",
-    highResWebpImage: "/images/product-images/products-webp-800px/bass-pentatonic-blues-webp-800.webp",
+    image: "/images/Product-images/products-jpg-400px/bass-pentatonic-blues-jpg-400.jpg",
+    webpImage: "/images/Product-images/products-webp-400px/bass-pentatonic-blues-webp-400.webp",
+    highResImage: "/images/Product-images/products-jpg-800px/bass-pentatonic-blues-jpg-800.jpg",
+    highResWebpImage: "/images/Product-images/products-webp-800px/bass-pentatonic-blues-webp-800.webp",
     popular: false,
     features: [
       "Bass pentatonic focus",
       "Blues and rock patterns",
-      "Groove-based learning",
-      "Includes rhythm patterns",
-      "Perfect for blues bass"
+      "Funk bass compatible",
+      "Includes groove guides",
+      "Perfect for improvisation"
     ]
   },
   {
-    id: "lee-fretmap-piano",
+    id: "price_1R7FXdP5sBTJ16iO95dyFWn9",
     name: "Lee Fretmap for Piano/Keyboard",
-    description: "Master the piano keyboard with our specialized stickers. Perfect for beginners and intermediate players looking to improve their piano skills.",
+    description: "Visualize piano scales and chords with our innovative keyboard stickers. Perfect for piano and keyboard players of all levels.",
     price: 24.99,
-    image: "/images/product-images/products-jpg-400px/piano-keyboard-jpg-400.jpg",
-    webpImage: "/images/product-images/products-webp-400px/piano-keyboard-webp-400.webp",
-    highResImage: "/images/product-images/products-jpg-800px/piano-keyboard-jpg-800.jpg",
-    highResWebpImage: "/images/product-images/products-webp-800px/piano-keyboard-webp-800.webp",
+    image: "/images/Product-images/products-jpg-400px/piano-keyboard-jpg-400.jpg",
+    webpImage: "/images/Product-images/products-webp-400px/piano-keyboard-webp-400.webp",
+    highResImage: "/images/Product-images/products-jpg-800px/piano-keyboard-jpg-800.jpg",
+    highResWebpImage: "/images/Product-images/products-webp-800px/piano-keyboard-webp-800.webp",
     popular: false,
     features: [
-      "Piano-specific design",
-      "88 keys coverage",
-      "Focuses on piano patterns",
-      "Includes chord guides",
-      "Perfect for all piano styles"
+      "Piano and keyboard compatible",
+      "All major scales included",
+      "Chord pattern visualization",
+      "Perfect for beginners",
+      "Includes practice guides"
     ]
   },
   {
-    id: "lee-fretmap-ukulele",
+    id: "price_1R7FYFP5sBTJ16iOSWuvAErj",
     name: "Lee Fretmap for Ukulele",
-    description: "Master the ukulele fretboard with our specialized stickers. Perfect for beginners and intermediate players looking to improve their ukulele skills.",
+    description: "Learn ukulele chords and scales with our specialized stickers. Perfect for ukulele players of all skill levels.",
     price: 24.99,
-    image: "/images/product-images/products-jpg-400px/ukulele-jpg-400.jpg",
-    webpImage: "/images/product-images/products-webp-400px/ukulele-webp-400.webp",
-    highResImage: "/images/product-images/products-jpg-800px/ukulele-jpg-800.jpg",
-    highResWebpImage: "/images/product-images/products-webp-800px/ukulele-webp-800.webp",
+    image: "/images/Product-images/products-jpg-400px/ukulele-jpg-400.jpg",
+    webpImage: "/images/Product-images/products-webp-400px/ukulele-webp-400.webp",
+    highResImage: "/images/Product-images/products-jpg-800px/ukulele-jpg-800.jpg",
+    highResWebpImage: "/images/Product-images/products-webp-800px/ukulele-webp-800.webp",
     popular: false,
     features: [
       "Ukulele-specific design",
-      "4 string compatible",
-      "Focuses on ukulele patterns",
-      "Includes chord guides",
-      "Perfect for all ukulele styles"
+      "All common chords included",
+      "Perfect for beginners",
+      "Includes strum patterns",
+      "Easy to follow guide"
     ]
   }
 ];
@@ -199,7 +200,7 @@ export default function ProductPage() {
           image: product.image,
         });
       }
-      router.push('/cart'); // Navigate to cart page after adding items
+      router.push('/guitar-learning-tools/cart'); // Navigate to cart page after adding items
     }
   };
 
@@ -220,7 +221,7 @@ export default function ProductPage() {
       <div className="min-h-screen bg-gray-900 flex flex-col items-center justify-center text-white">
         <h1 className="text-3xl font-bold mb-4">Product Not Found</h1>
         <p className="mb-8">The product you're looking for doesn't exist or has been removed.</p>
-        <Link href="/shop" className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-md font-medium transition-colors duration-200">
+        <Link href="/guitar-learning-tools" className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-md font-medium transition-colors duration-200">
           Return to Shop
         </Link>
       </div>
@@ -230,32 +231,17 @@ export default function ProductPage() {
   return (
     <div className="min-h-screen bg-gray-900 text-white">
       {/* Hero Section */}
-      <section className="relative text-white py-8">
-        <div className="absolute inset-0 z-0 overflow-hidden bg-indigo-900">
-          <BackgroundImage 
-            src="/images/backgrounds/lightning-background jpg.jpg"
-            webpSrc="/images/backgrounds/lightning-background webp.webp"
-            alt="Lightning background"
-            priority={true}
-          />
-          <div className="absolute inset-0 bg-black opacity-25"></div>
-        </div>
-        
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center py-12">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-white" style={TEXT_STYLES.shadowHeavy}>
-              {product.name}
-            </h1>
-          </div>
-        </div>
-      </section>
+      <Hero 
+        title={product.name}
+        subtitle=""
+      />
 
       <main className="bg-gray-900 py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Breadcrumb Navigation */}
           <div className="mb-8">
             <Link 
-              href="/shop" 
+              href="/guitar-learning-tools" 
               className="text-blue-400 hover:text-blue-300 flex items-center gap-1"
             >
               <ArrowLeft className="h-4 w-4" />
@@ -343,7 +329,7 @@ export default function ProductPage() {
                 </button>
                 <ShareButton 
                   title={product.name}
-                  url={`${process.env.NEXT_PUBLIC_BASE_URL}/shop/product/${product.id}`}
+                  url={`${process.env.NEXT_PUBLIC_BASE_URL}/guitar-learning-tools/product/${product.id}`}
                   description={product.description}
                 />
               </div>
@@ -370,7 +356,7 @@ export default function ProductPage() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {PRODUCTS.filter(p => p.id !== product.id).slice(0, 3).map(relatedProduct => (
                 <div key={relatedProduct.id} className="bg-gray-800 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300">
-                  <Link href={`/shop/product/${relatedProduct.id}`} className="block">
+                  <Link href={`/guitar-learning-tools/product/${relatedProduct.id}`} className="block">
                     <div className="relative pt-[75%] w-full">
                       <picture>
                         <source 

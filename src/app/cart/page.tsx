@@ -1,12 +1,13 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { ArrowLeft, Trash2, ShoppingCart, CreditCard } from 'lucide-react';
 import { useCart } from '@/context/CartContext';
 import BackgroundImage from '@/components/BackgroundImage';
+import { loadStripe } from '@stripe/stripe-js';
 
 // Text shadow styles for glow effect
 const TEXT_STYLES = {
@@ -21,13 +22,80 @@ const TEXT_STYLES = {
 export default function CartPage() {
   const { items, removeFromCart, updateQuantity, totalItems, totalPrice } = useCart();
   const [couponCode, setCouponCode] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
+  const [stripe, setStripe] = useState<any>(null);
   const router = useRouter();
 
-  const handleCheckout = (e: React.MouseEvent) => {
+  useEffect(() => {
+    // Initialize Stripe
+    const initStripe = async () => {
+      try {
+        const publishableKey = process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY;
+        if (!publishableKey) {
+          console.error('Stripe publishable key is missing');
+          return;
+        }
+
+        const stripeInstance = await loadStripe(publishableKey);
+        if (!stripeInstance) {
+          console.error('Failed to initialize Stripe');
+          return;
+        }
+
+        setStripe(stripeInstance);
+      } catch (err) {
+        console.error('Error initializing Stripe:', err);
+      }
+    };
+
+    initStripe();
+  }, []);
+
+  const handleCheckout = async (e: React.MouseEvent) => {
     e.preventDefault();
-    console.log('Checkout button clicked');
-    console.log('Current items:', items);
-    router.push('/shop/checkout');
+    
+    if (!stripe) {
+      console.error('Stripe not initialized');
+      return;
+    }
+
+    setIsLoading(true);
+
+    try {
+      // Create a checkout session
+      const response = await fetch('/api/create-checkout-session', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          items: items.map(item => ({
+            id: item.id,
+            quantity: item.quantity,
+          })),
+        }),
+      });
+
+      const { sessionId, error } = await response.json();
+
+      if (error) {
+        console.error('Error creating checkout session:', error);
+        return;
+      }
+
+      // Redirect to Stripe Checkout
+      const { error: stripeError } = await stripe.redirectToCheckout({
+        sessionId,
+      });
+
+      if (stripeError) {
+        console.error('Stripe redirect error:', stripeError);
+      }
+    } catch (error) {
+      console.error('Error during checkout:', error);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -36,8 +104,8 @@ export default function CartPage() {
       <section className="relative text-white py-8">
         <div className="absolute inset-0 z-0 overflow-hidden bg-indigo-900">
           <BackgroundImage 
-            src="/images/backgrounds/lightning-background.jpg"
-            webpSrc="/images/backgrounds/lightning-background.webp"
+            src="/images/backgrounds/lightning-background jpg.jpg"
+            webpSrc="/images/backgrounds/lightning-background webp.webp"
             alt="Lightning background"
             priority={true}
           />
@@ -170,14 +238,14 @@ export default function CartPage() {
                 </div>
               </div>
               
-              <Link 
-                href="/shop/checkout"
+              <button 
                 onClick={handleCheckout}
-                className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-md font-medium flex items-center justify-center gap-2"
+                disabled={isLoading || !stripe}
+                className={`w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-md font-medium flex items-center justify-center gap-2 ${(isLoading || !stripe) ? 'opacity-50 cursor-not-allowed' : ''}`}
               >
                 <CreditCard className="h-5 w-5" />
-                Proceed to Checkout
-              </Link>
+                {isLoading ? 'Processing...' : 'Proceed to Checkout'}
+              </button>
             </div>
           </div>
         )}

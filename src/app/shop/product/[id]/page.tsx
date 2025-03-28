@@ -30,7 +30,7 @@ const PRODUCTS = [
     ]
   },
   {
-    id: "price_YOUR_ELECTRIC_PENTATONIC_PRICE_ID",
+    id: "price_1R7FQdP5sBTJ16iOkhgtytyM",
     name: "Lee Fretmap for Electric Guitar - Pentatonic Blues",
     description: "Unlock the secrets of blues pentatonic scales with our electric guitar fretmap. Perfect for blues, rock, and jazz players looking to master improvisation.",
     price: 24.99,
@@ -48,7 +48,7 @@ const PRODUCTS = [
     ]
   },
   {
-    id: "price_YOUR_CLASSICAL_PRICE_ID",
+    id: "price_1R7FRZP5sBTJ16iOa9ChfuWG",
     name: "Lee Fretmap for Classical Nylon String Guitar",
     description: "Designed specifically for nylon-string classical guitars. These stickers help you navigate the fretboard while learning classical pieces and techniques.",
     price: 24.99,
@@ -61,12 +61,12 @@ const PRODUCTS = [
       "Perfect for classical guitars",
       "Nylon string compatible",
       "Classical music focused",
-      "Includes finger positions",
+      "Easy to follow visual guide",
       "Durable material"
     ]
   },
   {
-    id: "lee-fretmap-bass",
+    id: "price_1R7FTfP5sBTJ16iOcB7zKC39",
     name: "Lee Fretmap for Bass Guitar",
     description: "Master the bass fretboard with our specialized stickers. Perfect for both beginners and intermediate players looking to improve their bass playing skills.",
     price: 24.99,
@@ -77,14 +77,14 @@ const PRODUCTS = [
     popular: false,
     features: [
       "Bass-specific design",
-      "4 and 5 string compatible",
+      "Fits all bases",
       "Focuses on bass patterns",
       "Includes rhythm guides",
       "Perfect for all bass styles"
     ]
   },
   {
-    id: "lee-fretmap-harmonic-minor",
+    id: "price_1R7FVaP5sBTJ16iOGhAuuLav",
     name: "Lee Fretmap for Guitar - Harmonic Minor",
     description: "Explore the exotic sounds of harmonic minor scales with our specialized fretmap. Perfect for metal, jazz, and classical guitarists.",
     price: 24.99,
@@ -102,9 +102,9 @@ const PRODUCTS = [
     ]
   },
   {
-    id: "lee-fretmap-bass-pentatonic",
+    id: "price_1R7FWsP5sBTJ16iONn6W8G8y",
     name: "Lee Fretmap for Bass - Pentatonic Blues",
-    description: "Master blues bass lines with our pentatonic-focused fretmap. Perfect for blues, rock, and funk bass players.",
+    description: "Perfect for visual learners looking to master the fretboard quickly. For fore advanced players looking for more challenges.",
     price: 24.99,
     image: "/images/Product images/products jpg 400px/bass pentatonic blues jpg 400.jpg",
     webpImage: "/images/Product images/products webp 400px/bass pentatonic blues webp 400.webp",
@@ -115,14 +115,13 @@ const PRODUCTS = [
       "Bass pentatonic focus",
       "Blues and rock patterns",
       "Funk bass compatible",
-      "Includes groove guides",
       "Perfect for improvisation"
     ]
   },
   {
-    id: "lee-fretmap-piano",
+    id: "price_1R7FXdP5sBTJ16iO95dyFWn9",
     name: "Lee Fretmap for Piano/Keyboard",
-    description: "Visualize piano scales and chords with our innovative keyboard stickers. Perfect for piano and keyboard players of all levels.",
+    description: "Perfect for visual learners looking to master the keyboard quickly.",
     price: 24.99,
     image: "/images/Product images/products jpg 400px/piano keyboard jpg 400.jpg",
     webpImage: "/images/Product images/products webp 400px/piano keyboard webp 400.webp",
@@ -130,7 +129,6 @@ const PRODUCTS = [
     highResWebpImage: "/images/Product images/products webp 800px/piano keyboard webp 800.webp",
     popular: false,
     features: [
-      "Piano and keyboard compatible",
       "All major scales included",
       "Chord pattern visualization",
       "Perfect for beginners",
@@ -138,7 +136,7 @@ const PRODUCTS = [
     ]
   },
   {
-    id: "lee-fretmap-ukulele",
+    id: "price_1R7FYFP5sBTJ16iOSWuvAErj",
     name: "Lee Fretmap for Ukulele",
     description: "Learn ukulele chords and scales with our specialized stickers. Perfect for ukulele players of all skill levels.",
     price: 24.99,
@@ -149,9 +147,8 @@ const PRODUCTS = [
     popular: false,
     features: [
       "Ukulele-specific design",
-      "All common chords included",
+      "Learn simple chords",
       "Perfect for beginners",
-      "Includes strum patterns",
       "Easy to follow guide"
     ]
   }
@@ -357,9 +354,9 @@ export default function ProductPage() {
               <div className="prose prose-lg prose-invert">
                 <p>The Lee Fretmap system is a revolutionary approach to learning the fretboard, designed by musicians for musicians. Each sticker is precisely color-coded to help you visually understand relationships between notes, scales, and chords.</p>
                 
-                <p className="mt-4">Our stickers are made from high-quality, durable materials that won't damage your instrument and can be easily removed without leaving residue. They're designed to withstand hours of practice without peeling or fading.</p>
+                <p className="mt-4">Our stickers are made from high-quality, durable materials that won't damage your instrument and can be easily removed. They're designed to withstand hours of practice without peeling or fading.</p>
                 
-                <p className="mt-4">When you purchase a Lee Fretmap set, you'll also receive access to our online learning resources, including video tutorials, scale and chord reference guides, and practice exercises designed to help you make the most of your Fretmap stickers.</p>
+                <p className="mt-4">When you purchase a Lee Fretmap set, you'll also receive access to our online learning resources, including video tutorials, the ebook Lee Fretmap Fretboard Mastery, and practice exercises designed to help you make the most of your Fretmap stickers.</p>
               </div>
             </div>
           </section>
@@ -405,15 +402,25 @@ export default function ProductPage() {
 
       {/* Enlarged Image Modal */}
       {enlargedImage && (
-        <div className="fixed inset-0 bg-black bg-opacity-90 z-50 flex items-center justify-center p-4">
-          <div className="relative max-w-5xl w-full max-h-[90vh]">
+        <div 
+          className="fixed inset-0 bg-black bg-opacity-90 z-50 flex items-center justify-center p-4"
+          onClick={toggleEnlargedImage}
+        >
+          <div 
+            className="relative max-w-5xl w-full max-h-[90vh]"
+            onClick={e => e.stopPropagation()}
+          >
             <button 
               onClick={toggleEnlargedImage}
-              className="absolute top-0 right-0 bg-gray-800 text-white p-2 rounded-full m-4 z-10"
+              className="absolute top-0 right-0 bg-gray-800 text-white p-2 rounded-full m-4 z-10 hover:bg-gray-700 transition-colors"
+              aria-label="Close enlarged image"
             >
               <X className="h-6 w-6" />
             </button>
-            <div className="w-full h-full">
+            <div 
+              className="w-full h-full"
+              onClick={toggleEnlargedImage}
+            >
               <picture>
                 <source 
                   srcSet={product.highResWebpImage} 

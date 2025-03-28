@@ -7,12 +7,35 @@ interface ShareButtonProps {
   title: string;
   url: string;
   description?: string;
+  className?: string;
+  showLabel?: boolean;
 }
 
-export default function ShareButton({ title, url, description }: ShareButtonProps) {
+export default function ShareButton({ title, url, description, className = "", showLabel = false }: ShareButtonProps) {
   const [isOpen, setIsOpen] = useState(false);
 
+  const handleNativeShare = async () => {
+    if (navigator.share) {
+      try {
+        await navigator.share({
+          title,
+          text: description,
+          url,
+        });
+      } catch (error) {
+        console.error('Error sharing:', error);
+      }
+    }
+  };
+
   const shareOptions = [
+    {
+      name: 'Share',
+      icon: <Share2 className="w-5 h-5" />,
+      color: 'bg-blue-600 hover:bg-blue-700',
+      action: handleNativeShare,
+      showOnlyIfSupported: true
+    },
     {
       name: 'Facebook',
       icon: <Facebook className="w-5 h-5" />,
@@ -45,19 +68,24 @@ export default function ShareButton({ title, url, description }: ShareButtonProp
     }
   ];
 
+  const filteredOptions = shareOptions.filter(option => 
+    !option.showOnlyIfSupported || (option.showOnlyIfSupported && navigator.share)
+  );
+
   return (
     <div className="relative">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="bg-gray-700 hover:bg-gray-600 text-white px-4 py-3 rounded-md font-medium flex items-center justify-center"
+        className={`flex items-center justify-center ${className || "bg-gray-700 hover:bg-gray-600 text-white px-4 py-3 rounded-md font-medium"}`}
         aria-label="Share"
       >
         <Share2 className="w-5 h-5" />
+        {showLabel && <span className="ml-2">Share</span>}
       </button>
 
       {isOpen && (
         <div className="absolute right-0 mt-2 w-48 bg-gray-800 rounded-md shadow-lg py-2 z-[100]">
-          {shareOptions.map((option) => (
+          {filteredOptions.map((option) => (
             <button
               key={option.name}
               onClick={() => {

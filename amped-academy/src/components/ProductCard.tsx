@@ -36,7 +36,7 @@ function ProductCardComponent({ product }: ProductCardProps) {
   return (
     <div className="bg-gray-800 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 h-full">
       <div className="relative">
-        <Link href={`/shop/product/${product.id}`} className="block">
+        <Link href={`/guitar-learning-tools/product/${product.id}`} className="block">
           <div className="relative w-full pt-[75%]">
             <picture>
               <source 
@@ -71,7 +71,7 @@ function ProductCardComponent({ product }: ProductCardProps) {
         <p className="text-gray-300 mb-4 text-center">Perfect for visual learners looking to master the fretboard quickly.</p>
         <div className="flex space-x-3">
           <Link 
-            href={`/shop/product/${product.id}`}
+            href={`/guitar-learning-tools/product/${product.id}`}
             className="flex-1 bg-transparent border border-blue-600 hover:bg-blue-600 text-white px-4 py-2 rounded-md font-medium text-center transition-colors duration-200"
           >
             View Details
